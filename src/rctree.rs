@@ -1,4 +1,5 @@
 use std::cell::RefCell;
+use std::collections::VecDeque;
 use std::rc::Rc;
 
 // Definition for a binary tree node.
@@ -21,7 +22,7 @@ impl TreeNode {
         }
     }
 
-    fn from_vec(vals: Vec<Option<i32>>) -> Link {
+    pub fn from_vec(vals: Vec<Option<i32>>) -> Link {
         use std::collections::VecDeque;
 
         let mut que: VecDeque<Link> = VecDeque::new();
@@ -44,6 +45,30 @@ impl TreeNode {
         }
         root
     }
+    
+    pub fn to_list(root: Link) -> Vec<String> {
+        let mut que: VecDeque<(Link, usize)> = Default::default();
+        let mut list: Vec<String> = vec![];
+
+        que.push_back((root.clone(), 0));
+        while let Some((t, dep)) = que.pop_front() {
+            if let Some(node) = t {
+                list.push(node.as_ref().borrow().val.to_string());
+                que.push_back((node.as_ref().borrow().left.clone(), dep+1));
+                que.push_back((node.as_ref().borrow().right.clone(), dep+1));
+            } else {
+                list.push("null".to_string());
+            }
+        }
+        while let Some(s) = list.last() {
+            if s == "null" {
+                list.pop();
+            } else {
+                break;
+            }
+        }
+        list
+    }
 }
 
 #[macro_export]
@@ -62,8 +87,18 @@ macro_rules! tree {
     // ($($e:expr,)*) => {(tree![$($e),*])};
 }
 
+pub(crate) use tree;
+
 #[test]
-fn test_tree() {
+fn test_tree_build() {
     let t = tree![1,2,null,3];
     println!("{:#?}", t);
+}
+
+#[test]
+fn test_tolist() {
+    let t = tree![1, 2, null, 3];
+    let list = TreeNode::to_list(t).join(",");
+    let list = format!("[{}]", list);
+    println!("{:#?}", list);
 }
