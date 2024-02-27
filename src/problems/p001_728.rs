@@ -65,7 +65,7 @@ impl Solver {
             if !self.grid[i][pos[turn].1] {
                 break;
             }
-            let mut next = pos.clone();
+            let mut next = pos;
             next[turn].0 = i;
 
             ans.push(next);
@@ -75,7 +75,7 @@ impl Solver {
             if !self.grid[i][pos[turn].1] {
                 break;
             }
-            let mut next = pos.clone();
+            let mut next = pos;
             next[turn].0 = i;
 
             ans.push(next);
@@ -85,7 +85,7 @@ impl Solver {
             if !self.grid[pos[turn].0][j] {
                 break;
             }
-            let mut next = pos.clone();
+            let mut next = pos;
             next[turn].1 = j;
 
             ans.push(next);
@@ -95,7 +95,7 @@ impl Solver {
             if !self.grid[pos[turn].0][j] {
                 break;
             }
-            let mut next = pos.clone();
+            let mut next = pos;
             next[turn].1 = j;
 
             ans.push(next);
@@ -209,7 +209,7 @@ fn example1() {
     let grid = grid.into_iter().map(|s| s.to_string()).collect();
     let cat_jump = 1;
     let mouse_jump = 2;
-    assert_eq!(can_mouse_win(grid, cat_jump, mouse_jump), true);
+    assert!(can_mouse_win(grid, cat_jump, mouse_jump));
 }
 
 #[test]
@@ -218,7 +218,7 @@ fn example2() {
     let grid = grid.into_iter().map(|s| s.to_string()).collect();
     let cat_jump = 1;
     let mouse_jump = 4;
-    assert_eq!(can_mouse_win(grid, cat_jump, mouse_jump), true);
+    assert!(can_mouse_win(grid, cat_jump, mouse_jump));
 }
 
 #[test]
@@ -227,7 +227,7 @@ fn example3() {
     let grid = grid.into_iter().map(|s| s.to_string()).collect();
     let cat_jump = 1;
     let mouse_jump = 3;
-    assert_eq!(can_mouse_win(grid, cat_jump, mouse_jump), false);
+    assert!(!can_mouse_win(grid, cat_jump, mouse_jump));
 }
 
 #[test]
@@ -236,7 +236,7 @@ fn example4() {
     let grid = grid.into_iter().map(|s| s.to_string()).collect();
     let cat_jump = 2;
     let mouse_jump = 5;
-    assert_eq!(can_mouse_win(grid, cat_jump, mouse_jump), false);
+    assert!(!can_mouse_win(grid, cat_jump, mouse_jump));
 }
 
 #[test]
@@ -245,7 +245,7 @@ fn example5() {
     let grid = grid.into_iter().map(|s| s.to_string()).collect();
     let cat_jump = 3;
     let mouse_jump = 1;
-    assert_eq!(can_mouse_win(grid, cat_jump, mouse_jump), true);
+    assert!(can_mouse_win(grid, cat_jump, mouse_jump));
 }
 
 #[test]
@@ -255,5 +255,5 @@ fn wrong() {
     let cat_jump = 1;
     let mouse_jump = 1;
     let ans = can_mouse_win(grid, cat_jump, mouse_jump);
-    assert_eq!(ans, true);
+    assert!(ans);
 }

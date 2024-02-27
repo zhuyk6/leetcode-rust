@@ -1,6 +1,6 @@
 
 fn group<T: Ord>(v: Vec<T>) -> Vec<(T, u32)> {
-    let mut v = v;
+    let v = v;
     let mut cnt: Vec<(T, u32)> = Vec::new();
     for val in v {
         if let Some((u, c)) = cnt.last_mut() {

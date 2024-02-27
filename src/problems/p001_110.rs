@@ -1,4 +1,4 @@
-use crate::rctree::{TreeNode, tree};
+use crate::rctree::{TreeNode};
 struct Solution;
 
 use std::rc::Rc;
@@ -8,7 +8,7 @@ impl Solution {
         type Link = Option<Rc<RefCell<TreeNode>>>;
         use std::collections::{HashSet, VecDeque};
 
-        let to_delete: HashSet<i32> = HashSet::from_iter(to_delete.into_iter());
+        let to_delete: HashSet<i32> = HashSet::from_iter(to_delete);
         let mut que: VecDeque<( Link, Link, bool )> = VecDeque::new();
         que.push_back(( root.clone(), None , false));
 

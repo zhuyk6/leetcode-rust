@@ -4,10 +4,8 @@ pub fn minimize_array_value_(nums: Vec<i32>) -> i32 {
         let mut acc = 0_i64;
         for (i, &v) in nums.iter().enumerate() {
             acc += v as i64;
-            if v > limit {
-                if acc > (i+1) as i64 * limit as i64 {
-                    return false;
-                }
+            if v > limit && acc > (i+1) as i64 * limit as i64 {
+                return false;
             }
         }
         true

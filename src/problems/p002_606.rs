@@ -5,11 +5,11 @@ pub fn maximum_cost_substring(s: String, chars: String, vals: Vec<i32>) -> i32 {
     }
 
     for (c, v) in chars.chars().zip(vals.into_iter()) {
-        to_val[(c as u8 - 'a' as u8) as usize] = v;
+        to_val[(c as u8 - b'a') as usize] = v;
     }
 
     let arr: Vec<i32> = s.chars()
-        .map(|c| to_val[(c as u8 - 'a' as u8) as usize])
+        .map(|c| to_val[(c as u8 - b'a') as usize])
         .collect();
 
     let mut ans = 0;

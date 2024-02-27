@@ -8,7 +8,7 @@ pub fn eventual_safe_nodes<Out, In>(graph: Out) -> Vec<i32>
     let mut back_edge = vec![vec![]; n];
     let mut degree = vec![0; n];
 
-    for (i, to) in graph.as_ref().into_iter().enumerate() {
+    for (i, to) in graph.as_ref().iter().enumerate() {
         for j in to.as_ref() {
             back_edge[*j as usize].push(i);
             degree[i] += 1;

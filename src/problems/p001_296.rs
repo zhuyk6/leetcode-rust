@@ -43,17 +43,17 @@ pub fn is_possible_divide(nums: Vec<i32>, k: i32) -> bool {
 fn example() {
     let nums = vec![1,2,3,4];
     let k = 3;
-    assert_eq!(is_possible_divide(nums, k), false);
+    assert!(!is_possible_divide(nums, k));
 
     let nums = vec![1,2,3,3,4,4,5,6];
     let k = 4;
-    assert_eq!(is_possible_divide(nums, k), true);
+    assert!(is_possible_divide(nums, k));
 
     let nums = vec![3,2,1,2,3,4,3,4,5,9,10,11];
     let k = 3;
-    assert_eq!(is_possible_divide(nums, k), true);
+    assert!(is_possible_divide(nums, k));
 
     let nums = vec![3,3,2,2,1,1];
     let k = 3;
-    assert_eq!(is_possible_divide(nums, k), true);
+    assert!(is_possible_divide(nums, k));
 }

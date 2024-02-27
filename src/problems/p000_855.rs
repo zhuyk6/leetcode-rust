@@ -1,5 +1,5 @@
 use std::collections::{BTreeSet, BinaryHeap};
-use std::ops::Bound::{Included, Excluded};
+use std::ops::Bound::{Excluded};
 use std::cmp::Ordering;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -80,7 +80,7 @@ impl ExamRoom {
                 // check valid
                 if !self.seats.contains(&segment.l)  
                     || !self.seats.contains(&segment.r)
-                    || self.seats.range((Excluded(segment.l), Excluded(segment.r))).next() != None {
+                    || self.seats.range((Excluded(segment.l), Excluded(segment.r))).next().is_some() {
 
                     self.segments.pop();
                     continue;

@@ -31,9 +31,7 @@ impl MagicDictionary {
     fn insert(&mut self, s: String) {
         let mut t = &mut self.trie;
         for c in s.chars() {
-            if !t.sons.contains_key(&c) {
-                t.sons.insert(c, Box::new(Node::new()));
-            }
+            t.sons.entry(c).or_insert_with(|| Box::new(Node::new()));
             t = t.sons.get_mut(&c).unwrap();
         }
         t.is_end = true;
@@ -92,10 +90,10 @@ mod tests {
 
         dict.build_dict(dics);
 
-        assert_eq!(false, dict.search("hello".to_string()));
-        assert_eq!(true, dict.search("hhllo".to_string()));
-        assert_eq!(false, dict.search("hell".to_string()));
-        assert_eq!(false, dict.search("leetcoded".to_string()));
+        assert!(!dict.search("hello".to_string()));
+        assert!(dict.search("hhllo".to_string()));
+        assert!(!dict.search("hell".to_string()));
+        assert!(!dict.search("leetcoded".to_string()));
     }
 
     #[test]
@@ -104,6 +102,6 @@ mod tests {
         let words = vec!["hello".to_string(), "hallo".to_string(), "leetcode".to_string()];
         dict.build_dict(words);
 
-        assert_eq!(true, dict.search("hello".to_string()));
+        assert!(dict.search("hello".to_string()));
     }
 }

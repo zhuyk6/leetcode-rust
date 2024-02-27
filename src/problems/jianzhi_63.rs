@@ -1,14 +1,11 @@
 
+#[derive(Default)]
 struct Node {
     son: [Option<Box<Node>>; 26],
     end_of_word: Option<String>,
 }
 
-impl Default for Node {
-    fn default() -> Self {
-        Self { son: Default::default(), end_of_word: Default::default() }
-    }
-}
+
 
 #[derive(Default)]
 struct Trie {
@@ -20,7 +17,7 @@ impl Trie {
         let mut cur = &mut self.root;
         for c in s.bytes() {
             let c = (c - b'a') as usize;
-            cur = cur.son[c].get_or_insert_with(|| Box::new(Node::default()));
+            cur = cur.son[c].get_or_insert_with(Box::<Node>::default);
         }
         cur.end_of_word = Some(s);
     }

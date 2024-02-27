@@ -1,4 +1,4 @@
-use std::collections::{HashSet, HashMap};
+use std::collections::{HashMap};
 
 
 pub fn beautiful_subsets(nums: Vec<i32>, k: i32) -> i32 {
@@ -40,8 +40,7 @@ pub fn beautiful_subsets(nums: Vec<i32>, k: i32) -> i32 {
         f[n]
     }
 
-    groups.into_iter()
-        .map(|(_, v)| cal(v, k))
+    groups.into_values().map(|v| cal(v, k))
         .product::<i32>() - 1
 }
 

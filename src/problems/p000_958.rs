@@ -3,7 +3,7 @@ use std::cell::RefCell;
 use std::collections::VecDeque;
 
 use crate::rctree::TreeNode;
-use crate::tree;
+
 struct Solution;
 
 impl Solution {
@@ -46,8 +46,8 @@ impl Solution {
 fn example() {
     let t = tree![1, 2, 3, 4, 5, 6];
 
-    assert_eq!(Solution::is_complete_tree(t), true);
+    assert!(Solution::is_complete_tree(t));
 
     let t = tree![1,2,3,4,5,null,7];
-    assert_eq!(Solution::is_complete_tree(t), false);
+    assert!(!Solution::is_complete_tree(t));
 }

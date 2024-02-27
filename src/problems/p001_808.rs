@@ -2,7 +2,7 @@
 pub fn max_nice_divisors(prime_factors: i32) -> i32 {
     #[inline]
     fn mul(a: u32, b: u32) -> u32 {
-        const P: u64 = 1000_000_000 + 7;
+        const P: u64 = 1_000_000_000 + 7;
         let c = (a as u64) * (b as u64);
         (c % P) as u32
     }

@@ -9,12 +9,12 @@ impl Node {
         Node::default()
     }
 
-    pub fn insert<I>(&mut self, mut word: I, idx: usize)
+    pub fn insert<I>(&mut self, word: I, idx: usize)
     where
         I: Iterator<Item = u8>,
     {
         let mut node = self;
-        while let Some(c) = word.next() {
+        for c in word {
             let c = (c - b'0') as usize;
             node = node.son[c].get_or_insert_with(|| Box::new(Node::new()));
         }

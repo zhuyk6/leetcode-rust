@@ -45,7 +45,7 @@ impl TreeAncestor {
         let mut node = Some(node as usize);
         for i in (0..MAX_ITER).rev() {
             if (k >> i) & 1 > 0 {
-                node = node.map(|x| self.fa[x][i]).flatten();
+                node = node.and_then(|x| self.fa[x][i]);
             }
         }
         node.map(|x| x as i32).unwrap_or(-1)

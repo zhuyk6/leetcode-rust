@@ -78,6 +78,6 @@ fn example() {
     println!("que: {:?}", circularQueue.que);
     println!("head: {}, tail: {}", circularQueue.head, circularQueue.tail);
 
-    assert_eq!(circularQueue.en_queue(4), true);
+    assert!(circularQueue.en_queue(4));
     circularQueue.rear();  // 返回 4
 }

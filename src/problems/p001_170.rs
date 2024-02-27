@@ -6,9 +6,7 @@ pub fn num_smaller_by_frequency(queries: Vec<String>, words: Vec<String>) -> Vec
             cnt[(b - b'a') as usize] += 1;
         }
         cnt.into_iter()
-            .enumerate()
-            .filter(|(_, c)| *c > 0)
-            .next()
+            .enumerate().find(|(_, c)| *c > 0)
             .unwrap()
             .1
     }

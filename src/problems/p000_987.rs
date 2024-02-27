@@ -37,8 +37,7 @@ impl Solution {
                 e.push(v);
             }
         }
-        cols.into_iter()
-            .map(|(_, v)| v)
+        cols.into_values()
             .collect()
     }
 }

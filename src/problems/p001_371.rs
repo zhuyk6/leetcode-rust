@@ -5,7 +5,7 @@ pub fn find_the_longest_substring(s: String) -> i32 {
     let mut map: HashMap<[u8; 5], i32> = HashMap::new();
     let mut acc = [0u8; 5];
 
-    map.insert(acc.clone(), -1);
+    map.insert(acc, -1);
 
     let mut ans = 0;
 
@@ -18,7 +18,7 @@ pub fn find_the_longest_substring(s: String) -> i32 {
             b'u' => acc[4] ^= 1,
             _ => (),
         }
-        map.entry(acc.clone()).and_modify(|v| {
+        map.entry(acc).and_modify(|v| {
             ans = ans.max(i as i32 - *v);
         }).or_insert(i as i32);
     }

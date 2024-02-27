@@ -52,7 +52,7 @@ pub fn cat_mouse_game(graph: Vec<Vec<i32>>) -> i32 {
             if turn == 0 && *q == 0 {
                 continue;
             }
-            let mut last = pos.clone();
+            let mut last = pos;
             last[turn^1] = *q;
 
             // already has answer

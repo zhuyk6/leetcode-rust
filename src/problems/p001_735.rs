@@ -16,7 +16,7 @@ fn pow(a: u32, n: u32) -> u32 {
             ans = mul(ans, acc);
         }
         acc = mul(acc, acc);
-        bit = bit << 1;
+        bit <<= 1;
     }
     ans
 }
@@ -29,8 +29,8 @@ fn inv(a: u32) -> u32 {
 #[inline]
 fn choose(n: u32, r: u32) -> u32 {
     let r = r.min(n - r);
-    let denominator = (1..=r).fold(1, |acc, x| mul(acc, x));
-    let numerator = (n-r+1..=n).fold(1, |acc, x| mul(acc, x));
+    let denominator = (1..=r).fold(1, mul);
+    let numerator = (n-r+1..=n).fold(1, mul);
     mul(numerator, inv(denominator))
 }
 

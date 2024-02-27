@@ -26,7 +26,7 @@ pub fn lca_deepest_leaves(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefC
     fn dfs(x: Link, dep: u32) -> Option<(u32, Link)> {
         // println!("{:#?} : {}", x, dep);
         
-        x.map(|t| {
+        x.and_then(|t| {
             
             let lc = dfs(t.as_ref().borrow().left.clone(), dep + 1);
             let rc = dfs(t.as_ref().borrow().right.clone(), dep + 1);
@@ -50,9 +50,9 @@ pub fn lca_deepest_leaves(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefC
             } else {
                 rc
             }
-        }).flatten()
+        })
     }
-    if let Some((d, link)) = dfs(root, 0) {
+    if let Some((_d, link)) = dfs(root, 0) {
         link
     } else {
         panic!("something wrong!")

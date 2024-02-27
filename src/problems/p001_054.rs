@@ -1,4 +1,4 @@
-use std::{collections::HashMap, hash::Hash};
+use std::{collections::HashMap};
 
 pub fn rearrange_barcodes(barcodes: Vec<i32>) -> Vec<i32> {
     let mut cnt = HashMap::new();

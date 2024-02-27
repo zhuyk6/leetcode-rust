@@ -15,7 +15,7 @@ pub fn powerful_integers(x: i32, y: i32, bound: i32) -> Vec<i32> {
 		} else {
 			let mut v = HashSet::new();
 			let mut acc_y = 1;
-			while 1 + acc_y <= bound {
+			while acc_y < bound {
 				v.insert(1 + acc_y);
 				acc_y *= y;
 			}
@@ -24,7 +24,7 @@ pub fn powerful_integers(x: i32, y: i32, bound: i32) -> Vec<i32> {
 	} else {
 		let mut v = HashSet::new();
 		let mut acc_x = 1;
-		while 1 + acc_x <= bound {
+		while acc_x < bound {
 			let mut acc_y = 1;
 			while acc_x + acc_y <= bound {
 				v.insert(acc_x + acc_y);

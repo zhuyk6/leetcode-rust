@@ -9,7 +9,7 @@ impl Solution {
         let mut ans = true;
         s.chars().enumerate().for_each(|(pos, c)| {
             if let Some(q) = first.get(&c) {
-                if pos - q - 1 != distance[(c as u8 - 'a' as u8) as usize] as usize {
+                if pos - q - 1 != distance[(c as u8 - b'a') as usize] as usize {
                     ans = false;
                 }
             } else {

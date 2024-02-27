@@ -32,8 +32,8 @@ pub fn get_least_numbers(mut arr: Vec<i32>, kth: i32) -> Vec<i32> {
         println!("arr: {:?}", arr);
         println!("i = {}, j = {}, k = {}", i, j, k);
         
-        if i + 1 <= kth && kth < k + 1 {
-            return arr[..kth].iter().cloned().collect();
+        if i < kth && kth < k + 1 {
+            return arr[..kth].to_vec();
         } else if kth <= i {
             r = i;
         } else {
@@ -45,7 +45,7 @@ pub fn get_least_numbers(mut arr: Vec<i32>, kth: i32) -> Vec<i32> {
             panic!("infinite loop")
         }
     }
-    arr[..kth].iter().cloned().collect()
+    arr[..kth].to_vec()
 }
 
 #[test]
