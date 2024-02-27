@@ -1,16 +1,19 @@
-use crate::rctree::{TreeNode};
+use crate::rctree::{tree, TreeNode};
 struct Solution;
 
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 impl Solution {
-    pub fn del_nodes(root: Option<Rc<RefCell<TreeNode>>>, to_delete: Vec<i32>) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
+    pub fn del_nodes(
+        root: Option<Rc<RefCell<TreeNode>>>,
+        to_delete: Vec<i32>,
+    ) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
         type Link = Option<Rc<RefCell<TreeNode>>>;
         use std::collections::{HashSet, VecDeque};
 
         let to_delete: HashSet<i32> = HashSet::from_iter(to_delete);
-        let mut que: VecDeque<( Link, Link, bool )> = VecDeque::new();
-        que.push_back(( root.clone(), None , false));
+        let mut que: VecDeque<(Link, Link, bool)> = VecDeque::new();
+        que.push_back((root.clone(), None, false));
 
         let mut ans = vec![];
 
@@ -22,7 +25,7 @@ impl Solution {
                             fa_node.as_ref().borrow_mut().left = None;
                         } else {
                             fa_node.as_ref().borrow_mut().right = None;
-                        }    
+                        }
                     }
                     None
                 } else {
@@ -41,8 +44,8 @@ impl Solution {
 
 #[test]
 fn example() {
-    let root = tree![1,2,3,4,5,6,7]; 
-    let to_delete = vec![3,5, 1];
+    let root = tree![1, 2, 3, 4, 5, 6, 7];
+    let to_delete = vec![3, 5, 1];
     let ans = Solution::del_nodes(root, to_delete);
     for t in ans {
         println!("t: {:?}", TreeNode::to_list(t));
