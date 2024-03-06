@@ -1,5 +1,6 @@
 use std::collections::VecDeque;
 
+#[allow(unused)]
 pub fn shortest_path_binary_matrix(grid: Vec<Vec<i32>>) -> i32 {
     let n = grid.len();
     let mut que: VecDeque<(usize, usize, i32)> = VecDeque::new();
@@ -12,14 +13,14 @@ pub fn shortest_path_binary_matrix(grid: Vec<Vec<i32>>) -> i32 {
     vis[0][0] = true;
 
     while let Some((x, y, d)) = que.pop_front() {
-        if (x, y) == (n-1, n-1) {
+        if (x, y) == (n - 1, n - 1) {
             return d;
         }
-        for xx in x.saturating_sub(1) ..= (x+1).min(n-1) {
-            for yy in y.saturating_sub(1) ..= (y+1).min(n-1) {
+        for xx in x.saturating_sub(1)..=(x + 1).min(n - 1) {
+            for yy in y.saturating_sub(1)..=(y + 1).min(n - 1) {
                 if !vis[xx][yy] && grid[xx][yy] == 0 {
                     vis[xx][yy] = true;
-                    que.push_back((xx, yy, d+1));
+                    que.push_back((xx, yy, d + 1));
                 }
             }
         }

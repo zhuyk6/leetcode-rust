@@ -1,6 +1,7 @@
+#[allow(unused)]
 pub fn get_length_of_optimal_compression(s: String, k: i32) -> i32 {
     #[inline]
-    fn g(n: usize) -> i32{
+    fn g(n: usize) -> i32 {
         match n {
             0 => 0,
             1 => 1,
@@ -11,11 +12,10 @@ pub fn get_length_of_optimal_compression(s: String, k: i32) -> i32 {
         }
     }
 
-
     let n = s.len();
     let k = k as usize;
     let s: Vec<u8> = s.into_bytes();
-    let mut f = vec![vec![i32::MAX; k+1]; n+1];
+    let mut f = vec![vec![i32::MAX; k + 1]; n + 1];
 
     f[0][0] = 0;
 
@@ -23,14 +23,14 @@ pub fn get_length_of_optimal_compression(s: String, k: i32) -> i32 {
     for i in 1..=n {
         for j in 0..=k {
             if j > 0 {
-                f[i][j] = f[i-1][j-1];
+                f[i][j] = f[i - 1][j - 1];
             }
             let mut diff = 0;
             let mut same = 0;
             for t in (1..=i).rev() {
-                if s[i-1] == s[t-1] {
+                if s[i - 1] == s[t - 1] {
                     same += 1;
-                    f[i][j] = f[i][j].min(f[t-1][j - diff].saturating_add(g(same)));
+                    f[i][j] = f[i][j].min(f[t - 1][j - diff].saturating_add(g(same)));
                 } else {
                     diff += 1;
                     if diff > j {
@@ -38,7 +38,12 @@ pub fn get_length_of_optimal_compression(s: String, k: i32) -> i32 {
                     }
                 }
             }
-            println!("i = {i}, j = {j}, f[{i}][{j}] = {f}", i = i, j = j, f = f[i][j]);
+            println!(
+                "i = {i}, j = {j}, f[{i}][{j}] = {f}",
+                i = i,
+                j = j,
+                f = f[i][j]
+            );
         }
     }
 

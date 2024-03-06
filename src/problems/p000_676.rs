@@ -18,14 +18,16 @@ struct MagicDictionary {
     trie: Box<Node>,
 }
 
-
 /**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
+#[allow(unused)]
 impl MagicDictionary {
     fn new() -> Self {
-        MagicDictionary { trie: Box::new(Node::new()) }
+        MagicDictionary {
+            trie: Box::new(Node::new()),
+        }
     }
 
     fn insert(&mut self, s: String) {
@@ -41,26 +43,27 @@ impl MagicDictionary {
         dictionary.into_iter().for_each(|s| self.insert(s));
     }
 
-    fn dfs<A>(t: &Node, mut cs: A, change: bool) -> bool where
-        A: Iterator<Item = char> + Clone
+    fn dfs<A>(t: &Node, mut cs: A, change: bool) -> bool
+    where
+        A: Iterator<Item = char> + Clone,
     {
         if let Some(c) = cs.next() {
             match t.sons.contains_key(&c) {
                 true => {
-                    Self::dfs(t.sons.get(&c).unwrap(), cs.clone(), change) ||
-                    match change {
-                        true => false,
-                        false => t.sons.iter()
-                            .filter(|(&k, _)| k != c)
-                            .any(|(_, v)| Self::dfs(v, cs.clone(), true))
-                    }
-                },
+                    Self::dfs(t.sons.get(&c).unwrap(), cs.clone(), change)
+                        || match change {
+                            true => false,
+                            false => t
+                                .sons
+                                .iter()
+                                .filter(|(&k, _)| k != c)
+                                .any(|(_, v)| Self::dfs(v, cs.clone(), true)),
+                        }
+                }
                 false => match change {
                     true => false,
-                    false => t.sons.iter().any(|(_,v)| {
-                        Self::dfs(v, cs.clone(), true)
-                    })
-                }
+                    false => t.sons.iter().any(|(_, v)| Self::dfs(v, cs.clone(), true)),
+                },
             }
         } else {
             t.is_end && change
@@ -99,7 +102,11 @@ mod tests {
     #[test]
     fn test1() {
         let mut dict = MagicDictionary::new();
-        let words = vec!["hello".to_string(), "hallo".to_string(), "leetcode".to_string()];
+        let words = vec![
+            "hello".to_string(),
+            "hallo".to_string(),
+            "leetcode".to_string(),
+        ];
         dict.build_dict(words);
 
         assert!(dict.search("hello".to_string()));

@@ -1,4 +1,4 @@
-
+#[allow(unused)]
 pub fn find_the_longest_substring(s: String) -> i32 {
     use std::collections::HashMap;
 
@@ -18,9 +18,11 @@ pub fn find_the_longest_substring(s: String) -> i32 {
             b'u' => acc[4] ^= 1,
             _ => (),
         }
-        map.entry(acc).and_modify(|v| {
-            ans = ans.max(i as i32 - *v);
-        }).or_insert(i as i32);
+        map.entry(acc)
+            .and_modify(|v| {
+                ans = ans.max(i as i32 - *v);
+            })
+            .or_insert(i as i32);
     }
 
     ans

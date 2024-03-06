@@ -1,5 +1,6 @@
 use std::mem::swap;
 
+#[allow(unused)]
 pub fn modified_graph_edges(
     n: i32,
     mut edges: Vec<Vec<i32>>,
@@ -26,10 +27,10 @@ pub fn modified_graph_edges(
     fn path(
         n: usize,
         source: usize,
-        edges: &Vec<Vec<i32>>,
-        to: &Vec<Vec<usize>>,
-        f: &mut Vec<i32>,
-        vis: &mut Vec<bool>,
+        edges: &[Vec<i32>],
+        to: &[Vec<usize>],
+        f: &mut [i32],
+        vis: &mut [bool],
     ) {
         f.fill(i32::MAX);
         vis.fill(false);

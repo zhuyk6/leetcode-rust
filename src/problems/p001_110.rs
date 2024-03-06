@@ -1,8 +1,10 @@
-use crate::rctree::{tree, TreeNode};
+use crate::rctree::TreeNode;
 struct Solution;
 
 use std::cell::RefCell;
 use std::rc::Rc;
+
+#[allow(unused)]
 impl Solution {
     pub fn del_nodes(
         root: Option<Rc<RefCell<TreeNode>>>,
@@ -44,6 +46,7 @@ impl Solution {
 
 #[test]
 fn example() {
+    use crate::rctree::tree;
     let root = tree![1, 2, 3, 4, 5, 6, 7];
     let to_delete = vec![3, 5, 1];
     let ans = Solution::del_nodes(root, to_delete);

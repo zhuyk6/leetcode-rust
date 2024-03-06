@@ -1,4 +1,4 @@
-
+#[allow(clippy::upper_case_acronyms)]
 struct DFS {
     m: usize,
     n: usize,
@@ -8,13 +8,17 @@ struct DFS {
 impl DFS {
     #[allow(dead_code)]
     pub fn new(m: usize, n: usize) -> Self {
-        DFS { m, n, grid: vec![vec![false; n]; m] }
+        DFS {
+            m,
+            n,
+            grid: vec![vec![false; n]; m],
+        }
     }
 
     #[allow(dead_code)]
     fn put(&mut self, left_top: (usize, usize), size: usize) {
-        for i in left_top.0 .. (left_top.0 + size) {
-            for j in left_top.1 .. (left_top.1 + size) {
+        for i in left_top.0..(left_top.0 + size) {
+            for j in left_top.1..(left_top.1 + size) {
                 self.grid[i][j] = true;
             }
         }
@@ -22,10 +26,14 @@ impl DFS {
 
     #[allow(dead_code)]
     fn check_size(&self, left_top: (usize, usize), size: usize) -> bool {
-        for i in left_top.0 .. (left_top.0 + size) {
-            if i >= self.m { return false; }
-            for j in left_top.1 .. (left_top.1 + size) {
-                if j >= self.n { return false; }
+        for i in left_top.0..(left_top.0 + size) {
+            if i >= self.m {
+                return false;
+            }
+            for j in left_top.1..(left_top.1 + size) {
+                if j >= self.n {
+                    return false;
+                }
                 if self.grid[i][j] {
                     return false;
                 }

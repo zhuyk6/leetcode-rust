@@ -1,3 +1,4 @@
+#[allow(unused)]
 pub fn uncommon_from_sentences(s1: String, s2: String) -> Vec<String> {
     use std::collections::HashMap;
 

@@ -1,8 +1,9 @@
+#[allow(unused)]
 pub fn min_cost(colors: String, needed_time: Vec<i32>) -> i32 {
     #[inline]
     fn encode(c: char) -> usize {
         match c {
-            'a' ..= 'z' => c as usize - 'a' as usize,
+            'a'..='z' => c as usize - 'a' as usize,
             _ => panic!("invalid character"),
         }
     }
@@ -19,14 +20,14 @@ pub fn min_cost(colors: String, needed_time: Vec<i32>) -> i32 {
             // keep colors[i]
             for k in 0..=26 {
                 if k != c {
-                    f[i][c] = f[i][c].min(f[i-1][k]);
+                    f[i][c] = f[i][c].min(f[i - 1][k]);
                 }
             }
             // delete colors[i]
-            f[i][c] = f[i][c].min(f[i-1][c].saturating_add(needed_time[i]));
+            f[i][c] = f[i][c].min(f[i - 1][c].saturating_add(needed_time[i]));
             for k in 0..=26 {
                 if k != c {
-                    f[i][k] = f[i-1][k].saturating_add(needed_time[i]);
+                    f[i][k] = f[i - 1][k].saturating_add(needed_time[i]);
                 }
             }
         }
@@ -38,27 +39,27 @@ pub fn min_cost(colors: String, needed_time: Vec<i32>) -> i32 {
         }
         println!();
     }
-    *f[n-1].iter().min().unwrap()
+    *f[n - 1].iter().min().unwrap()
 }
 
 #[test]
 fn example1() {
-    let colors = "abaac".to_string(); 
-    let needed_time = vec![1,2,3,4,5];
+    let colors = "abaac".to_string();
+    let needed_time = vec![1, 2, 3, 4, 5];
 
     assert_eq!(min_cost(colors, needed_time), 3);
 }
 #[test]
 fn example2() {
-    let colors = "abc".to_string(); 
-    let needed_time = vec![1,2,3];
+    let colors = "abc".to_string();
+    let needed_time = vec![1, 2, 3];
 
     assert_eq!(min_cost(colors, needed_time), 0);
 }
 #[test]
 fn example3() {
-    let colors = "aabaa".to_string(); 
-    let needed_time = vec![1,2,3,4,1];
+    let colors = "aabaa".to_string();
+    let needed_time = vec![1, 2, 3, 4, 1];
 
     assert_eq!(min_cost(colors, needed_time), 2);
 }

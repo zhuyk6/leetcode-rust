@@ -1,4 +1,4 @@
-
+#[allow(unused)]
 pub fn max_nice_divisors(prime_factors: i32) -> i32 {
     #[inline]
     fn mul(a: u32, b: u32) -> u32 {
@@ -28,7 +28,7 @@ pub fn max_nice_divisors(prime_factors: i32) -> i32 {
     let d = n / 3;
     let ans = match n % 3 {
         0 => pow(3, d),
-        1 => mul(pow(3, d-1), 4),
+        1 => mul(pow(3, d - 1), 4),
         2 => mul(pow(3, d), 2),
         _ => panic!("impossible!"),
     };

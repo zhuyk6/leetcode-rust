@@ -1,5 +1,6 @@
 struct Solution;
 
+#[allow(unused)]
 impl Solution {
     pub fn find_length_of_shortest_subarray(arr: Vec<i32>) -> i32 {
         let n = arr.len();
@@ -18,7 +19,7 @@ impl Solution {
                 j += 1;
             }
             ans = ans.min(j.saturating_sub(i + 1));
-            if i + 1 >= n || arr[i] > arr[i+1] {
+            if i + 1 >= n || arr[i] > arr[i + 1] {
                 break;
             }
             i += 1;
@@ -45,7 +46,7 @@ mod tests {
 
     #[test]
     fn test1() {
-        let arr = vec![6,3,10,11,15,20,13,3,18,12];
+        let arr = vec![6, 3, 10, 11, 15, 20, 13, 3, 18, 12];
         assert_eq!(Solution::find_length_of_shortest_subarray(arr), 8);
     }
 }

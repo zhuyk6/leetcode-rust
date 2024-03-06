@@ -20,6 +20,7 @@ fn pow2(n: usize) -> usize {
     1 << n
 }
 
+#[allow(unused)]
 impl Solution {
     pub fn print_tree(root: Link) -> Vec<Vec<String>> {
         let h = get_height(root.clone(), 0);
@@ -33,16 +34,8 @@ impl Solution {
         while let Some((t, r, c)) = que.pop_front() {
             if let Some(node) = t {
                 res[r][c] = node.borrow().val.to_string();
-                que.push_back((
-                    node.borrow().left.clone(),
-                    r + 1,
-                    c - pow2(h - r - 1),
-                ));
-                que.push_back((
-                    node.borrow().right.clone(),
-                    r + 1,
-                    c + pow2(h - r - 1),
-                ));
+                que.push_back((node.borrow().left.clone(), r + 1, c - pow2(h - r - 1)));
+                que.push_back((node.borrow().right.clone(), r + 1, c + pow2(h - r - 1)));
             }
         }
 

@@ -1,5 +1,5 @@
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 
 use crate::rctree::TreeNode;
 
@@ -7,6 +7,7 @@ type Link = Option<Rc<RefCell<TreeNode>>>;
 
 struct Solution;
 
+#[allow(unused)]
 impl Solution {
     pub fn sufficient_subset(root: Link, limit: i32) -> Link {
         fn dfs(t: Link, acc: i32, limit: i32) -> Link {
@@ -37,4 +38,3 @@ impl Solution {
         dfs(root, 0, limit)
     }
 }
-

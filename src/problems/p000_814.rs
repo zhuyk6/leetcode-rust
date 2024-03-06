@@ -1,11 +1,12 @@
-use std::rc::Rc;
-use std::cell::RefCell;
 use crate::rctree::TreeNode;
+use std::cell::RefCell;
+use std::rc::Rc;
 
 struct Solution;
 
 type Link = Option<Rc<RefCell<TreeNode>>>;
 
+#[allow(unused)]
 impl Solution {
     pub fn prune_tree(root: Link) -> Link {
         if let Some(node) = root {

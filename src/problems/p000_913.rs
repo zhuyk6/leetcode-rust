@@ -1,3 +1,4 @@
+#[allow(unused)]
 pub fn cat_mouse_game(graph: Vec<Vec<i32>>) -> i32 {
     let to: Vec<Vec<usize>> = graph
         .into_iter()
@@ -10,7 +11,7 @@ pub fn cat_mouse_game(graph: Vec<Vec<i32>>) -> i32 {
     for i in 0..n {
         for j in 0..n {
             deg[0][i][j] = to[i].len();
-            
+
             if to[j].contains(&0) {
                 deg[1][i][j] = to[j].len() - 1;
             } else {
@@ -22,7 +23,7 @@ pub fn cat_mouse_game(graph: Vec<Vec<i32>>) -> i32 {
     use std::collections::VecDeque;
 
     let mut que: VecDeque<(usize, [usize; 2])> = VecDeque::new();
-    // turn: 0 -- mouse 
+    // turn: 0 -- mouse
     //       1 -- cat
     // winner: 0 -- mouse
     //         1 -- cat
@@ -45,34 +46,34 @@ pub fn cat_mouse_game(graph: Vec<Vec<i32>>) -> i32 {
     while let Some((turn, pos)) = que.pop_front() {
         let winner = f[turn][pos[0]][pos[1]];
         println!("turn: {}, pos: {:?}, winner: {}", turn, pos, winner);
-        
-        let last_positions = &to[pos[turn^1]];
+
+        let last_positions = &to[pos[turn ^ 1]];
         for q in last_positions {
             // cat can't goto 0
             if turn == 0 && *q == 0 {
                 continue;
             }
             let mut last = pos;
-            last[turn^1] = *q;
+            last[turn ^ 1] = *q;
 
             // already has answer
-            if f[turn^1][last[0]][last[1]] < 2 {
+            if f[turn ^ 1][last[0]][last[1]] < 2 {
                 continue;
             }
 
-            if winner == turn^1 {
-                f[turn^1][last[0]][last[1]] = turn^1;
-                que.push_back((turn^1, last));
+            if winner == turn ^ 1 {
+                f[turn ^ 1][last[0]][last[1]] = turn ^ 1;
+                que.push_back((turn ^ 1, last));
             } else {
-                deg[turn^1][last[0]][last[1]] -= 1;
-                if deg[turn^1][last[0]][last[1]] == 0 {
-                    f[turn^1][last[0]][last[1]] = turn;
-                    que.push_back((turn^1, last));
+                deg[turn ^ 1][last[0]][last[1]] -= 1;
+                if deg[turn ^ 1][last[0]][last[1]] == 0 {
+                    f[turn ^ 1][last[0]][last[1]] = turn;
+                    que.push_back((turn ^ 1, last));
                 }
             }
         }
     }
-    
+
     match f[0][1][2] {
         0 => 1,
         1 => 2,
@@ -83,16 +84,23 @@ pub fn cat_mouse_game(graph: Vec<Vec<i32>>) -> i32 {
 
 #[test]
 fn example1() {
-    let graph = vec![vec![2,5],vec![3],vec![0,4,5],vec![1,4,5],vec![2,3],vec![0,2,3]];
+    let graph = vec![
+        vec![2, 5],
+        vec![3],
+        vec![0, 4, 5],
+        vec![1, 4, 5],
+        vec![2, 3],
+        vec![0, 2, 3],
+    ];
     assert_eq!(cat_mouse_game(graph), 0);
 }
 #[test]
 fn example2() {
-    let graph = vec![vec![1,3],vec![0],vec![3],vec![0,2]];
+    let graph = vec![vec![1, 3], vec![0], vec![3], vec![0, 2]];
     assert_eq!(cat_mouse_game(graph), 1);
 }
 #[test]
 fn wrong() {
-    let graph = vec![vec![2,3],vec![3,4],vec![0,4],vec![0,1],vec![1,2]];
+    let graph = vec![vec![2, 3], vec![3, 4], vec![0, 4], vec![0, 1], vec![1, 2]];
     assert_eq!(cat_mouse_game(graph), 1);
 }

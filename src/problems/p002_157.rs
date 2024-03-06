@@ -1,16 +1,20 @@
 use std::collections::HashMap;
 
-#[allow(dead_code)]
+#[allow(dead_code, clippy::upper_case_acronyms)]
 struct DFS<'a> {
     vis: Vec<bool>,
     to: &'a Vec<Vec<usize>>,
-    cnt: &'a HashMap<usize, i32>
+    cnt: &'a HashMap<usize, i32>,
 }
 
-impl <'a> DFS<'a> {
+impl<'a> DFS<'a> {
     #[allow(dead_code)]
     pub fn new(n: usize, to: &'a Vec<Vec<usize>>, cnt: &'a HashMap<usize, i32>) -> Self {
-        DFS { vis: vec![false; n], to , cnt}
+        DFS {
+            vis: vec![false; n],
+            to,
+            cnt,
+        }
     }
 
     #[allow(dead_code)]
@@ -34,16 +38,18 @@ impl <'a> DFS<'a> {
 #[allow(dead_code)]
 pub fn group_strings(words: Vec<String>) -> Vec<i32> {
     const M: usize = 26;
-    
-    let codes = words.into_iter()
+
+    let codes = words
+        .into_iter()
         .map(|s| {
             let mut x = 0;
             for c in s.bytes() {
                 x += 1 << (c - b'a') as usize;
             }
             x
-        }).collect::<Vec<usize>>();
-    
+        })
+        .collect::<Vec<usize>>();
+
     println!("codes: {:?}", codes);
 
     let mut map: HashMap<usize, (usize, i32)> = HashMap::new();
@@ -63,10 +69,14 @@ pub fn group_strings(words: Vec<String>) -> Vec<i32> {
         // modify
         for b1 in 0..M {
             // b1 should be 1
-            if x & (1 << b1) == 0 { continue; }
+            if x & (1 << b1) == 0 {
+                continue;
+            }
             for b2 in 0..M {
                 // b2 should be 0
-                if x & (1 << b2) > 0 {continue;}
+                if x & (1 << b2) > 0 {
+                    continue;
+                }
                 let y = x ^ (1 << b1) | (1 << b2);
                 if map.contains_key(&y) {
                     v.push(map[&y].0);
@@ -88,9 +98,7 @@ pub fn group_strings(words: Vec<String>) -> Vec<i32> {
     println!("to: {:#?}", to);
 
     let mut ans = vec![0, 0];
-    let cnt: HashMap<usize, i32> = map.values()
-        .cloned()
-        .collect();
+    let cnt: HashMap<usize, i32> = map.values().cloned().collect();
 
     let mut dfs = DFS::new(n, &to, &cnt);
 
@@ -107,7 +115,7 @@ pub fn group_strings(words: Vec<String>) -> Vec<i32> {
 
 #[test]
 fn example() {
-    let words = ["a","b","ab","cde"];
+    let words = ["a", "b", "ab", "cde"];
     let words = words.into_iter().map(|s| s.to_string()).collect();
     assert_eq!(group_strings(words), vec![2, 3]);
 }

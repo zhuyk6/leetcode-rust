@@ -1,8 +1,8 @@
-
-pub fn eventual_safe_nodes<Out, In>(graph: Out) -> Vec<i32> 
-    where
-        In: AsRef<[i32]>,
-        Out: AsRef<[In]>,
+#[allow(unused)]
+pub fn eventual_safe_nodes<Out, In>(graph: Out) -> Vec<i32>
+where
+    In: AsRef<[i32]>,
+    Out: AsRef<[In]>,
 {
     let n = graph.as_ref().len();
     let mut back_edge = vec![vec![]; n];
@@ -40,6 +40,15 @@ pub fn eventual_safe_nodes<Out, In>(graph: Out) -> Vec<i32>
 
 #[test]
 fn example() {
-    let edge = vec![vec![1,2],vec![2,3],vec![5],vec![0],vec![5],vec![7], vec![], vec![]];
-    assert_eq!(eventual_safe_nodes(edge), vec![2,4,5,6,7]);
+    let edge = vec![
+        vec![1, 2],
+        vec![2, 3],
+        vec![5],
+        vec![0],
+        vec![5],
+        vec![7],
+        vec![],
+        vec![],
+    ];
+    assert_eq!(eventual_safe_nodes(edge), vec![2, 4, 5, 6, 7]);
 }

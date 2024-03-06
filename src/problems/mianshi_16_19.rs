@@ -28,7 +28,7 @@ impl JoinSet {
     }
 }
 
-#[allow(unused)]
+#[allow(unused, clippy::needless_range_loop)]
 pub fn pond_sizes(land: Vec<Vec<i32>>) -> Vec<i32> {
     let m = land.len();
     let n = land[0].len();
@@ -40,8 +40,8 @@ pub fn pond_sizes(land: Vec<Vec<i32>>) -> Vec<i32> {
     for i in 0..m {
         for j in 0..n {
             if land[i][j] == 0 {
-                for u in i.saturating_sub(1)..=(i + 1).min(m-1) {
-                    for v in j.saturating_sub(1)..=(j + 1).min(n-1) {
+                for u in i.saturating_sub(1)..=(i + 1).min(m - 1) {
+                    for v in j.saturating_sub(1)..=(j + 1).min(n - 1) {
                         if land[u][v] == 0 {
                             // println!("({i}, {j}) -- ({u}, {v})");
                             set.join(f(i, j), f(u, v));

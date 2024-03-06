@@ -2,10 +2,11 @@ use std::cell::RefCell;
 use std::collections::VecDeque;
 use std::rc::Rc;
 
-use crate::rctree::{tree, TreeNode};
+use crate::rctree::TreeNode;
 
 struct Solution;
 
+#[allow(unused)]
 impl Solution {
     pub fn is_complete_tree(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
         type Link = Option<Rc<RefCell<TreeNode>>>;
@@ -46,6 +47,7 @@ impl Solution {
 
 #[test]
 fn example() {
+    use crate::rctree::tree;
     let t = tree![1, 2, 3, 4, 5, 6];
 
     assert!(Solution::is_complete_tree(t));

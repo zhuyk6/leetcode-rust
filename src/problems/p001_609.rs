@@ -6,6 +6,7 @@ pub struct TreeNode {
     pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
+#[allow(unused)]
 impl TreeNode {
     #[inline]
     pub fn new(val: i32) -> Self {
@@ -22,6 +23,7 @@ use std::cell::RefCell;
 use std::collections::VecDeque;
 use std::rc::Rc;
 
+#[allow(unused)]
 impl Solution {
     pub fn is_even_odd_tree(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
         let mut que = VecDeque::new();
@@ -39,7 +41,7 @@ impl Solution {
             }
         }
 
-        fn is_sorted<T: PartialOrd>(v: &Vec<T>, rev: bool) -> bool {
+        fn is_sorted<T: PartialOrd>(v: &[T], rev: bool) -> bool {
             match rev {
                 false => v.iter().zip(v.iter().skip(1)).all(|(x, y)| x < y),
                 true => v.iter().zip(v.iter().skip(1)).all(|(x, y)| y < x),

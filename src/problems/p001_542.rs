@@ -1,3 +1,4 @@
+#[allow(unused)]
 pub fn longest_awesome(s: String) -> i32 {
     let s = s.as_bytes();
 
@@ -22,7 +23,7 @@ pub fn longest_awesome(s: String) -> i32 {
                 ans = ans.max(i as i32 - j);
             }
         }
-        
+
         println!("mask: {:10b}", mask);
     }
 

@@ -1,14 +1,16 @@
-use crate::rctree::{tree, TreeNode};
+use crate::rctree::TreeNode;
 struct Solution;
 
 use std::cell::RefCell;
 use std::rc::Rc;
 type Link = Option<Rc<RefCell<TreeNode>>>;
 
+#[allow(clippy::upper_case_acronyms)]
 struct DFS<'a> {
     layers: &'a mut Vec<Vec<(i32, i32)>>,
 }
 
+#[allow(unused)]
 impl<'a> DFS<'a> {
     pub fn dfs(&mut self, t: Link, dep: usize) -> i32 {
         t.map_or(-1, |node| {
@@ -24,6 +26,7 @@ impl<'a> DFS<'a> {
     }
 }
 
+#[allow(unused)]
 impl Solution {
     pub fn tree_queries(root: Link, queries: Vec<i32>) -> Vec<i32> {
         use std::collections::HashMap;
@@ -72,6 +75,7 @@ impl Solution {
 
 #[test]
 fn example() {
+    use crate::rctree::tree;
     let root = tree![1, 3, 4, 2, null, 6, 5, null, null, null, null, null, 7];
     let queries = vec![4, 7, 3];
     assert_eq!(Solution::tree_queries(root, queries), vec![2, 2, 3]);

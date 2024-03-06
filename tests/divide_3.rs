@@ -13,7 +13,7 @@ fn reverse<T: Clone>(xs: &[T]) -> Vec<T> {
     rev
 }
 
-fn divide_3<T: Ord>(arr: &mut Vec<T>, l: usize, r: usize, v: &T) -> (usize, usize) {
+fn divide_3<T: Ord>(arr: &mut [T], l: usize, r: usize, v: &T) -> (usize, usize) {
     // [l, r)
     let mut i = l;
     let mut j = l;
@@ -22,15 +22,17 @@ fn divide_3<T: Ord>(arr: &mut Vec<T>, l: usize, r: usize, v: &T) -> (usize, usiz
     // [i, k) -- equal to  v
     // [k, r) -- greater than v
     while j < k {
-        if arr[j] < *v {
-            arr.swap(i, j);
-            i += 1;
-            j += 1;
-        } else if arr[j] > *v {
-            k -= 1;
-            arr.swap(j, k);
-        } else {
-            j += 1;
+        match arr[j].cmp(v) {
+            std::cmp::Ordering::Less => {
+                arr.swap(i, j);
+                i += 1;
+                j += 1;
+            }
+            std::cmp::Ordering::Equal => j += 1,
+            std::cmp::Ordering::Greater => {
+                k -= 1;
+                arr.swap(j, k);
+            }
         }
     }
     (i, k)

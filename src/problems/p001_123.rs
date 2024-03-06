@@ -1,33 +1,34 @@
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
-  pub val: i32,
-  pub left: Option<Rc<RefCell<TreeNode>>>,
-  pub right: Option<Rc<RefCell<TreeNode>>>,
+    pub val: i32,
+    pub left: Option<Rc<RefCell<TreeNode>>>,
+    pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
+#[allow(unused)]
 impl TreeNode {
-  #[inline]
-  pub fn new(val: i32) -> Self {
-    TreeNode {
-      val,
-      left: None,
-      right: None
+    #[inline]
+    pub fn new(val: i32) -> Self {
+        TreeNode {
+            val,
+            left: None,
+            right: None,
+        }
     }
-  }
 }
 
 type Link = Option<Rc<RefCell<TreeNode>>>;
 
+#[allow(unused)]
 pub fn lca_deepest_leaves(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
     fn dfs(x: Link, dep: u32) -> Option<(u32, Link)> {
         // println!("{:#?} : {}", x, dep);
-        
+
         x.and_then(|t| {
-            
             let lc = dfs(t.as_ref().borrow().left.clone(), dep + 1);
             let rc = dfs(t.as_ref().borrow().right.clone(), dep + 1);
 
@@ -41,11 +42,11 @@ pub fn lca_deepest_leaves(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefC
                         std::cmp::Ordering::Less => Some(r),
                         std::cmp::Ordering::Greater => Some(l),
                         _ => Some((l.0, Some(t))),
-                    }    
+                    }
                 } else {
                     Some(l)
                 }
-            } else if rc.is_none(){
+            } else if rc.is_none() {
                 Some((dep, Some(t)))
             } else {
                 rc
@@ -66,22 +67,22 @@ fn example() {
     let n4 = TreeNode::new(4);
     let n0 = TreeNode::new(0);
     let n8 = TreeNode::new(8);
-    let l2 = Some(Rc::new(RefCell::new(TreeNode{
+    let l2 = Some(Rc::new(RefCell::new(TreeNode {
         val: 2,
         left: Some(Rc::new(RefCell::new(n7))),
-        right: Some(Rc::new(RefCell::new(n4)))
+        right: Some(Rc::new(RefCell::new(n4))),
     })));
-    let l1 = Some(Rc::new(RefCell::new(TreeNode{
+    let l1 = Some(Rc::new(RefCell::new(TreeNode {
         val: 1,
         left: Some(Rc::new(RefCell::new(n0))),
-        right: Some(Rc::new(RefCell::new(n8)))
+        right: Some(Rc::new(RefCell::new(n8))),
     })));
-    let l5 = Some(Rc::new(RefCell::new(TreeNode{
+    let l5 = Some(Rc::new(RefCell::new(TreeNode {
         val: 5,
         left: Some(Rc::new(RefCell::new(n6))),
         right: l2,
     })));
-    let root = Some(Rc::new(RefCell::new(TreeNode{
+    let root = Some(Rc::new(RefCell::new(TreeNode {
         val: 3,
         left: l5,
         right: l1,

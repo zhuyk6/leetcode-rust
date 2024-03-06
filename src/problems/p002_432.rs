@@ -1,8 +1,10 @@
 use std::cmp::Reverse;
 
-pub fn hardest_worker<Outer, Inner>(n: i32, logs: Outer) -> i32 
-    where Outer: AsRef<[Inner]>,
-          Inner: AsRef<[i32]>,
+#[allow(unused)]
+pub fn hardest_worker<Outer, Inner>(n: i32, logs: Outer) -> i32
+where
+    Outer: AsRef<[Inner]>,
+    Inner: AsRef<[i32]>,
 {
     assert!(n >= 2);
 
@@ -15,12 +17,12 @@ pub fn hardest_worker<Outer, Inner>(n: i32, logs: Outer) -> i32
         begin = end;
         ans = ans.max((time, Reverse(id)));
     }
-    ans.1.0
+    ans.1 .0
 }
 
 #[test]
 fn sample() {
-    let logs = [[0,3],[2,5],[0,9],[1,15]];
+    let logs = [[0, 3], [2, 5], [0, 9], [1, 15]];
     let n = 10;
     assert_eq!(hardest_worker(n, logs), 1);
 }

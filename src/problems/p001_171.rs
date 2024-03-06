@@ -1,5 +1,3 @@
-
-
 // Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
@@ -7,8 +5,8 @@ pub struct ListNode {
     pub next: Option<Box<ListNode>>,
 }
 
+#[allow(unused)]
 impl ListNode {
-    #[allow(unused)]
     #[inline]
     fn new(val: i32) -> Self {
         ListNode { next: None, val }
@@ -17,17 +15,19 @@ impl ListNode {
     pub fn from(v: &[i32]) -> Option<Box<ListNode>> {
         match v.len() {
             0 => None,
-            _ => Some(Box::new(ListNode { val: v[0], next: ListNode::from(&v[1..]) }))
+            _ => Some(Box::new(ListNode {
+                val: v[0],
+                next: ListNode::from(&v[1..]),
+            })),
         }
     }
 }
 
 struct Solution;
 
+#[allow(unused)]
 impl Solution {
-    #[allow(unused)]
     pub fn remove_zero_sum_sublists(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-
         let mut arr = vec![0];
         while let Some(node) = head {
             arr.push(node.val);
@@ -50,21 +50,31 @@ impl Solution {
         println!("map: {:?}", map);
 
         let n = arr.len();
-           
-        fn dfs(arr: &Vec<i32>, sum: &Vec<i32>, n: usize, cur: usize, map: HashMap<i32, usize>) -> Option<Box<ListNode>> {
+
+        fn dfs(
+            arr: &Vec<i32>,
+            sum: &Vec<i32>,
+            n: usize,
+            cur: usize,
+            map: HashMap<i32, usize>,
+        ) -> Option<Box<ListNode>> {
             if cur >= n {
                 return None;
             }
             let pos = map[&sum[cur]];
             // println!("cur: {}, pos: {}", cur, pos);
-            let next = dfs(arr, sum, n, pos+1, map);
-            Some(Box::new(ListNode { val: arr[cur], next }))
+            let next = dfs(arr, sum, n, pos + 1, map);
+            Some(Box::new(ListNode {
+                val: arr[cur],
+                next,
+            }))
         }
 
         dfs(&arr, &sum, n, 0, map).unwrap().next
     }
 }
 
+#[allow(unused)]
 fn show(mut head: Option<Box<ListNode>>) {
     print!("[");
     while let Some(node) = head {
@@ -76,7 +86,7 @@ fn show(mut head: Option<Box<ListNode>>) {
 
 #[test]
 fn example() {
-    let head = ListNode::from(&[3,2,1,-1,-2, -3]);
+    let head = ListNode::from(&[3, 2, 1, -1, -2, -3]);
     let head = Solution::remove_zero_sum_sublists(head);
     show(head);
 }

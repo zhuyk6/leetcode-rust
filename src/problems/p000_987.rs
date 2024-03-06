@@ -1,13 +1,13 @@
-use std::collections::{VecDeque, BTreeMap};
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::collections::{BTreeMap, VecDeque};
+use std::rc::Rc;
 
 use crate::rctree::TreeNode;
 struct Solution;
 
 type Link = Option<Rc<RefCell<TreeNode>>>;
 
-
+#[allow(unused)]
 impl Solution {
     pub fn vertical_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
         let mut que: VecDeque<(Link, usize, i32)> = VecDeque::new();
@@ -20,8 +20,8 @@ impl Solution {
                     layers.push(Vec::new());
                 }
                 layers[r].push((c, node.borrow().val));
-                que.push_back((node.borrow_mut().left.take(), r+1, c-1));
-                que.push_back((node.borrow_mut().right.take(), r+1, c+1));
+                que.push_back((node.borrow_mut().left.take(), r + 1, c - 1));
+                que.push_back((node.borrow_mut().right.take(), r + 1, c + 1));
             }
         }
         for row in &mut layers {
@@ -37,9 +37,6 @@ impl Solution {
                 e.push(v);
             }
         }
-        cols.into_values()
-            .collect()
+        cols.into_values().collect()
     }
 }
-
-

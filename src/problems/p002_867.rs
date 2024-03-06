@@ -1,5 +1,6 @@
 struct Solution;
 
+#[allow(unused)]
 fn is_prime(n: usize) -> bool {
     assert!(n >= 1);
     if n == 1 {
@@ -16,6 +17,7 @@ fn is_prime(n: usize) -> bool {
     true
 }
 
+#[allow(unused)]
 fn generate_prime(n: usize) -> Vec<bool> {
     let mut not_prime = vec![false; n + 1];
     not_prime[0] = true;
@@ -40,6 +42,7 @@ fn generate_prime(n: usize) -> Vec<bool> {
     not_prime
 }
 
+#[allow(clippy::upper_case_acronyms)]
 struct DFS<'a> {
     not_prime: &'a Vec<bool>,
     to: &'a Vec<Vec<usize>>,
@@ -48,6 +51,7 @@ struct DFS<'a> {
     ans: usize,
 }
 
+#[allow(unused)]
 impl<'a> DFS<'a> {
     fn new(n: usize, not_prime: &'a Vec<bool>, to: &'a Vec<Vec<usize>>) -> Self {
         DFS {
@@ -101,6 +105,7 @@ impl<'a> DFS<'a> {
     }
 }
 
+#[allow(unused)]
 impl Solution {
     pub fn count_paths(n: i32, edges: Vec<Vec<i32>>) -> i64 {
         let n = n as usize;

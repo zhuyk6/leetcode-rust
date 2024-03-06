@@ -1,6 +1,7 @@
+#[allow(unused)]
 pub fn maximum_tastiness(mut price: Vec<i32>, k: i32) -> i32 {
     price.sort();
-    
+
     let check = |gap: i32| -> bool {
         let mut cnt = 1;
         let mut last = price[0];
@@ -30,7 +31,7 @@ pub fn maximum_tastiness(mut price: Vec<i32>, k: i32) -> i32 {
 
 #[test]
 fn example() {
-    let price = vec![13,5,1,8,21,2];
+    let price = vec![13, 5, 1, 8, 21, 2];
     let k = 3;
     assert_eq!(maximum_tastiness(price, k), 8);
 }

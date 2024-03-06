@@ -8,6 +8,7 @@ struct Solver {
     ans: HashSet<String>,
 }
 
+#[allow(unused)]
 impl Solver {
     pub fn new(chars: String) -> Self {
         let chars: Vec<char> = chars.chars().collect();
@@ -25,7 +26,9 @@ impl Solver {
         if x > 0 {
             self.ans.insert(self.pre.clone());
         }
-        if x >= self.n { return; }
+        if x >= self.n {
+            return;
+        }
         for i in 0..self.n {
             if !self.vis[i] {
                 self.vis[i] = true;
@@ -38,6 +41,7 @@ impl Solver {
     }
 }
 
+#[allow(unused)]
 pub fn num_tile_possibilities(tiles: String) -> i32 {
     let mut sol = Solver::new(tiles);
     sol.dfs(0);

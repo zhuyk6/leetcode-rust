@@ -1,3 +1,4 @@
+#[allow(unused)]
 pub fn closest_to_target(arr: Vec<i32>, target: i32) -> i32 {
     const M: usize = 25;
 
@@ -13,9 +14,9 @@ pub fn closest_to_target(arr: Vec<i32>, target: i32) -> i32 {
     for i in 1..n {
         for j in 0..M {
             if arr[i] & (1 << j) > 0 {
-                sum[i][j] = sum[i-1][j] + 1;
+                sum[i][j] = sum[i - 1][j] + 1;
             } else {
-                sum[i][j] = sum[i-1][j];
+                sum[i][j] = sum[i - 1][j];
             }
         }
     }
@@ -25,7 +26,7 @@ pub fn closest_to_target(arr: Vec<i32>, target: i32) -> i32 {
         for j in 0..M {
             let cnt = match l {
                 0 => sum[r][j],
-                l => sum[r][j] - sum[l-1][j],
+                l => sum[r][j] - sum[l - 1][j],
             };
             if cnt == r - l + 1 {
                 x |= 1 << j;
@@ -41,7 +42,7 @@ pub fn closest_to_target(arr: Vec<i32>, target: i32) -> i32 {
         let mut acc = get(i, j);
         ans = ans.min((acc - target).abs());
         println!("i = {}, j = {}, acc = {}, ans = {}", i, j, acc, ans);
-        while j < n-1 && acc >= target {
+        while j < n - 1 && acc >= target {
             j += 1;
             acc &= arr[j];
             ans = ans.min((acc - target).abs());
@@ -53,15 +54,15 @@ pub fn closest_to_target(arr: Vec<i32>, target: i32) -> i32 {
 
 #[test]
 fn example() {
-    let arr = vec![9,12,3,7,15]; 
+    let arr = vec![9, 12, 3, 7, 15];
     let target = 5;
     assert_eq!(closest_to_target(arr, target), 2);
 
-    let arr = vec![1000000,1000000,1000000]; 
+    let arr = vec![1000000, 1000000, 1000000];
     let target = 1;
     assert_eq!(closest_to_target(arr, target), 999999);
 
-    let arr = vec![1,2,4,8,16]; 
+    let arr = vec![1, 2, 4, 8, 16];
     let target = 0;
     assert_eq!(closest_to_target(arr, target), 0);
 }

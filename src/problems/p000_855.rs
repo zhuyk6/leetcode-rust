@@ -1,6 +1,6 @@
-use std::collections::{BTreeSet, BinaryHeap};
-use std::ops::Bound::{Excluded};
 use std::cmp::Ordering;
+use std::collections::{BTreeSet, BinaryHeap};
+use std::ops::Bound::Excluded;
 
 #[derive(Debug, PartialEq, Eq)]
 struct Segment {
@@ -8,25 +8,27 @@ struct Segment {
     r: i32,
 }
 
-impl PartialOrd for Segment{
+impl PartialOrd for Segment {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        let len1 = (self.r - self.l) / 2;
-        let len2 = (other.r - other.l) / 2;
-        match len1.cmp(&len2) {
-            Ordering::Less => Some(Ordering::Less),
-            Ordering::Greater => Some(Ordering::Greater),
-            Ordering::Equal => if self.l < other.l {
-                                Some(Ordering::Greater)
-                            } else {
-                                Some(Ordering::Less)
-                            }
-        }
+        Some(self.cmp(other))
     }
 }
 
 impl Ord for Segment {
     fn cmp(&self, other: &Self) -> Ordering {
-        self.partial_cmp(other).unwrap()
+        let len1 = (self.r - self.l) / 2;
+        let len2 = (other.r - other.l) / 2;
+        match len1.cmp(&len2) {
+            Ordering::Less => Ordering::Less,
+            Ordering::Greater => Ordering::Greater,
+            Ordering::Equal => {
+                if self.l < other.l {
+                    Ordering::Greater
+                } else {
+                    Ordering::Less
+                }
+            }
+        }
     }
 }
 
@@ -36,17 +38,20 @@ struct ExamRoom {
     segments: BinaryHeap<Segment>,
 }
 
-
 /**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
+#[allow(unused)]
 impl ExamRoom {
-
     fn new(n: i32) -> Self {
-        ExamRoom { num: n, seats: BTreeSet::new(), segments: BinaryHeap::new() }
+        ExamRoom {
+            num: n,
+            seats: BTreeSet::new(),
+            segments: BinaryHeap::new(),
+        }
     }
-    
+
     fn seat(&mut self) -> i32 {
         // println!("{:#?}", self.seats);
         // println!("{:#?}", self.segments);
@@ -65,7 +70,10 @@ impl ExamRoom {
                 0
             } else {
                 self.seats.insert(self.num - 1);
-                self.segments.push(Segment { l: left, r: self.num - 1 });
+                self.segments.push(Segment {
+                    l: left,
+                    r: self.num - 1,
+                });
                 self.num - 1
             }
         } else {
@@ -78,10 +86,14 @@ impl ExamRoom {
 
             while let Some(segment) = self.segments.peek() {
                 // check valid
-                if !self.seats.contains(&segment.l)  
+                if !self.seats.contains(&segment.l)
                     || !self.seats.contains(&segment.r)
-                    || self.seats.range((Excluded(segment.l), Excluded(segment.r))).next().is_some() {
-
+                    || self
+                        .seats
+                        .range((Excluded(segment.l), Excluded(segment.r)))
+                        .next()
+                        .is_some()
+                {
                     self.segments.pop();
                     continue;
                 }
@@ -89,14 +101,17 @@ impl ExamRoom {
                 let len = (segment.r - segment.l) / 2;
                 if right > left && right > len {
                     self.seats.insert(self.num - 1);
-                    self.segments.push(Segment { l: last, r: self.num - 1 });
+                    self.segments.push(Segment {
+                        l: last,
+                        r: self.num - 1,
+                    });
                     return self.num - 1;
                 } else if left >= right && left >= len {
                     self.seats.insert(0);
                     self.segments.push(Segment { l: 0, r: first });
                     return 0;
                 } else {
-                    let Segment {l, r} = *segment;
+                    let Segment { l, r } = *segment;
                     self.segments.pop();
                     let p = l + len;
                     self.seats.insert(p);
@@ -108,13 +123,15 @@ impl ExamRoom {
             -1
         }
     }
-    
+
     fn leave(&mut self, p: i32) {
         self.seats.remove(&p);
         let prev = self.seats.range(..p).next_back();
         let next = self.seats.range(p..).next();
-        if prev.is_some() && next.is_some() {
-            self.segments.push(Segment { l: *prev.unwrap(), r: *next.unwrap() });
+        if let Some(x) = prev {
+            if let Some(y) = next {
+                self.segments.push(Segment { l: *x, r: *y });
+            }
         }
     }
 }
@@ -139,9 +156,9 @@ mod tests {
 
     #[test]
     fn test1() {
-        let input1 = ["ExamRoom","seat","seat","seat","seat","leave","seat"];
-        let input2 = [[10],[-1],[-1],[-1],[-1],[4],[-1]];
-        let output = [-1, 0,9,4,2,-1,5];
+        let input1 = ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"];
+        let input2 = [[10], [-1], [-1], [-1], [-1], [4], [-1]];
+        let output = [-1, 0, 9, 4, 2, -1, 5];
 
         let mut room = ExamRoom::new(input2[0][0]);
         for i in 1..input1.len() {
@@ -150,11 +167,11 @@ mod tests {
                     let ans = room.seat();
                     println!("seat at {}", ans);
                     assert_eq!(ans, output[i]);
-                },
+                }
                 "leave" => {
                     room.leave(input2[i][0]);
                     println!("leave at {}", input2[i][0]);
-                },
+                }
                 _ => {
                     panic!("Error! Invalid operation.");
                 }
@@ -164,12 +181,54 @@ mod tests {
 
     #[test]
     fn test2() {
-        let input1 = 
-["ExamRoom","seat","seat","seat","leave","leave","seat","seat","seat","seat","seat","seat","seat","seat","seat","leave","leave","seat","seat","leave","seat","leave","seat","leave","seat","leave","seat","leave","leave","seat","seat","leave","leave","seat","seat","leave"];
-        let input2 = 
-[[10],[-1],[-1],[-1],[0],[4],[-1],[-1],[-1],[-1],[-1],[-1],[-1],[-1],[-1],[0],[4],[-1],[-1],[7],[-1],[3],[-1],[3],[-1],[9],[-1],[0],[8],[-1],[-1],[0],[8],[-1],[-1],[2]];
-        let output = 
-[-1,0,9,4,-1,-1,0,4,2,6,1,3,5,7,8,-1,-1,0,4,-1,7,-1,3,-1,3,-1,9,-1,-1,0,8,-1,-1,0,8,-1];
+        let input1 = [
+            "ExamRoom", "seat", "seat", "seat", "leave", "leave", "seat", "seat", "seat", "seat",
+            "seat", "seat", "seat", "seat", "seat", "leave", "leave", "seat", "seat", "leave",
+            "seat", "leave", "seat", "leave", "seat", "leave", "seat", "leave", "leave", "seat",
+            "seat", "leave", "leave", "seat", "seat", "leave",
+        ];
+        let input2 = [
+            [10],
+            [-1],
+            [-1],
+            [-1],
+            [0],
+            [4],
+            [-1],
+            [-1],
+            [-1],
+            [-1],
+            [-1],
+            [-1],
+            [-1],
+            [-1],
+            [-1],
+            [0],
+            [4],
+            [-1],
+            [-1],
+            [7],
+            [-1],
+            [3],
+            [-1],
+            [3],
+            [-1],
+            [9],
+            [-1],
+            [0],
+            [8],
+            [-1],
+            [-1],
+            [0],
+            [8],
+            [-1],
+            [-1],
+            [2],
+        ];
+        let output = [
+            -1, 0, 9, 4, -1, -1, 0, 4, 2, 6, 1, 3, 5, 7, 8, -1, -1, 0, 4, -1, 7, -1, 3, -1, 3, -1,
+            9, -1, -1, 0, 8, -1, -1, 0, 8, -1,
+        ];
 
         let mut room = ExamRoom::new(input2[0][0]);
         for i in 1..input1.len() {
@@ -178,11 +237,11 @@ mod tests {
                     let ans = room.seat();
                     println!("seat at {}", ans);
                     assert_eq!(ans, output[i]);
-                },
+                }
                 "leave" => {
                     room.leave(input2[i][0]);
                     println!("leave at {}", input2[i][0]);
-                },
+                }
                 _ => {
                     panic!("Error! Invalid operation.");
                 }
