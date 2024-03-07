@@ -1,5 +1,9 @@
 mod jianzhi_40;
 mod jianzhi_63;
+mod lcr_087;
+mod lcr_112;
+mod lcr_142;
+mod lcr_146;
 mod mianshi_16_19;
 mod p000_232;
 mod p000_622;
@@ -78,6 +82,7 @@ mod p002_555;
 mod p002_558;
 mod p002_559;
 mod p002_563;
+mod p002_575;
 mod p002_581;
 mod p002_597;
 mod p002_606;
