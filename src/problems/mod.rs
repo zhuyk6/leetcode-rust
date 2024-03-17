@@ -7,6 +7,7 @@ mod lcr_142;
 mod lcr_146;
 mod mianshi_16_19;
 mod p000_232;
+mod p000_310;
 mod p000_516;
 mod p000_622;
 mod p000_655;
