@@ -46,6 +46,6 @@ impl FindElements {
     }
 
     fn find(&self, target: i32) -> bool {
-        self.map.get(&target).is_some()
+        self.map.contains(&target)
     }
 }
