@@ -8,4 +8,4 @@ edition = "2021"
 [dev-dependencies]
 quickcheck = "1"
 quickcheck_macros = "1"
-ndarray = "0.15.6"
+ndarray = "0.16.1"
