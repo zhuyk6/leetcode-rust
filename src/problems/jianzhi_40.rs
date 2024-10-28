@@ -1,4 +1,3 @@
-#[allow(dead_code)]
 pub fn get_least_numbers(mut arr: Vec<i32>, kth: i32) -> Vec<i32> {
     let n = arr.len();
 
