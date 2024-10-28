@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 struct JoinSet {
     fa: Vec<(usize, (i32, usize))>,
@@ -28,7 +28,6 @@ impl JoinSet {
     }
 }
 
-#[allow(unused)]
 impl Solution {
     pub fn number_of_good_paths(node_vals: Vec<i32>, edges: Vec<Vec<i32>>) -> i32 {
         let n = node_vals.len();

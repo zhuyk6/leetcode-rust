@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn restore_ip_addresses(s: String) -> Vec<String> {
         fn check_num(s: &[u8]) -> bool {

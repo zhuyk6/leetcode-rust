@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn max_height_of_triangle(red: i32, blue: i32) -> i32 {
         fn f(n: i32) -> i32 {

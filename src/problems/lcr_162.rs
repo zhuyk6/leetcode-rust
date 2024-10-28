@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn digit_one_in_number(num: i32) -> i32 {
         let mut ans = 0;

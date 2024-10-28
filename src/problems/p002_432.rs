@@ -1,6 +1,5 @@
 use std::cmp::Reverse;
 
-#[allow(unused)]
 pub fn hardest_worker<Outer, Inner>(n: i32, logs: Outer) -> i32
 where
     Outer: AsRef<[Inner]>,

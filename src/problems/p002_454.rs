@@ -1,9 +1,8 @@
-struct Solution;
+pub struct Solution;
 
 use std::collections::BinaryHeap;
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn second_greater_element_heap(nums: Vec<i32>) -> Vec<i32> {
         let n = nums.len();
         let mut heap0: BinaryHeap<(i32, usize)> = BinaryHeap::new();
@@ -27,7 +26,6 @@ impl Solution {
         answer
     }
 
-    #[allow(dead_code)]
     pub fn second_greater_element(nums: Vec<i32>) -> Vec<i32> {
         let n = nums.len();
         let mut stk0: Vec<usize> = vec![usize::MAX; n];

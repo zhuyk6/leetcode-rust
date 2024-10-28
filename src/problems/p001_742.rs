@@ -1,6 +1,5 @@
 use std::collections::HashMap;
 
-#[allow(unused)]
 pub fn count_balls(low_limit: i32, high_limit: i32) -> i32 {
     let mut map: HashMap<i32, i32> = HashMap::new();
     (low_limit..=high_limit).for_each(|mut n| {

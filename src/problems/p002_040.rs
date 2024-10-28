@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 // count how many numbers are equal or smaller than v
 #[allow(clippy::needless_range_loop)]
@@ -42,7 +42,6 @@ fn count_higher(a: &[i32], b: &[i32], v: i64) -> usize {
     ans
 }
 
-#[allow(dead_code)]
 impl Solution {
     pub fn kth_smallest_product(mut nums1: Vec<i32>, mut nums2: Vec<i32>, k: i64) -> i64 {
         let k = k as usize;

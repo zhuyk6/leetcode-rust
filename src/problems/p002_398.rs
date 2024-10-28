@@ -1,8 +1,7 @@
-struct Solution;
+pub struct Solution;
 
 use std::cmp::Reverse;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn maximum_robots(charge_times: Vec<i32>, running_costs: Vec<i32>, budget: i64) -> i32 {
         let n = charge_times.len();

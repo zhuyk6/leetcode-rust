@@ -6,7 +6,6 @@ struct DFS {
 }
 
 impl DFS {
-    #[allow(dead_code)]
     pub fn new(m: usize, n: usize) -> Self {
         DFS {
             m,
@@ -15,7 +14,6 @@ impl DFS {
         }
     }
 
-    #[allow(dead_code)]
     fn put(&mut self, left_top: (usize, usize), size: usize) {
         for i in left_top.0..(left_top.0 + size) {
             for j in left_top.1..(left_top.1 + size) {
@@ -24,7 +22,6 @@ impl DFS {
         }
     }
 
-    #[allow(dead_code)]
     fn check_size(&self, left_top: (usize, usize), size: usize) -> bool {
         for i in left_top.0..(left_top.0 + size) {
             if i >= self.m {
@@ -42,7 +39,6 @@ impl DFS {
         true
     }
 
-    #[allow(dead_code)]
     fn get_size(&self, left_top: (usize, usize)) -> usize {
         let mut size = usize::MAX;
         let mut l = 1;
@@ -53,7 +49,6 @@ impl DFS {
         size
     }
 
-    #[allow(dead_code)]
     fn calculate(&mut self, first_size: usize) -> usize {
         for row in &mut self.grid {
             row.fill(false);
@@ -73,7 +68,6 @@ impl DFS {
         ans
     }
 
-    #[allow(dead_code)]
     pub fn solve(&mut self) -> usize {
         let max_size = self.m.min(self.n);
         let mut ans = usize::MAX;
@@ -85,7 +79,6 @@ impl DFS {
     }
 }
 
-#[allow(dead_code)]
 pub fn tiling_rectangle(n: i32, m: i32) -> i32 {
     let mut dfs = DFS::new(n as usize, m as usize);
     dfs.solve() as i32

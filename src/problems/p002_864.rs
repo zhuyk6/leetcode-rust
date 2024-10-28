@@ -1,8 +1,6 @@
-#[allow(dead_code)]
-struct Solution;
+pub struct Solution;
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn maximum_odd_binary_number(s: String) -> String {
         let n = s.len();
         let m = s.as_bytes().iter().filter(|b| **b == b'1').count();

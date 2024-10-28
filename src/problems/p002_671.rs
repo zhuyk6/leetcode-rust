@@ -1,20 +1,17 @@
 use std::collections::HashMap;
 
-struct FrequencyTracker {
+#[derive(Default)]
+pub struct FrequencyTracker {
     val_counter: HashMap<i32, usize>,
     fre_counter: HashMap<usize, usize>,
 }
 
-#[allow(unused)]
 impl FrequencyTracker {
-    fn new() -> Self {
-        FrequencyTracker {
-            val_counter: Default::default(),
-            fre_counter: Default::default(),
-        }
+    pub fn new() -> Self {
+        Default::default()
     }
 
-    fn add(&mut self, number: i32) {
+    pub fn add(&mut self, number: i32) {
         let f = self.val_counter.entry(number).or_insert(0);
         if *f > 0 {
             let g = self.fre_counter.entry(*f).or_default();
@@ -27,7 +24,7 @@ impl FrequencyTracker {
         *self.fre_counter.entry(*f).or_default() += 1;
     }
 
-    fn delete_one(&mut self, number: i32) {
+    pub fn delete_one(&mut self, number: i32) {
         if self.val_counter.contains_key(&number) {
             let f = self.val_counter.entry(number).or_default();
 
@@ -46,7 +43,7 @@ impl FrequencyTracker {
         }
     }
 
-    fn has_frequency(&self, frequency: i32) -> bool {
+    pub fn has_frequency(&self, frequency: i32) -> bool {
         self.fre_counter.contains_key(&(frequency as usize))
     }
 }

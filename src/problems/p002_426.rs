@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 const BOUND: i32 = 30_000;
 
@@ -44,7 +44,6 @@ impl BinaryIndexTree {
     // }
 }
 
-#[allow(unused)]
 impl Solution {
     pub fn number_of_pairs(nums1: Vec<i32>, nums2: Vec<i32>, diff: i32) -> i64 {
         let arr: Vec<i32> = nums1.into_iter().zip(nums2).map(|(x, y)| x - y).collect();

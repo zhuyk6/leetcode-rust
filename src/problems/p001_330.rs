@@ -1,7 +1,6 @@
-struct Solution;
+pub struct Solution;
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn max_value_after_reverse(nums: Vec<i32>) -> i32 {
         let n = nums.len();
 

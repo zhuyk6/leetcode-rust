@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn max_num_of_marked_indices(mut nums: Vec<i32>) -> i32 {
         let n = nums.len();

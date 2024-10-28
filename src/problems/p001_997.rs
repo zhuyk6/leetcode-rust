@@ -1,8 +1,7 @@
-struct Solution;
+pub struct Solution;
 
 const P: i32 = 1_000_000_007;
 
-#[allow(unused)]
 impl Solution {
     pub fn first_day_been_in_all_rooms(next_visit: Vec<i32>) -> i32 {
         let n = next_visit.len();

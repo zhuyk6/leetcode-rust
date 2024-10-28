@@ -32,7 +32,7 @@ impl Ord for Segment {
     }
 }
 
-struct ExamRoom {
+pub struct ExamRoom {
     num: i32,
     seats: BTreeSet<i32>,
     segments: BinaryHeap<Segment>,
@@ -42,9 +42,9 @@ struct ExamRoom {
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
-#[allow(unused)]
+
 impl ExamRoom {
-    fn new(n: i32) -> Self {
+    pub fn new(n: i32) -> Self {
         ExamRoom {
             num: n,
             seats: BTreeSet::new(),
@@ -52,7 +52,7 @@ impl ExamRoom {
         }
     }
 
-    fn seat(&mut self) -> i32 {
+    pub fn seat(&mut self) -> i32 {
         // println!("{:#?}", self.seats);
         // println!("{:#?}", self.segments);
 
@@ -124,7 +124,7 @@ impl ExamRoom {
         }
     }
 
-    fn leave(&mut self, p: i32) {
+    pub fn leave(&mut self, p: i32) {
         self.seats.remove(&p);
         let prev = self.seats.range(..p).next_back();
         let next = self.seats.range(p..).next();

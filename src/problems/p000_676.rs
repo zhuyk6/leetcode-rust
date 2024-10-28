@@ -14,7 +14,7 @@ impl Node {
     }
 }
 
-struct MagicDictionary {
+pub struct MagicDictionary {
     trie: Box<Node>,
 }
 
@@ -22,15 +22,16 @@ struct MagicDictionary {
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
-#[allow(unused)]
+
 impl MagicDictionary {
-    fn new() -> Self {
+    #[allow(clippy::new_without_default)]
+    pub fn new() -> Self {
         MagicDictionary {
             trie: Box::new(Node::new()),
         }
     }
 
-    fn insert(&mut self, s: String) {
+    pub fn insert(&mut self, s: String) {
         let mut t = &mut self.trie;
         for c in s.chars() {
             t.sons.entry(c).or_insert_with(|| Box::new(Node::new()));
@@ -39,7 +40,7 @@ impl MagicDictionary {
         t.is_end = true;
     }
 
-    fn build_dict(&mut self, dictionary: Vec<String>) {
+    pub fn build_dict(&mut self, dictionary: Vec<String>) {
         dictionary.into_iter().for_each(|s| self.insert(s));
     }
 
@@ -70,7 +71,7 @@ impl MagicDictionary {
         }
     }
 
-    fn search(&self, search_word: String) -> bool {
+    pub fn search(&self, search_word: String) -> bool {
         Self::dfs(&self.trie, search_word.chars(), false)
     }
 }

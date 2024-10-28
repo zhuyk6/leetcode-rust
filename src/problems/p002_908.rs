@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn minimum_sum(nums: Vec<i32>) -> i32 {
         let n = nums.len();
@@ -43,7 +42,7 @@ impl Solution {
             .into_iter()
             .zip(right_min)
             .zip(nums)
-            .filter(|((x, z), y)| x.is_some() && z.is_some())
+            .filter(|((x, z), _y)| x.is_some() && z.is_some())
             .map(|((x, z), y)| x.unwrap() + y + z.unwrap())
             .min()
             .unwrap_or(-1)

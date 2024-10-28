@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn min_malware_spread(graph: Vec<Vec<i32>>, initial: Vec<i32>) -> i32 {
         fn count(graph: &[Vec<i32>], initial: &[i32], remove_node: usize) -> usize {
@@ -33,8 +32,6 @@ impl Solution {
 
             ans
         }
-
-        let n = graph.len();
 
         initial
             .iter()

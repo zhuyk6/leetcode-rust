@@ -1,8 +1,7 @@
 use std::collections::HashMap;
 
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn minimum_hamming_distance(
         source: Vec<i32>,

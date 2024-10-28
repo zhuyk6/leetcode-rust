@@ -20,16 +20,15 @@ impl Node {
     }
 }
 
-struct LRUCache {
+pub struct LRUCache {
     capacity: usize,
     head: Link,
     tail: Link,
     key_to_node: HashMap<Key, Link>,
 }
 
-#[allow(unused)]
 impl LRUCache {
-    fn new(capacity: i32) -> Self {
+    pub fn new(capacity: i32) -> Self {
         let head = Rc::new(RefCell::new(Node::new((-1, -1))));
         let tail = Rc::new(RefCell::new(Node::new((-1, -1))));
         tail.as_ref().borrow_mut().next = Some(head.clone());
@@ -43,7 +42,7 @@ impl LRUCache {
         }
     }
 
-    fn view(&self) {
+    pub fn view(&self) {
         println!("Map: {:?}", self.key_to_node.keys().collect::<Vec<_>>());
         print!("Tail -> ");
         let mut cur = self.tail.clone();
@@ -79,14 +78,14 @@ impl LRUCache {
         node.as_ref().borrow_mut().prev = Some(p.clone());
     }
 
-    fn get(&self, key: i32) -> i32 {
+    pub fn get(&self, key: i32) -> i32 {
         self.key_to_node.get(&key).map_or(-1, |node| {
             self.move_to_tail(node.clone());
             node.as_ref().borrow().item.1
         })
     }
 
-    fn put(&mut self, key: i32, value: i32) {
+    pub fn put(&mut self, key: i32, value: i32) {
         if let Some(node) = self.key_to_node.get(&key) {
             self.move_to_tail(node.clone());
             node.as_ref().borrow_mut().item.1 = value;

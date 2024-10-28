@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 #[allow(clippy::upper_case_acronyms)]
 struct DFS<'a> {
@@ -6,7 +6,6 @@ struct DFS<'a> {
     cant_visit: Vec<bool>,
 }
 
-#[allow(unused)]
 impl<'a> DFS<'a> {
     fn new(graph: &'a Vec<Vec<usize>>, restricted: Vec<i32>) -> Self {
         let n = graph.len();
@@ -28,7 +27,6 @@ impl<'a> DFS<'a> {
     }
 }
 
-#[allow(unused)]
 impl Solution {
     pub fn reachable_nodes(n: i32, edges: Vec<Vec<i32>>, restricted: Vec<i32>) -> i32 {
         let n = n as usize;

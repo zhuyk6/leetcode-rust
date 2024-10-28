@@ -12,7 +12,6 @@ pub struct TreeNode {
 
 type Link = Option<Rc<RefCell<TreeNode>>>;
 
-#[allow(unused)]
 impl TreeNode {
     #[inline]
     pub fn new(val: i32) -> Self {

@@ -1,8 +1,7 @@
-struct Solution;
+pub struct Solution;
 
 use std::{cmp::Reverse, collections::BinaryHeap};
 
-#[allow(unused)]
 impl Solution {
     pub fn k_sum(mut nums: Vec<i32>, mut k: i32) -> i64 {
         let sum_pos: i64 = nums.iter().filter(|v| **v > 0).map(|v| *v as i64).sum();

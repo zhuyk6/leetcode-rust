@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 struct BinaryIndexedTree {
     len: usize,
@@ -36,7 +36,6 @@ impl BinaryIndexedTree {
     }
 }
 
-#[allow(dead_code)]
 impl Solution {
     pub fn result_array(nums: Vec<i32>) -> Vec<i32> {
         let mut ordered_nums = nums.clone();
@@ -44,9 +43,7 @@ impl Solution {
         ordered_nums.dedup();
         let n = ordered_nums.len();
 
-        let get_order = |v: i32| -> usize {
-            ordered_nums.partition_point(|u| *u <= v)
-        };
+        let get_order = |v: i32| -> usize { ordered_nums.partition_point(|u| *u <= v) };
 
         let mut set1 = BinaryIndexedTree::new(n);
         let mut set2 = BinaryIndexedTree::new(n);

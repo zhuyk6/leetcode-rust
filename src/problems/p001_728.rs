@@ -104,11 +104,11 @@ impl Solver {
             ans.push(pos);
         }
         ans
-    }    
+    }
 
     pub fn topsort(&mut self, start_pos: [Point; 2]) -> bool {
         use std::collections::VecDeque;
-        
+
         let (m, n) = (self.m, self.n);
 
         // (turn, pos, dep)
@@ -140,11 +140,15 @@ impl Solver {
         let mut deg = vec![vec![vec![vec![vec![0; n]; m]; n]; m]; 2];
         for i in 0..m {
             for j in 0..n {
-                if !self.grid[i][j] { continue; }
+                if !self.grid[i][j] {
+                    continue;
+                }
                 for x in 0..m {
                     for y in 0..n {
-                        if !self.grid[x][y] { continue; }
-                        
+                        if !self.grid[x][y] {
+                            continue;
+                        }
+
                         let last_positions = self.moves(0, [(i, j), (x, y)]);
                         for pos in last_positions {
                             deg[0][pos[0].0][pos[0].1][pos[1].0][pos[1].1] += 1;
@@ -161,32 +165,35 @@ impl Solver {
 
         while let Some((turn, now, dep)) = que.pop_front() {
             let winner = self.f[turn][now[0].0][now[0].1][now[1].0][now[1].1];
-            println!("turn: {}, now: {:?}, dep: {}, winner: {}", turn, now, dep, winner);
-            
+            println!(
+                "turn: {}, now: {:?}, dep: {}, winner: {}",
+                turn, now, dep, winner
+            );
+
             if turn == 0 && now == start_pos {
                 return dep < 1000 && winner == 0;
             }
 
-            let last_positions = self.moves(turn^1, now);
+            let last_positions = self.moves(turn ^ 1, now);
 
             for pos in last_positions {
                 // already have winner
-                if self.f[turn^1][pos[0].0][pos[0].1][pos[1].0][pos[1].1] < 2 {
+                if self.f[turn ^ 1][pos[0].0][pos[0].1][pos[1].0][pos[1].1] < 2 {
                     continue;
                 }
                 // last can win
                 if winner == turn ^ 1 {
-                    self.f[turn^1][pos[0].0][pos[0].1][pos[1].0][pos[1].1] = turn ^ 1;
+                    self.f[turn ^ 1][pos[0].0][pos[0].1][pos[1].0][pos[1].1] = turn ^ 1;
                 } else {
-                    deg[turn^1][pos[0].0][pos[0].1][pos[1].0][pos[1].1] -= 1;
+                    deg[turn ^ 1][pos[0].0][pos[0].1][pos[1].0][pos[1].1] -= 1;
                     // if all loss, then loss
-                    if deg[turn^1][pos[0].0][pos[0].1][pos[1].0][pos[1].1] == 0 {
-                        self.f[turn^1][pos[0].0][pos[0].1][pos[1].0][pos[1].1] = turn;
+                    if deg[turn ^ 1][pos[0].0][pos[0].1][pos[1].0][pos[1].1] == 0 {
+                        self.f[turn ^ 1][pos[0].0][pos[0].1][pos[1].0][pos[1].1] = turn;
                     }
                 }
 
-                if self.f[turn^1][pos[0].0][pos[0].1][pos[1].0][pos[1].1] < 2 {
-                    que.push_back((turn^1, pos, dep+1));
+                if self.f[turn ^ 1][pos[0].0][pos[0].1][pos[1].0][pos[1].1] < 2 {
+                    que.push_back((turn ^ 1, pos, dep + 1));
                 }
             }
         }
@@ -195,11 +202,10 @@ impl Solver {
     }
 }
 
-#[allow(dead_code)]
 pub fn can_mouse_win(grid: Vec<String>, cat_jump: i32, mouse_jump: i32) -> bool {
     let (mut sol, p1, p2) = Solver::new(grid, mouse_jump as usize, cat_jump as usize);
     // sol.dfs(0, 0, [p1, p2]) == 0
-    
+
     sol.topsort([p1, p2])
 }
 

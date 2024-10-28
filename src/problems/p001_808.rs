@@ -1,4 +1,3 @@
-#[allow(unused)]
 pub fn max_nice_divisors(prime_factors: i32) -> i32 {
     #[inline]
     fn mul(a: u32, b: u32) -> u32 {

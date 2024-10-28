@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn min_deletion(nums: Vec<i32>) -> i32 {
         let mut ans = 0;

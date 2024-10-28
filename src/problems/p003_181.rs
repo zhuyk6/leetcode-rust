@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 struct Solver {
     nums: Vec<i32>,
@@ -6,7 +6,6 @@ struct Solver {
     last: usize,
 }
 
-#[allow(dead_code)]
 impl Solver {
     fn new(nums: Vec<i32>) -> Self {
         let last = *nums.last().unwrap();
@@ -44,7 +43,6 @@ struct Solver2 {
     f: Vec<Option<bool>>,
 }
 
-#[allow(dead_code)]
 impl Solver2 {
     fn new(nums: Vec<i32>) -> Self {
         let f = vec![None; 50_000 + 1];
@@ -93,7 +91,6 @@ impl Solver2 {
     }
 }
 
-#[allow(dead_code)]
 impl Solution {
     pub fn max_total_reward1(reward_values: Vec<i32>) -> i32 {
         let mut nums = reward_values;

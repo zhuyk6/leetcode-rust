@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn super_egg_drop_bisection(k: i32, n: i32) -> i32 {
         let n = n as usize;

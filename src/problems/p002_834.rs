@@ -1,8 +1,7 @@
-struct Solution;
+pub struct Solution;
 
 const MOD: i64 = 1_000_000_007;
 
-#[allow(unused)]
 impl Solution {
     pub fn minimum_possible_sum(n: i32, target: i32) -> i32 {
         let n = n as i64;

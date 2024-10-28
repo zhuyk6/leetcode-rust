@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn count_battleships(board: Vec<Vec<char>>) -> i32 {
         let mut ans = 0;
@@ -41,9 +40,7 @@ mod tests {
 
     #[test]
     fn sample2() {
-        let arr = array![
-            ["."]
-        ];
+        let arr = array![["."]];
         let board: Vec<Vec<char>> = arr
             .outer_iter()
             .map(|row| row.iter().map(|s| s.chars().next().unwrap()).collect())

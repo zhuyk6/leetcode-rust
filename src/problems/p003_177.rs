@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn maximum_length(nums: Vec<i32>, k: i32) -> i32 {
         let n = nums.len();

@@ -1,11 +1,10 @@
-struct Solution;
+pub struct Solution;
 
 use std::f64::consts::PI;
 
 const EPS: f64 = 1e-5;
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn visible_points(points: Vec<Vec<i32>>, angle: i32, location: Vec<i32>) -> i32 {
         let mut zero_num = 0;
 

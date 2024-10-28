@@ -1,14 +1,12 @@
-struct Solution;
+pub struct Solution;
 
 const P: u32 = 1_000_000_000 + 7;
 
-#[allow(unused)]
 #[inline]
 fn mul(x: u32, y: u32) -> u32 {
     (x as u64 * y as u64 % P as u64) as u32
 }
 
-#[allow(unused)]
 fn pow(a: u32, n: u32) -> u32 {
     let mut ans = 1;
     let mut bit = 1;
@@ -23,13 +21,11 @@ fn pow(a: u32, n: u32) -> u32 {
     ans
 }
 
-#[allow(unused)]
 #[inline]
 fn inv(a: u32) -> u32 {
     pow(a, P - 2)
 }
 
-#[allow(unused)]
 #[inline]
 fn choose(n: u32, r: u32) -> u32 {
     let r = r.min(n - r);
@@ -38,7 +34,6 @@ fn choose(n: u32, r: u32) -> u32 {
     mul(numerator, inv(denominator))
 }
 
-#[allow(unused)]
 fn factor(n: u32) -> Vec<(u32, u32)> {
     let mut n = n;
     let mut v: Vec<(u32, u32)> = Vec::new();
@@ -60,7 +55,6 @@ fn factor(n: u32) -> Vec<(u32, u32)> {
     v
 }
 
-#[allow(unused)]
 impl Solution {
     pub fn ways_to_fill_array(queries: Vec<Vec<i32>>) -> Vec<i32> {
         queries

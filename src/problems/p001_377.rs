@@ -1,6 +1,5 @@
 use std::collections::VecDeque;
 
-#[allow(unused)]
 pub fn frog_position<Out, In>(n: i32, edges: Out, t: i32, target: i32) -> f64
 where
     In: AsRef<[i32]>,

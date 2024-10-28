@@ -3,7 +3,6 @@ use std::{
     ops::{Add, Mul},
 };
 
-#[allow(dead_code)]
 pub fn score_of_students(s: String, answers: Vec<i32>) -> i32 {
     // let limit = *answers.iter().max().unwrap();
     let limit = 1000;
@@ -92,7 +91,7 @@ fn example() {
 #[test]
 fn timelimit() {
     let s = "9+9*3+9*6+6*3+9*3+6*9+6*6+6*3+3".to_string();
-    let answers = vec![884,656,24,246,279,745,732,176,569];
+    let answers = vec![884, 656, 24, 246, 279, 745, 732, 176, 569];
     let _ans = score_of_students(s, answers);
 }
 

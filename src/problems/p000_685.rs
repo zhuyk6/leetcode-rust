@@ -1,8 +1,7 @@
-struct Solution;
+pub struct Solution;
 
 use std::collections::{HashSet, VecDeque};
 
-#[allow(dead_code)]
 impl Solution {
     pub fn find_redundant_directed_connection(edges: Vec<Vec<i32>>) -> Vec<i32> {
         let n = edges.len();

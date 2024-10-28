@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn reachable_nodes(edges: Vec<Vec<i32>>, max_moves: i32, n: i32) -> i32 {
         let n = n as usize;

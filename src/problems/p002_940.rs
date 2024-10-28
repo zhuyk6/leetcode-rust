@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 struct Node {
     left: usize,
@@ -77,7 +77,6 @@ impl SegmentTree {
     }
 }
 
-#[allow(dead_code)]
 impl Solution {
     pub fn leftmost_building_queries(heights: Vec<i32>, mut queries: Vec<Vec<i32>>) -> Vec<i32> {
         // discretize `heights`

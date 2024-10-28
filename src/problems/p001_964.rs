@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn longest_obstacle_course_at_each_position(nums: Vec<i32>) -> Vec<i32> {
         let n = nums.len();

@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 struct Solver {
     to: Vec<Vec<(usize, i32)>>,
@@ -55,7 +55,6 @@ impl Solver {
     }
 }
 
-#[allow(dead_code)]
 impl Solution {
     pub fn count_pairs_of_connectable_servers(edges: Vec<Vec<i32>>, signal_speed: i32) -> Vec<i32> {
         let sol = Solver::new(edges, signal_speed);

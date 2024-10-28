@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn max_score(nums: Vec<i32>, x: i32) -> i64 {
         let mut odd = 0;

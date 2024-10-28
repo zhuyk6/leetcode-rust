@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 type Value = [i32; 26];
 type Edge = (usize, usize);
@@ -91,7 +91,6 @@ impl<'a> DFS<'a> {
 }
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn min_operations_queries(
         n: i32,
         edges: Vec<Vec<i32>>,

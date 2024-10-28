@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn minimum_steps(s: String) -> i64 {
         let s = s.as_bytes();

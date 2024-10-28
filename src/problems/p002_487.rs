@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 // Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
@@ -6,17 +6,16 @@ pub struct ListNode {
     pub val: i32,
     pub next: Option<Box<ListNode>>,
 }
-#[allow(unused)]
+
 impl ListNode {
     #[inline]
-    fn new(val: i32) -> Self {
+    pub fn new(val: i32) -> Self {
         ListNode { next: None, val }
     }
 }
 
 type Link = Option<Box<ListNode>>;
 
-#[allow(unused)]
 impl Solution {
     pub fn remove_nodes(head: Link) -> Link {
         fn dfs(cur: Link) -> Link {

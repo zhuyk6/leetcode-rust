@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn find_minimum_time(mut tasks: Vec<Vec<i32>>) -> i32 {
         tasks.sort_by_key(|w| w[1]);

@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 const P: i64 = 1_000_000_007;
 
@@ -16,7 +16,6 @@ fn pow(mut x: i64, n: i64) -> i64 {
     acc
 }
 
-#[allow(unused)]
 impl Solution {
     pub fn count_ways(mut ranges: Vec<Vec<i32>>) -> i32 {
         ranges.sort_unstable_by(|w1, w2| match w1[0].cmp(&w2[0]) {

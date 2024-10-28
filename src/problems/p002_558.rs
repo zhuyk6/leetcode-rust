@@ -1,9 +1,8 @@
-struct Solution;
+pub struct Solution;
 
 use std::collections::BinaryHeap;
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn pick_gifts(gifts: Vec<i32>, k: i32) -> i64 {
         let mut sum: i64 = gifts.iter().map(|x| *x as i64).sum();
         let mut heap = BinaryHeap::from_iter(gifts.into_iter().map(|x| x as i64));

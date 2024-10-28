@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 const PRIMES: [i32; 10] = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29];
 const MAX_VAL: usize = 30;

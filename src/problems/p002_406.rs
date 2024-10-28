@@ -1,7 +1,6 @@
 use std::cmp::{Ordering, Reverse};
 use std::collections::BinaryHeap;
 
-#[allow(unused)]
 pub fn min_groups(mut intervals: Vec<Vec<i32>>) -> i32 {
     intervals.sort_by(|a, b| match a[0].cmp(&b[0]) {
         Ordering::Less => Ordering::Less,

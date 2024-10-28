@@ -1,7 +1,6 @@
-struct Solution;
+pub struct Solution;
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn minimum_mountain_removals_force(nums: Vec<i32>) -> i32 {
         let n = nums.len();
         let mut f: Vec<usize> = vec![usize::MAX; n];
@@ -40,7 +39,6 @@ impl Solution {
             .unwrap() as i32
     }
 
-    #[allow(dead_code)]
     pub fn minimum_mountain_removals(nums: Vec<i32>) -> i32 {
         let n = nums.len();
 

@@ -1,4 +1,3 @@
-#[allow(unused)]
 pub fn kth_smallest(mat: Vec<Vec<i32>>, k: i32) -> i32 {
     use std::cmp::Reverse;
     use std::collections::BinaryHeap;
@@ -8,7 +7,7 @@ pub fn kth_smallest(mat: Vec<Vec<i32>>, k: i32) -> i32 {
         let mut c = Vec::new();
 
         let la = a.len();
-        let lb = b.len();
+        let _lb = b.len();
         for (j, bj) in b.iter().enumerate() {
             heap.push((Reverse(a[0] + bj), 0, j));
         }

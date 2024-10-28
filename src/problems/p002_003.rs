@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 use std::collections::HashSet;
 
@@ -32,7 +32,6 @@ impl<'a> Dfs<'a> {
     }
 }
 
-#[allow(dead_code)]
 impl Solution {
     pub fn smallest_missing_value_subtree(parents: Vec<i32>, nums: Vec<i32>) -> Vec<i32> {
         let n = parents.len();

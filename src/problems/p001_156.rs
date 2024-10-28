@@ -1,4 +1,3 @@
-#[allow(unused)]
 pub fn max_rep_opt1(text: String) -> i32 {
     fn forward(text: String) -> i32 {
         let cnt = {

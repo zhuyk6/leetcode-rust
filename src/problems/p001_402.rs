@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn max_satisfaction(mut satisfaction: Vec<i32>) -> i32 {
         let n = satisfaction.len();

@@ -1,8 +1,7 @@
-struct Solution;
+pub struct Solution;
 
 use std::collections::HashSet;
 
-#[allow(unused)]
 impl Solution {
     pub fn distinct_integers(n: i32) -> i32 {
         let mut set = HashSet::from([n]);

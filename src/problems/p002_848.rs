@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn number_of_points(mut nums: Vec<Vec<i32>>) -> i32 {
         nums.sort_by(|a, b| match a[0].cmp(&b[0]) {

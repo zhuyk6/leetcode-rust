@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn smallest_range_ii(mut nums: Vec<i32>, k: i32) -> i32 {
         nums.sort_unstable();

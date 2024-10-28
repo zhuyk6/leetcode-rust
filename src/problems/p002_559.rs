@@ -1,4 +1,3 @@
-#[allow(unused)]
 pub fn vowel_strings(words: Vec<String>, queries: Vec<Vec<i32>>) -> Vec<i32> {
     let n = words.len();
     let vowel = [b'a', b'e', b'i', b'o', b'u'];

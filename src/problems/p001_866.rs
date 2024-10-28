@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 const MOD: i64 = 1_000_000_007;
 

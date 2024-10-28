@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn dest_city(paths: Vec<Vec<String>>) -> String {
         use std::collections::HashSet;

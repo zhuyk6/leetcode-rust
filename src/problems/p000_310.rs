@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 struct Dfs<'a> {
     graph: &'a Vec<Vec<usize>>,
@@ -6,7 +6,6 @@ struct Dfs<'a> {
     ans: (usize, Vec<usize>),
 }
 
-#[allow(unused)]
 impl<'a> Dfs<'a> {
     fn new(graph: &'a Vec<Vec<usize>>) -> Self {
         let n = graph.len();
@@ -74,7 +73,6 @@ impl<'a> Dfs<'a> {
     }
 }
 
-#[allow(unused)]
 impl Solution {
     pub fn find_min_height_trees(n: i32, edges: Vec<Vec<i32>>) -> Vec<i32> {
         let n = n as usize;

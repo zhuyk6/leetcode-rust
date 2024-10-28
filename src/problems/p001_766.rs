@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 const MAXVAL: usize = 50;
 
@@ -54,7 +54,6 @@ impl<'a> Dfs<'a> {
     }
 }
 
-#[allow(unused)]
 impl Solution {
     pub fn get_coprimes(nums: Vec<i32>, edges: Vec<Vec<i32>>) -> Vec<i32> {
         let n = nums.len();

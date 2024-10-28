@@ -1,11 +1,10 @@
-struct Solution;
+pub struct Solution;
 
 use std::cmp::Reverse;
 use std::collections::BinaryHeap;
 
 const MOD: i64 = 1_000_000_007i64;
 
-#[allow(unused)]
 impl Solution {
     pub fn nums_game(mut nums: Vec<i32>) -> Vec<i32> {
         let n = nums.len();
@@ -27,7 +26,7 @@ impl Solution {
                     heap1.push(v);
                     sum1 += v as i64;
                 } else {
-                    let &x = heap1.peek().unwrap();
+                    let &_x = heap1.peek().unwrap();
                     let &Reverse(y) = heap2.peek().unwrap();
                     if v <= y {
                         // push v to heap1

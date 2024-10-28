@@ -1,5 +1,5 @@
 use crate::rctree::TreeNode;
-struct Solution;
+pub struct Solution;
 
 use std::cell::RefCell;
 use std::rc::Rc;
@@ -10,7 +10,6 @@ struct DFS<'a> {
     layers: &'a mut Vec<Vec<(i32, i32)>>,
 }
 
-#[allow(unused)]
 impl<'a> DFS<'a> {
     pub fn dfs(&mut self, t: Link, dep: usize) -> i32 {
         t.map_or(-1, |node| {
@@ -26,7 +25,6 @@ impl<'a> DFS<'a> {
     }
 }
 
-#[allow(unused)]
 impl Solution {
     pub fn tree_queries(root: Link, queries: Vec<i32>) -> Vec<i32> {
         use std::collections::HashMap;

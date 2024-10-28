@@ -1,4 +1,4 @@
-struct MyCircularQueue {
+pub struct MyCircularQueue {
     que: Vec<i32>,
     head: usize,
     tail: usize,
@@ -9,9 +9,9 @@ struct MyCircularQueue {
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
-#[allow(unused)]
+
 impl MyCircularQueue {
-    fn new(k: i32) -> Self {
+    pub fn new(k: i32) -> Self {
         MyCircularQueue {
             que: vec![0; k as usize],
             head: 0,
@@ -20,7 +20,7 @@ impl MyCircularQueue {
         }
     }
 
-    fn en_queue(&mut self, value: i32) -> bool {
+    pub fn en_queue(&mut self, value: i32) -> bool {
         if self.full {
             false
         } else {
@@ -33,7 +33,7 @@ impl MyCircularQueue {
         }
     }
 
-    fn de_queue(&mut self) -> bool {
+    pub fn de_queue(&mut self) -> bool {
         if self.tail == self.head && !self.full {
             false
         } else {
@@ -43,7 +43,7 @@ impl MyCircularQueue {
         }
     }
 
-    fn front(&self) -> i32 {
+    pub fn front(&self) -> i32 {
         if self.tail == self.head && !self.full {
             -1
         } else {
@@ -51,7 +51,7 @@ impl MyCircularQueue {
         }
     }
 
-    fn rear(&self) -> i32 {
+    pub fn rear(&self) -> i32 {
         if self.tail == self.head && !self.full {
             -1
         } else {
@@ -59,11 +59,11 @@ impl MyCircularQueue {
         }
     }
 
-    fn is_empty(&self) -> bool {
+    pub fn is_empty(&self) -> bool {
         self.tail == self.head && !self.full
     }
 
-    fn is_full(&self) -> bool {
+    pub fn is_full(&self) -> bool {
         self.full
     }
 }

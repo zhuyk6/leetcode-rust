@@ -1,10 +1,9 @@
 use crate::rctree::TreeNode;
-struct Solution;
+pub struct Solution;
 
 use std::cell::RefCell;
 use std::rc::Rc;
 
-#[allow(unused)]
 impl Solution {
     pub fn max_ancestor_diff(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         fn f(v: i32, min: Option<i32>, max: Option<i32>) -> Option<i32> {

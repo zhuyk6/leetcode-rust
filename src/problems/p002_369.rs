@@ -1,7 +1,6 @@
-struct Solution;
+pub struct Solution;
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn valid_partition(nums: Vec<i32>) -> bool {
         let n = nums.len();
         let mut f = vec![false; n];

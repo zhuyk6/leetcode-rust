@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn selling_wood(m: i32, n: i32, prices: Vec<Vec<i32>>) -> i64 {
         let m = m as usize;
@@ -8,7 +7,7 @@ impl Solution {
         let prices: Vec<(usize, usize, i64)> = prices
             .into_iter()
             .map(|v| (v[0] as usize, v[1] as usize, v[2] as i64))
-            .filter(|(x, y, w)| *x <= m && *y <= n)
+            .filter(|(x, y, _)| *x <= m && *y <= n)
             .collect();
 
         let mut f = vec![vec![0i64; n + 1]; m + 1];

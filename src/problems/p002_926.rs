@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 struct Node {
     left: usize,
@@ -69,7 +69,6 @@ impl Node {
     }
 }
 
-#[allow(unused)]
 impl Solution {
     pub fn max_balanced_subsequence_sum(nums: Vec<i32>) -> i64 {
         let n = nums.len();
@@ -82,7 +81,7 @@ impl Solution {
                 .enumerate()
                 .map(|(i, v)| (i, v - i as i32))
                 .collect();
-            val_idx.sort_unstable_by_key(|(idx, v)| *v);
+            val_idx.sort_unstable_by_key(|(_idx, v)| *v);
 
             let mut iter = val_idx.into_iter();
             let mut tot = 0;

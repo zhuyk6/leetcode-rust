@@ -1,4 +1,3 @@
-#[allow(unused)]
 pub fn maximum_tastiness(mut price: Vec<i32>, k: i32) -> i32 {
     price.sort();
 

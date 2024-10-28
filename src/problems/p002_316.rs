@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 struct JoinSet {
     fa: Vec<(usize, usize)>,
@@ -19,7 +19,6 @@ impl JoinSet {
     }
 }
 
-#[allow(unused)]
 impl Solution {
     pub fn count_pairs(n: i32, edges: Vec<Vec<i32>>) -> i64 {
         let n = n as usize;

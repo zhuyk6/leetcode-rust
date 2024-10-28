@@ -1,8 +1,7 @@
-struct Solution;
+pub struct Solution;
 
 use std::collections::HashMap;
 
-#[allow(unused)]
 impl Solution {
     pub fn count_words(words1: Vec<String>, words2: Vec<String>) -> i32 {
         fn get_counter(words: Vec<String>) -> HashMap<String, i32> {

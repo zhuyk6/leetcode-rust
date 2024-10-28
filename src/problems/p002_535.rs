@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn difference_of_sum(nums: Vec<i32>) -> i32 {
         let s1: i32 = nums.iter().sum();

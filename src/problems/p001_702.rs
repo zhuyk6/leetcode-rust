@@ -1,7 +1,7 @@
-struct Solution;
+pub struct Solution;
 
 use std::iter::{once, repeat};
-#[allow(unused)]
+
 impl Solution {
     pub fn maximum_binary_string(s: String) -> String {
         let tot = s.len();

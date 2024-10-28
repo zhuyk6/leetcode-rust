@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 struct Dfs<'a> {
     nums: &'a [i32],
@@ -35,7 +35,6 @@ impl<'a> Dfs<'a> {
     }
 }
 
-#[allow(dead_code)]
 impl Solution {
     pub fn max_operations(nums: Vec<i32>) -> i32 {
         let n = nums.len();

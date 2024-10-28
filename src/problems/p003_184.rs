@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn count_complete_day_pairs(hours: Vec<i32>) -> i32 {
         let mut cnt = [0; 24];

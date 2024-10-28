@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 #[derive(Debug, Clone)]
 enum Expr {
@@ -13,7 +13,6 @@ use std::collections::HashMap;
 
 use Expr::*;
 
-#[allow(unused)]
 impl Expr {
     fn parse_int(s: &str) -> Option<Expr> {
         s.parse().ok().map(Int)
@@ -134,10 +133,10 @@ impl Expr {
                 Box::new(Expr::eval_expr(*e1, map)),
                 Box::new(Expr::eval_expr(*e2, map)),
             ),
-            _ => panic!("Invalid!"),
         }
     }
 
+    #[allow(dead_code)]
     fn simplify(expr: Expr) -> Expr {
         fn simplify_add(x: i32, e: Expr) -> Expr {
             match e {
@@ -316,7 +315,6 @@ impl Expr {
     }
 }
 
-#[allow(unused)]
 impl Solution {
     pub fn basic_calculator_iv(
         expression: String,
@@ -334,8 +332,8 @@ impl Solution {
         // println!("Simplified: {:#?}", expr);
 
         let map = Expr::count_answer(expr);
-        let mut arr: Vec<(String, i32)> = map.into_iter().filter(|(s, v)| *v != 0).collect();
-        arr.sort_by(|(s1, v1), (s2, v2)| {
+        let mut arr: Vec<(String, i32)> = map.into_iter().filter(|(_, v)| *v != 0).collect();
+        arr.sort_by(|(s1, _v1), (s2, _v2)| {
             if s1.is_empty() {
                 return std::cmp::Ordering::Greater;
             }

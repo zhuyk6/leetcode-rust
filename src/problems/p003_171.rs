@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn minimum_difference(nums: Vec<i32>, k: i32) -> i32 {
         type Bits = [i32; 32];

@@ -1,7 +1,6 @@
-struct Solution;
+pub struct Solution;
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn kth_palindrome(queries: Vec<i32>, int_length: i32) -> Vec<i64> {
         let m: i32 = (int_length + 1) / 2;
 

@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn maximum_sum_of_heights(max_heights: Vec<i32>) -> i64 {
         let n = max_heights.len();

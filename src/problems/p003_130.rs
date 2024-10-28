@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 const MOD: i32 = 1_000_000_007;
 
@@ -13,7 +13,6 @@ impl AddMod for i32 {
     }
 }
 
-#[allow(dead_code)]
 impl Solution {
     pub fn number_of_stable_arrays(zero: i32, one: i32, limit: i32) -> i32 {
         let n0 = zero as usize;

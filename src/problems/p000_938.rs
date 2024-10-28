@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 use crate::rctree::TreeNode;
 
@@ -7,7 +7,6 @@ use std::rc::Rc;
 
 type Link = Option<Rc<RefCell<TreeNode>>>;
 
-#[allow(unused)]
 impl Solution {
     pub fn range_sum_bst(root: Link, low: i32, high: i32) -> i32 {
         fn dfs(x: Link, l: i32, r: i32) -> i32 {

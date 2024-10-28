@@ -1,8 +1,7 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
-    pub fn spiral_array(mut array: Vec<Vec<i32>>) -> Vec<i32> {
+    pub fn spiral_array(array: Vec<Vec<i32>>) -> Vec<i32> {
         let m = array.len() as i32;
         if m == 0 {
             return vec![];

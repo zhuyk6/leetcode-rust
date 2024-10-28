@@ -1,4 +1,3 @@
-#[allow(unused)]
 fn group<T: Ord>(v: Vec<T>) -> Vec<(T, u32)> {
     let v = v;
     let mut cnt: Vec<(T, u32)> = Vec::new();
@@ -16,7 +15,6 @@ fn group<T: Ord>(v: Vec<T>) -> Vec<(T, u32)> {
     cnt
 }
 
-#[allow(unused)]
 pub fn maximize_win(prize_positions: Vec<i32>, k: i32) -> i32 {
     let cnt = group(prize_positions);
     let n = cnt.len();

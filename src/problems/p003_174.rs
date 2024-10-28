@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn clear_digits(s: String) -> String {
         let s: Vec<char> = s.chars().collect();

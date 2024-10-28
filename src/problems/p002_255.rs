@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 #[derive(Default)]
 struct Node {
@@ -46,7 +46,6 @@ impl Trie {
 }
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn count_prefixes(words: Vec<String>, s: String) -> i32 {
         let mut trie: Trie = Default::default();
         for s in words.into_iter() {

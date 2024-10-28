@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 use std::collections::HashMap;
 
@@ -130,7 +130,6 @@ impl Dfs {
     }
 }
 
-#[allow(dead_code)]
 impl Solution {
     pub fn count_special_numbers(mut n: i32) -> i32 {
         let mut nums = Vec::new();

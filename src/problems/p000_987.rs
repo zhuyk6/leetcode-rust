@@ -3,11 +3,10 @@ use std::collections::{BTreeMap, VecDeque};
 use std::rc::Rc;
 
 use crate::rctree::TreeNode;
-struct Solution;
+pub struct Solution;
 
 type Link = Option<Rc<RefCell<TreeNode>>>;
 
-#[allow(unused)]
 impl Solution {
     pub fn vertical_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
         let mut que: VecDeque<(Link, usize, i32)> = VecDeque::new();

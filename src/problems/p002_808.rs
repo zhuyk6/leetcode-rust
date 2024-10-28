@@ -1,8 +1,7 @@
-struct Solution;
+pub struct Solution;
 
 use std::collections::HashMap;
 
-#[allow(unused)]
 impl Solution {
     pub fn minimum_seconds(nums: Vec<i32>) -> i32 {
         let n = nums.len();

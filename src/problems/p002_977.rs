@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 use std::collections::HashMap;
 
@@ -23,6 +23,7 @@ impl Node {
 }
 
 struct TransformGraph {
+    #[allow(dead_code)]
     str_to_idx: HashMap<String, usize>,
     mat: Vec<Vec<i64>>,
     root: Node,
@@ -76,20 +77,18 @@ impl TransformGraph {
         }
     }
 
-    #[allow(unused)]
-    fn get_cost(&self, s: &str, t: &str) -> i64 {
-        if s == t {
-            0
-        } else {
-            self.str_to_idx
-                .get(s)
-                .and_then(|idx_s| self.str_to_idx.get(t).map(|idx_t| self.mat[*idx_s][*idx_t]))
-                .unwrap_or(i64::MAX)
-        }
-    }
+    // fn get_cost(&self, s: &str, t: &str) -> i64 {
+    //     if s == t {
+    //         0
+    //     } else {
+    //         self.str_to_idx
+    //             .get(s)
+    //             .and_then(|idx_s| self.str_to_idx.get(t).map(|idx_t| self.mat[*idx_s][*idx_t]))
+    //             .unwrap_or(i64::MAX)
+    //     }
+    // }
 }
 
-#[allow(dead_code)]
 impl Solution {
     pub fn minimum_cost(
         source: String,

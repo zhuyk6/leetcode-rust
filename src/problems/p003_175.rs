@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn find_winning_player<T>(skills: T, k: i32) -> i32
     where

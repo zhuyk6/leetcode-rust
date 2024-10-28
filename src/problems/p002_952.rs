@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn minimum_added_coins(mut coins: Vec<i32>, target: i32) -> i32 {
         let mut ans = 0;

@@ -1,6 +1,5 @@
 use std::mem::swap;
 
-#[allow(unused)]
 pub fn modified_graph_edges(
     n: i32,
     mut edges: Vec<Vec<i32>>,

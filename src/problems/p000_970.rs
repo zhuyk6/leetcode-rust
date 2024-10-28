@@ -1,6 +1,5 @@
 use std::collections::HashSet;
 
-#[allow(unused)]
 /// z = x^i + y^j, where i >= 0 and j >= 0
 pub fn powerful_integers(x: i32, y: i32, bound: i32) -> Vec<i32> {
     if x > y {

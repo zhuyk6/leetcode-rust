@@ -1,12 +1,10 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 #[inline]
 fn mul(a: i32, b: i32, m: i32) -> i32 {
     (a as i64 * b as i64 % m as i64) as i32
 }
 
-#[allow(unused)]
 impl Solution {
     pub fn divisibility_array(word: String, m: i32) -> Vec<i32> {
         let mut z = 0;

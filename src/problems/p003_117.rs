@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 use std::collections::HashMap;
 
@@ -53,7 +53,6 @@ impl Solver {
     }
 }
 
-#[allow(dead_code)]
 impl Solution {
     pub fn minimum_value_sum_old(nums: Vec<i32>, and_values: Vec<i32>) -> i32 {
         let n = nums.len();

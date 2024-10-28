@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn max_building(n: i32, mut restrictions: Vec<Vec<i32>>) -> i32 {
         restrictions.sort_unstable_by_key(|w| w[0]);

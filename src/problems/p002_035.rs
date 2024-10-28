@@ -1,36 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-struct Dfs {
-    n: usize,
-    nums: Vec<i32>,
-    sum: i32,
-    ans: i32,
-}
-
-#[allow(dead_code)]
-impl Dfs {
-    fn new(nums: Vec<i32>) -> Self {
-        let sum: i32 = nums.iter().sum();
-        let n = nums.len();
-        Dfs {
-            n,
-            nums,
-            sum,
-            ans: i32::MAX,
-        }
-    }
-
-    fn dfs(&mut self, x: usize, left: usize, acc: i32) {
-        if left == 0 {
-            self.ans = self.ans.min((self.sum - 2 * acc).abs());
-        } else if x < self.n && self.n - x >= left {
-            self.dfs(x + 1, left - 1, acc + self.nums[x]);
-            self.dfs(x + 1, left, acc);
-        }
-    }
-}
-
-#[allow(dead_code)]
 impl Solution {
     pub fn minimum_difference(nums: Vec<i32>) -> i32 {
         let n = nums.len() / 2;

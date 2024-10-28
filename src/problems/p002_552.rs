@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn count_quadruplets(nums: Vec<i32>) -> i64 {
         let n = nums.len();

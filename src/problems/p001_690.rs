@@ -1,7 +1,6 @@
-struct Solution;
+pub struct Solution;
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn stone_game_vii(stones: Vec<i32>) -> i32 {
         let n = stones.len();
         let mut f: Vec<Vec<i32>> = vec![vec![0; n]; n];

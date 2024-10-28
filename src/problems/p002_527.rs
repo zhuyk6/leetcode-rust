@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn xor_beauty(nums: Vec<i32>) -> i32 {
         let s = nums.iter().fold(0, |acc, e| acc ^ *e);

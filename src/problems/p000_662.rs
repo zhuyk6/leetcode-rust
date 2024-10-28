@@ -10,7 +10,6 @@ pub struct TreeNode {
     pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
-#[allow(unused)]
 impl TreeNode {
     #[inline]
     pub fn new(val: i32) -> Self {
@@ -22,11 +21,10 @@ impl TreeNode {
     }
 }
 
-struct Solution;
+pub struct Solution;
 
 type Link = Option<Rc<RefCell<TreeNode>>>;
 
-#[allow(unused)]
 impl Solution {
     pub fn width_of_binary_tree(root: Link) -> i32 {
         let mut que: VecDeque<(Link, usize, u32)> = VecDeque::new();

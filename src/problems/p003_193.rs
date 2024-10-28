@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn number_of_permutations_old(n: i32, mut requirements: Vec<Vec<i32>>) -> i32 {
         let n = n as usize;

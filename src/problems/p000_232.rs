@@ -1,41 +1,38 @@
-struct MyQueue {
+#[derive(Default)]
+pub struct MyQueue {
     head: Vec<i32>,
     tail: Vec<i32>,
 }
 
-#[allow(dead_code)]
 impl MyQueue {
-    fn new() -> Self {
-        MyQueue {
-            head: Vec::new(),
-            tail: Vec::new(),
-        }
+    pub fn new() -> Self {
+        Default::default()
     }
 
-    fn adjust(&mut self) {
+    pub fn adjust(&mut self) {
         assert!(self.head.is_empty());
         self.head = std::mem::take(&mut self.tail).into_iter().rev().collect();
     }
 
-    fn push(&mut self, x: i32) {
+    pub fn push(&mut self, x: i32) {
         self.tail.push(x);
     }
 
-    fn pop(&mut self) -> i32 {
+    pub fn pop(&mut self) -> i32 {
         if self.head.is_empty() {
             self.adjust();
         }
         self.head.pop().unwrap()
     }
 
-    fn peek(&mut self) -> i32 {
+    pub fn peek(&mut self) -> i32 {
         if self.head.is_empty() {
             self.adjust();
         }
         *self.head.last().unwrap()
     }
 
-    fn empty(&self) -> bool {
+    pub fn empty(&self) -> bool {
         self.head.is_empty() && self.tail.is_empty()
     }
 }

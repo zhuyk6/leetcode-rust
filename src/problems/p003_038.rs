@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn max_operations(nums: Vec<i32>) -> i32 {
         assert!(nums.len() >= 2);

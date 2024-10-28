@@ -6,7 +6,6 @@ pub struct TreeNode {
     pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
-#[allow(unused)]
 impl TreeNode {
     #[inline]
     pub fn new(val: i32) -> Self {
@@ -17,13 +16,12 @@ impl TreeNode {
         }
     }
 }
-struct Solution;
+pub struct Solution;
 
 use std::cell::RefCell;
 use std::collections::VecDeque;
 use std::rc::Rc;
 
-#[allow(unused)]
 impl Solution {
     pub fn is_even_odd_tree(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
         let mut que = VecDeque::new();

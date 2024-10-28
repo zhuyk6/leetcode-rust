@@ -233,34 +233,32 @@ impl Node {
     }
 }
 
-#[allow(dead_code)]
-struct BookMyShow {
+pub struct BookMyShow {
     root: Link,
-    n: i32,
+    _n: i32,
     m: i32,
 }
 
 // `&self` means the method takes an immutable reference.
 // If you need a mutable reference, change it to `&mut self` instead.
 
-#[allow(dead_code)]
 impl BookMyShow {
-    fn new(n: i32, m: i32) -> Self {
+    pub fn new(n: i32, m: i32) -> Self {
         BookMyShow {
             root: Node::build(0, n as usize - 1, m),
-            n,
+            _n: n,
             m,
         }
     }
 
-    fn gather(&mut self, k: i32, max_row: i32) -> Vec<i32> {
+    pub fn gather(&mut self, k: i32, max_row: i32) -> Vec<i32> {
         match self.root.insert_left(k, max_row as usize) {
             Some((r, c)) => vec![r as i32, self.m - c],
             None => vec![],
         }
     }
 
-    fn scatter(&mut self, k: i32, max_row: i32) -> bool {
+    pub fn scatter(&mut self, k: i32, max_row: i32) -> bool {
         if self.root.query_sum(max_row as usize) >= k as i64 {
             let mut k = k as i64;
             self.root.scatter_left(&mut k);

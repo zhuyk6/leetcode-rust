@@ -1,10 +1,9 @@
 use crate::rctree::TreeNode;
-struct Solution;
+pub struct Solution;
 
 use std::cell::RefCell;
 use std::rc::Rc;
 
-#[allow(unused)]
 impl Solution {
     pub fn del_nodes(
         root: Option<Rc<RefCell<TreeNode>>>,

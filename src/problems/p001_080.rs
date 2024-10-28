@@ -5,9 +5,8 @@ use crate::rctree::TreeNode;
 
 type Link = Option<Rc<RefCell<TreeNode>>>;
 
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn sufficient_subset(root: Link, limit: i32) -> Link {
         fn dfs(t: Link, acc: i32, limit: i32) -> Link {

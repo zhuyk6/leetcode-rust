@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn longest_continuous_substring(s: String) -> i32 {
         let s = s.as_bytes();

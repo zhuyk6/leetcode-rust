@@ -1,10 +1,9 @@
 use crate::rctree::TreeNode;
-struct Solution;
+pub struct Solution;
 
 use std::cell::RefCell;
 use std::rc::Rc;
 
-#[allow(unused)]
 impl Solution {
     fn merge(a: &[i32], b: &[i32], seq: &mut Vec<i32>, ans: &mut Vec<Vec<i32>>) {
         if a.is_empty() && b.is_empty() {

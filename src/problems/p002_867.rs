@@ -1,23 +1,21 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
-fn is_prime(n: usize) -> bool {
-    assert!(n >= 1);
-    if n == 1 {
-        return false;
-    }
-    for p in 2..n {
-        if p * p > n {
-            break;
-        }
-        if n % p == 0 {
-            return false;
-        }
-    }
-    true
-}
+// fn is_prime(n: usize) -> bool {
+//     assert!(n >= 1);
+//     if n == 1 {
+//         return false;
+//     }
+//     for p in 2..n {
+//         if p * p > n {
+//             break;
+//         }
+//         if n % p == 0 {
+//             return false;
+//         }
+//     }
+//     true
+// }
 
-#[allow(unused)]
 fn generate_prime(n: usize) -> Vec<bool> {
     let mut not_prime = vec![false; n + 1];
     not_prime[0] = true;
@@ -51,7 +49,6 @@ struct DFS<'a> {
     ans: usize,
 }
 
-#[allow(unused)]
 impl<'a> DFS<'a> {
     fn new(n: usize, not_prime: &'a Vec<bool>, to: &'a Vec<Vec<usize>>) -> Self {
         DFS {
@@ -105,7 +102,6 @@ impl<'a> DFS<'a> {
     }
 }
 
-#[allow(unused)]
 impl Solution {
     pub fn count_paths(n: i32, edges: Vec<Vec<i32>>) -> i64 {
         let n = n as usize;

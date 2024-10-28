@@ -1,6 +1,5 @@
 use std::collections::VecDeque;
 
-#[allow(unused)]
 pub fn shortest_path_binary_matrix(grid: Vec<Vec<i32>>) -> i32 {
     let n = grid.len();
     let mut que: VecDeque<(usize, usize, i32)> = VecDeque::new();

@@ -3,7 +3,7 @@ use std::cell::RefCell;
 use std::collections::VecDeque;
 use std::rc::Rc;
 
-struct Solution;
+pub struct Solution;
 
 type Link = Option<Rc<RefCell<TreeNode>>>;
 
@@ -20,7 +20,6 @@ fn pow2(n: usize) -> usize {
     1 << n
 }
 
-#[allow(unused)]
 impl Solution {
     pub fn print_tree(root: Link) -> Vec<Vec<String>> {
         let h = get_height(root.clone(), 0);

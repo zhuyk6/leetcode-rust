@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 fn dfs(arr: &mut [i32], tmp: &mut [i32], vis: &mut [bool], ans: &mut Vec<i32>) {
     let n = arr.len();
@@ -65,7 +65,6 @@ fn dfs(arr: &mut [i32], tmp: &mut [i32], vis: &mut [bool], ans: &mut Vec<i32>) {
 }
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn recover_array(_: i32, sums: Vec<i32>) -> Vec<i32> {
         let mut arr = sums;
         arr.sort();

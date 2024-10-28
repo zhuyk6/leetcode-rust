@@ -1,7 +1,6 @@
-struct Solution;
+pub struct Solution;
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn minimum_one_bit_operations(n: i32) -> i32 {
         // n = 0 or 1
         if n <= 1 {

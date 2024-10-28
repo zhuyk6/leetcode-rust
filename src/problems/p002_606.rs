@@ -1,4 +1,3 @@
-#[allow(unused)]
 pub fn maximum_cost_substring(s: String, chars: String, vals: Vec<i32>) -> i32 {
     let mut to_val: Vec<i32> = (1..=26).collect();
 

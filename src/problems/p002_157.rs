@@ -8,7 +8,6 @@ struct DFS<'a> {
 }
 
 impl<'a> DFS<'a> {
-    #[allow(dead_code)]
     pub fn new(n: usize, to: &'a Vec<Vec<usize>>, cnt: &'a HashMap<usize, i32>) -> Self {
         DFS {
             vis: vec![false; n],
@@ -17,7 +16,6 @@ impl<'a> DFS<'a> {
         }
     }
 
-    #[allow(dead_code)]
     pub fn dfs(&mut self, x: usize) -> i32 {
         if self.vis[x] {
             return 0;
@@ -35,7 +33,6 @@ impl<'a> DFS<'a> {
     }
 }
 
-#[allow(dead_code)]
 pub fn group_strings(words: Vec<String>) -> Vec<i32> {
     const M: usize = 26;
 

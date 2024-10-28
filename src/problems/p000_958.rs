@@ -4,9 +4,8 @@ use std::rc::Rc;
 
 use crate::rctree::TreeNode;
 
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn is_complete_tree(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
         type Link = Option<Rc<RefCell<TreeNode>>>;

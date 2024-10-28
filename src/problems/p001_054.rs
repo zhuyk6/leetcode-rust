@@ -1,6 +1,5 @@
 use std::collections::HashMap;
 
-#[allow(unused)]
 pub fn rearrange_barcodes(barcodes: Vec<i32>) -> Vec<i32> {
     let mut cnt = HashMap::new();
     for x in barcodes {
@@ -35,7 +34,7 @@ pub fn rearrange_barcodes(barcodes: Vec<i32>) -> Vec<i32> {
     ans
 }
 
-#[allow(unused)]
+#[cfg(test)]
 fn check(arr: &[i32]) -> bool {
     arr.windows(2).all(|w| w[0] != w[1])
 }

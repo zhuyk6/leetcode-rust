@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 #[inline]
 fn count1(s: &[u8]) -> usize {
@@ -185,7 +185,6 @@ fn fix_characters(s: &mut [u8]) -> u32 {
     ops
 }
 
-#[allow(unused)]
 impl Solution {
     pub fn strong_password_checker(password: String) -> i32 {
         let mut s: Vec<u8> = password.as_bytes().to_vec();

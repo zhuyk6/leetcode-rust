@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn get_ancestors(n: i32, edges: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
         let n = n as usize;
@@ -39,7 +38,7 @@ impl Solution {
 
         ancestors
             .into_iter()
-            .map(|mut v| v.into_iter().map(|x| x as i32).collect())
+            .map(|v| v.into_iter().map(|x| x as i32).collect())
             .collect()
     }
 }

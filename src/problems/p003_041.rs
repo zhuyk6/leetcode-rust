@@ -1,9 +1,7 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn max_selected_elements(mut nums: Vec<i32>) -> i32 {
-        const M: usize = 1_000_000;
         nums.sort_unstable();
 
         use std::collections::HashMap;

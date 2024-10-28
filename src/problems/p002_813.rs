@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn find_maximum_elegance(mut items: Vec<Vec<i32>>, k: i32) -> i64 {
         let k = k as usize;

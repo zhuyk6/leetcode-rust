@@ -5,10 +5,9 @@ pub struct ListNode {
     pub next: Option<Box<ListNode>>,
 }
 
-#[allow(unused)]
 impl ListNode {
     #[inline]
-    fn new(val: i32) -> Self {
+    pub fn new(val: i32) -> Self {
         ListNode { next: None, val }
     }
 
@@ -23,9 +22,8 @@ impl ListNode {
     }
 }
 
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn remove_zero_sum_sublists(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         let mut arr = vec![0];
@@ -74,7 +72,7 @@ impl Solution {
     }
 }
 
-#[allow(unused)]
+#[cfg(test)]
 fn show(mut head: Option<Box<ListNode>>) {
     print!("[");
     while let Some(node) = head {

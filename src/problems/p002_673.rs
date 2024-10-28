@@ -1,7 +1,6 @@
-struct Solution;
+pub struct Solution;
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn min_increments(n: i32, cost: Vec<i32>) -> i32 {
         let n = n as usize;
 

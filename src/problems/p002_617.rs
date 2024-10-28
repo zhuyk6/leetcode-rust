@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(unused)]
 impl Solution {
     pub fn minimum_visited_cells(grid: Vec<Vec<i32>>) -> i32 {
         let m = grid.len();
@@ -65,7 +64,7 @@ impl Solution {
                 println!("f = {}", f[i][j]);
 
                 // push into stack
-                while let Some((v, pos)) = stack_row[i].last() {
+                while let Some((v, _pos)) = stack_row[i].last() {
                     if *v >= f[i][j] {
                         stack_row[i].pop();
                     } else {
@@ -74,7 +73,7 @@ impl Solution {
                 }
                 stack_row[i].push((f[i][j], j));
 
-                while let Some((v, pos)) = stack_col[j].last() {
+                while let Some((v, _pos)) = stack_col[j].last() {
                     if *v >= f[i][j] {
                         stack_col[j].pop();
                     } else {

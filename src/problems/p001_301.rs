@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 const MOD: i32 = 1_000_000_007;
 
@@ -16,7 +16,6 @@ fn update(f: &mut (i32, i32), g: (i32, i32), d: i32) {
     }
 }
 
-#[allow(dead_code)]
 impl Solution {
     pub fn paths_with_max_score(board: Vec<String>) -> Vec<i32> {
         let grid: Vec<Vec<u8>> = board.into_iter().map(|s| s.into_bytes()).collect();

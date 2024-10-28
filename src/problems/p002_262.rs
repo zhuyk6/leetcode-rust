@@ -1,7 +1,6 @@
-struct Solution;
+pub struct Solution;
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn appeal_sum(s: String) -> i64 {
         let n = s.len() as i64; // length of the string
         let mut last_pos: [i64; 26] = [-1; 26];

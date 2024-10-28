@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn maximum_beauty_method1(mut nums: Vec<i32>, k: i32) -> i32 {
         nums.sort_unstable();
@@ -19,7 +18,7 @@ impl Solution {
 
         ans as i32
     }
-    
+
     pub fn maximum_beauty(nums: Vec<i32>, k: i32) -> i32 {
         let m: i32 = *nums.iter().max().unwrap();
 

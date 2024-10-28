@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 use std::collections::{HashMap, HashSet};
 
@@ -77,7 +77,6 @@ impl Grid {
     }
 }
 
-#[allow(dead_code)]
 impl Solution {
     pub fn grid_illumination(n: i32, lamps: Vec<Vec<i32>>, queries: Vec<Vec<i32>>) -> Vec<i32> {
         let n = n as usize;

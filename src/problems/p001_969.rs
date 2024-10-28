@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 #[inline]
 fn mul(x: i64, y: i64, p: i64) -> i64 {
@@ -18,7 +18,6 @@ fn pow(mut a: i64, n: i64, p: i64) -> i64 {
     acc
 }
 
-#[allow(unused)]
 impl Solution {
     pub fn min_non_zero_product(p: i32) -> i32 {
         const MOD: i64 = 1_000_000_007;

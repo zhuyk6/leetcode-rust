@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn maximum_length(s: String) -> i32 {
         let s = s.as_bytes();
@@ -40,7 +39,7 @@ impl Solution {
         for cnt in &counter {
             if cnt[2] == cnt[1] && cnt[1] == cnt[0] {
                 ans = ans.max(cnt[2]);
-            } else if cnt[2] > 1 && (cnt[2] == cnt[1] || cnt[2] - 1 == cnt[1]){
+            } else if cnt[2] > 1 && (cnt[2] == cnt[1] || cnt[2] - 1 == cnt[1]) {
                 ans = ans.max(cnt[2] - 1);
             } else if cnt[2] > 2 {
                 ans = ans.max(cnt[2] - 2);

@@ -5,7 +5,6 @@ pub struct ListNode {
     pub next: Option<Box<ListNode>>,
 }
 
-#[allow(unused)]
 impl ListNode {
     #[inline]
     fn new(val: i32) -> Self {
@@ -13,31 +12,30 @@ impl ListNode {
     }
 }
 
-struct Solution;
+pub struct Solution;
 
 type Link = Option<Box<ListNode>>;
 
-#[allow(unused)]
 impl Solution {
     pub fn trainning_plan(mut l1: Link, mut l2: Link) -> Link {
-        fn dfs(mut l1: Link, mut l2: Link) -> Link {
-            if let Some(n1) = l1.as_mut() {
-                if let Some(n2) = l2.as_mut() {
-                    let (n3, v) = if n1.val <= n2.val {
-                        (dfs(n1.next.take(), l2), n1.val)
-                    } else {
-                        (dfs(l1, n2.next.take()), n2.val)
-                    };
-                    let mut node = ListNode::new(v);
-                    node.next = n3;
-                    Some(Box::new(node))
-                } else {
-                    l1
-                }
-            } else {
-                l2
-            }
-        }
+        // fn dfs(mut l1: Link, mut l2: Link) -> Link {
+        //     if let Some(n1) = l1.as_mut() {
+        //         if let Some(n2) = l2.as_mut() {
+        //             let (n3, v) = if n1.val <= n2.val {
+        //                 (dfs(n1.next.take(), l2), n1.val)
+        //             } else {
+        //                 (dfs(l1, n2.next.take()), n2.val)
+        //             };
+        //             let mut node = ListNode::new(v);
+        //             node.next = n3;
+        //             Some(Box::new(node))
+        //         } else {
+        //             l1
+        //         }
+        //     } else {
+        //         l2
+        //     }
+        // }
         // dfs(l1, l2)
 
         let mut head = ListNode::new(0);

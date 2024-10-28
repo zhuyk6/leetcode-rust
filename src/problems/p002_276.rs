@@ -99,7 +99,7 @@ impl Node {
     // }
 }
 
-struct CountIntervals {
+pub struct CountIntervals {
     root: Link,
 }
 
@@ -107,20 +107,18 @@ const LEFT: i32 = 1;
 const RIGHT: i32 = 1_000_000_000;
 
 impl CountIntervals {
-    #[allow(dead_code)]
-    fn new() -> Self {
+    #[allow(clippy::new_without_default)]
+    pub fn new() -> Self {
         CountIntervals {
             root: Some(Box::new(Node::new(LEFT, RIGHT))),
         }
     }
 
-    #[allow(dead_code)]
-    fn add(&mut self, left: i32, right: i32) {
+    pub fn add(&mut self, left: i32, right: i32) {
         self.root.as_mut().unwrap().add(left, right);
     }
 
-    #[allow(dead_code)]
-    fn count(&self) -> i32 {
+    pub fn count(&self) -> i32 {
         self.root.as_ref().unwrap().num
     }
 }

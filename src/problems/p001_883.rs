@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn min_skips(dist: Vec<i32>, speed: i32, hours_before: i32) -> i32 {
         let n = dist.len();

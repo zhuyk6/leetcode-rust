@@ -1,11 +1,11 @@
 use crate::boxlist::ListNode;
 
-struct Solution;
+pub struct Solution;
 
 type Link = Option<Box<ListNode>>;
 
-#[allow(dead_code)]
 impl Solution {
+    #[allow(dead_code)]
     fn merge_nodes_loop(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         let mut acc = 0;
         let mut cur = head;

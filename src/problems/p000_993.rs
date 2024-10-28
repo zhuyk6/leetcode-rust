@@ -18,14 +18,13 @@
 // }
 
 use crate::rctree::TreeNode;
-struct Solution;
+pub struct Solution;
 
 use std::cell::RefCell;
 use std::rc::Rc;
 
 type Link = Option<Rc<RefCell<TreeNode>>>;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn is_cousins(root: Option<Rc<RefCell<TreeNode>>>, x: i32, y: i32) -> bool {
         fn get_dep_fa(x: Link, val: i32, dep: u32, fa: Option<i32>) -> Option<(u32, Option<i32>)> {

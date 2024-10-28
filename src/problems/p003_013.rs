@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn minimum_cost(nums: Vec<i32>, k: i32, dist: i32) -> i64 {
         let n = nums.len();

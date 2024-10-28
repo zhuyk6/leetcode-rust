@@ -1,4 +1,3 @@
-#[allow(unused)]
 pub fn longest_awesome(s: String) -> i32 {
     let s = s.as_bytes();
 

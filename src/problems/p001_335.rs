@@ -1,6 +1,5 @@
 use std::vec;
 
-#[allow(unused)]
 pub fn min_difficulty(job_difficulty: Vec<i32>, d: i32) -> i32 {
     let d: usize = d as usize;
     let n: usize = job_difficulty.len();

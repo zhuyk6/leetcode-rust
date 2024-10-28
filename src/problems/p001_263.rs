@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 use std::collections::VecDeque;
 
@@ -15,7 +15,6 @@ enum Direction {
 const DIRECTIONS: [Direction; 4] = [Direction::U, Direction::D, Direction::L, Direction::R];
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn min_push_box(grid: Vec<Vec<char>>) -> i32 {
         let m = grid.len();
         let n = grid[0].len();

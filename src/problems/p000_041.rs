@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 #[allow(unused, clippy::needless_range_loop)]
 impl Solution {

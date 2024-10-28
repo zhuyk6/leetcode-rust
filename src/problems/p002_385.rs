@@ -1,5 +1,5 @@
 use crate::rctree::TreeNode;
-struct Solution;
+pub struct Solution;
 
 use std::cell::RefCell;
 use std::rc::Rc;
@@ -9,7 +9,6 @@ struct Dfs {
     ans: u32,
 }
 
-#[allow(dead_code)]
 impl Dfs {
     fn dfs(&mut self, x: Option<Rc<RefCell<TreeNode>>>) -> (u32, Option<u32>) {
         if let Some(node) = x {
@@ -44,7 +43,6 @@ impl Dfs {
     }
 }
 
-#[allow(dead_code)]
 impl Solution {
     pub fn amount_of_time(root: Option<Rc<RefCell<TreeNode>>>, start: i32) -> i32 {
         let mut dfs = Dfs { start, ans: 0 };

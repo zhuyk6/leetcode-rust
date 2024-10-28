@@ -1,4 +1,3 @@
-#[allow(unused)]
 pub fn eventual_safe_nodes<Out, In>(graph: Out) -> Vec<i32>
 where
     In: AsRef<[i32]>,

@@ -1,9 +1,8 @@
-struct Solution;
+pub struct Solution;
 
 const MODP: usize = 1_000_000_007;
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn count_paths(n: i32, roads: Vec<Vec<i32>>) -> i32 {
         let n = n as usize;
         let mut graph: Vec<Vec<(usize, i64)>> = vec![vec![]; n];

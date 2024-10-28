@@ -9,7 +9,6 @@ pub struct TreeNode {
     pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
-#[allow(unused)]
 impl TreeNode {
     #[inline]
     pub fn new(val: i32) -> Self {
@@ -23,7 +22,6 @@ impl TreeNode {
 
 type Link = Option<Rc<RefCell<TreeNode>>>;
 
-#[allow(unused)]
 pub fn lca_deepest_leaves(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
     fn dfs(x: Link, dep: u32) -> Option<(u32, Link)> {
         // println!("{:#?} : {}", x, dep);

@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 #[derive(Debug)]
 enum Direction {
@@ -71,7 +71,6 @@ impl Iterator for NextStep {
     }
 }
 
-#[allow(dead_code)]
 impl Solution {
     pub fn shortest_path(grid: Vec<Vec<i32>>, k: i32) -> i32 {
         let m = grid.len();

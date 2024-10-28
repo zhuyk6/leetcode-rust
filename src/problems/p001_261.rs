@@ -24,13 +24,12 @@ use std::rc::Rc;
 
 type Link = Rc<RefCell<TreeNode>>;
 
-struct FindElements {
+pub struct FindElements {
     map: HashSet<i32>,
 }
 
-#[allow(unused)]
 impl FindElements {
-    fn new(root: Option<Rc<RefCell<TreeNode>>>) -> Self {
+    pub fn new(root: Option<Rc<RefCell<TreeNode>>>) -> Self {
         fn dfs(x: Option<Link>, v: i32, map: &mut HashSet<i32>) {
             if let Some(node) = x {
                 map.insert(v);
@@ -45,7 +44,7 @@ impl FindElements {
         FindElements { map }
     }
 
-    fn find(&self, target: i32) -> bool {
+    pub fn find(&self, target: i32) -> bool {
         self.map.contains(&target)
     }
 }

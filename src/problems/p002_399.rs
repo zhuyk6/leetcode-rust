@@ -1,8 +1,7 @@
-struct Solution;
+pub struct Solution;
 
 use std::collections::HashMap;
 
-#[allow(unused)]
 impl Solution {
     pub fn check_distances(s: String, distance: Vec<i32>) -> bool {
         let mut first = HashMap::new();

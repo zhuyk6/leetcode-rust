@@ -8,7 +8,6 @@ struct Solver {
     ans: HashSet<String>,
 }
 
-#[allow(unused)]
 impl Solver {
     pub fn new(chars: String) -> Self {
         let chars: Vec<char> = chars.chars().collect();
@@ -41,7 +40,6 @@ impl Solver {
     }
 }
 
-#[allow(unused)]
 pub fn num_tile_possibilities(tiles: String) -> i32 {
     let mut sol = Solver::new(tiles);
     sol.dfs(0);

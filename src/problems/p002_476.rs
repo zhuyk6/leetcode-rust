@@ -18,45 +18,18 @@
 // }
 
 use crate::rctree::TreeNode;
-struct Solution;
+pub struct Solution;
 
 use std::cell::RefCell;
 use std::rc::Rc;
 
 type Link = Option<Rc<RefCell<TreeNode>>>;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn closest_nodes_treesearch(
         root: Option<Rc<RefCell<TreeNode>>>,
         queries: Vec<i32>,
     ) -> Vec<Vec<i32>> {
-        fn lower(x: Link, v: i32) -> Option<i32> {
-            x.and_then(|node| {
-                let node = node.borrow();
-                match node.val.cmp(&v) {
-                    std::cmp::Ordering::Less => {
-                        Some(lower(node.right.clone(), v).unwrap_or(node.val))
-                    }
-                    std::cmp::Ordering::Equal => Some(node.val),
-                    std::cmp::Ordering::Greater => lower(node.left.clone(), v),
-                }
-            })
-        }
-
-        fn upper(x: Link, v: i32) -> Option<i32> {
-            x.and_then(|node| {
-                let node = node.borrow();
-                match node.val.cmp(&v) {
-                    std::cmp::Ordering::Less => upper(node.right.clone(), v),
-                    std::cmp::Ordering::Equal => Some(node.val),
-                    std::cmp::Ordering::Greater => {
-                        Some(upper(node.left.clone(), v).unwrap_or(node.val))
-                    }
-                }
-            })
-        }
-
         fn lower_upper(x: Link, v: i32, l: &mut Option<i32>, r: &mut Option<i32>) {
             if let Some(node) = x {
                 let node = node.borrow();

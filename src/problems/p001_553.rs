@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 use std::collections::HashMap;
 
@@ -28,7 +28,6 @@ impl MemDfs {
     }
 }
 
-#[allow(dead_code)]
 impl Solution {
     pub fn min_days(n: i32) -> i32 {
         let mut mem_dfs = MemDfs::new();

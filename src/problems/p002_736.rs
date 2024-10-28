@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 type Link = Option<Box<Node>>;
 
@@ -28,34 +28,32 @@ impl Node {
         );
     }
 
-    #[allow(unused)]
-    fn insert(&mut self, pos: i32, val: i32) {
-        if self.left == self.right {
-            // leaf
-            self.max = self.max.max(val);
-        } else {
-            // internal
-            let mid = (self.left + self.right) >> 1;
-            if pos <= mid {
-                let mut node = self
-                    .lc
-                    .take()
-                    .unwrap_or_else(|| Box::new(Node::new(self.left, mid)));
-                node.insert(pos, val);
-                self.lc = Some(node);
-            } else {
-                let mut node = self
-                    .rc
-                    .take()
-                    .unwrap_or_else(|| Box::new(Node::new(mid + 1, self.right)));
-                node.insert(pos, val);
-                self.rc = Some(node);
-            }
-            self.update();
-        }
-    }
+    // fn insert(&mut self, pos: i32, val: i32) {
+    //     if self.left == self.right {
+    //         // leaf
+    //         self.max = self.max.max(val);
+    //     } else {
+    //         // internal
+    //         let mid = (self.left + self.right) >> 1;
+    //         if pos <= mid {
+    //             let mut node = self
+    //                 .lc
+    //                 .take()
+    //                 .unwrap_or_else(|| Box::new(Node::new(self.left, mid)));
+    //             node.insert(pos, val);
+    //             self.lc = Some(node);
+    //         } else {
+    //             let mut node = self
+    //                 .rc
+    //                 .take()
+    //                 .unwrap_or_else(|| Box::new(Node::new(mid + 1, self.right)));
+    //             node.insert(pos, val);
+    //             self.rc = Some(node);
+    //         }
+    //         self.update();
+    //     }
+    // }
 
-    #[allow(unused)]
     fn insert_f(left: i32, right: i32, link: Link, pos: i32, val: i32) -> Link {
         let mut node = link.unwrap_or_else(|| Box::new(Node::new(left, right)));
         if left == right {
@@ -91,54 +89,46 @@ impl Node {
 const LEFT: i32 = 1;
 const RIGHT: i32 = 1_000_000_000;
 
-#[allow(unused)]
-struct SegmentTree {
-    root: Node,
-}
+// struct SegmentTree {
+//     root: Node,
+// }
 
-impl SegmentTree {
-    #[allow(unused)]
-    fn new() -> Self {
-        SegmentTree {
-            root: Node::new(LEFT, RIGHT),
-        }
-    }
+// impl SegmentTree {
 
-    #[allow(unused)]
-    fn insert(&mut self, pos: i32, val: i32) {
-        self.root.insert(pos, val);
-    }
+//     fn new() -> Self {
+//         SegmentTree {
+//             root: Node::new(LEFT, RIGHT),
+//         }
+//     }
 
-    #[allow(unused)]
-    fn query(&self, pos: i32) -> i32 {
-        self.root.query(pos)
-    }
-}
+//     fn insert(&mut self, pos: i32, val: i32) {
+//         self.root.insert(pos, val);
+//     }
 
-#[allow(unused)]
+//     fn query(&self, pos: i32) -> i32 {
+//         self.root.query(pos)
+//     }
+// }
+
 struct SegmentTreeF {
     root: Link,
 }
 
 impl SegmentTreeF {
-    #[allow(unused)]
     fn new() -> Self {
         SegmentTreeF { root: None }
     }
 
-    #[allow(unused)]
     fn insert(&mut self, pos: i32, val: i32) {
         self.root = Node::insert_f(LEFT, RIGHT, self.root.take(), pos, val);
     }
 
-    #[allow(unused)]
     fn query(&self, pos: i32) -> i32 {
         self.root.as_ref().map_or(i32::MIN, |node| node.query(pos))
     }
 }
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn maximum_sum_queries(
         nums1: Vec<i32>,
         nums2: Vec<i32>,

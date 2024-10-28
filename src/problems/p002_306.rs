@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn distinct_names(ideas: Vec<String>) -> i64 {
         // use std::collections::HashSet;

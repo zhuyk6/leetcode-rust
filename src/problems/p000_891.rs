@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 const MOD: i64 = 1_000_000_007;
 
@@ -19,7 +19,6 @@ fn inv(x: i64) -> i64 {
     pow(x, MOD - 2)
 }
 
-#[allow(dead_code)]
 impl Solution {
     pub fn sum_subseq_widths(mut nums: Vec<i32>) -> i32 {
         let n = nums.len();

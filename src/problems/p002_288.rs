@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn discount_prices(sentence: String, discount: i32) -> String {
         let f = |str: &str| -> String {

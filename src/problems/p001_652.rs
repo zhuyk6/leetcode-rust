@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn decrypt(code: Vec<i32>, k: i32) -> Vec<i32> {
         let n = code.len();

@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 struct Dfs<'a> {
     m: usize,
@@ -7,7 +7,6 @@ struct Dfs<'a> {
     f: Vec<Vec<i32>>,
 }
 
-#[allow(unused)]
 impl<'a> Dfs<'a> {
     fn new(mat: &'a Vec<Vec<i32>>) -> Self {
         let m = mat.len();
@@ -47,7 +46,6 @@ impl<'a> Dfs<'a> {
     }
 }
 
-#[allow(unused)]
 impl Solution {
     pub fn longest_increasing_path(matrix: Vec<Vec<i32>>) -> i32 {
         let mut dfs = Dfs::new(&matrix);

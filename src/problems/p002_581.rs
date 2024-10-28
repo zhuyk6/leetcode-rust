@@ -1,4 +1,4 @@
-struct Solution;
+pub struct Solution;
 
 use std::collections::HashSet;
 
@@ -59,7 +59,6 @@ impl<'a> DFS<'a> {
 }
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn root_count(edges: Vec<Vec<i32>>, guesses: Vec<Vec<i32>>, k: i32) -> i32 {
         let k = k as usize;
         let n = edges.len() + 1;

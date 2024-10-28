@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn maximum_length(s: String) -> i32 {
         let s = s.as_bytes();

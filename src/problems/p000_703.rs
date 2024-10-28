@@ -1,7 +1,7 @@
 use std::cmp::Reverse;
 use std::collections::BinaryHeap;
 
-struct KthLargest {
+pub struct KthLargest {
     k: usize,
     heap: BinaryHeap<Reverse<i32>>,
 }
@@ -10,9 +10,9 @@ struct KthLargest {
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
-#[allow(unused)]
+
 impl KthLargest {
-    fn new(k: i32, nums: Vec<i32>) -> Self {
+    pub fn new(k: i32, nums: Vec<i32>) -> Self {
         let mut heap = BinaryHeap::from_iter(nums.into_iter().map(Reverse));
         while heap.len() > k as usize {
             heap.pop();
@@ -23,7 +23,7 @@ impl KthLargest {
         }
     }
 
-    fn add(&mut self, val: i32) -> i32 {
+    pub fn add(&mut self, val: i32) -> i32 {
         if self.heap.len() < self.k {
             self.heap.push(Reverse(val));
         } else if val > self.heap.peek().unwrap().0 {

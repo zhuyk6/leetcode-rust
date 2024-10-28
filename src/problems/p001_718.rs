@@ -5,7 +5,6 @@ struct DFS {
     used: Vec<bool>,
 }
 
-#[allow(unused)]
 impl DFS {
     pub fn new(n: usize) -> Self {
         DFS {
@@ -48,7 +47,6 @@ impl DFS {
     }
 }
 
-#[allow(unused)]
 pub fn construct_distanced_sequence(n: i32) -> Vec<i32> {
     let mut dfs = DFS::new(n as usize);
     if dfs.dfs(0) {

@@ -1,10 +1,9 @@
-struct Solution;
+pub struct Solution;
 
 const N: usize = 32 + 15;
 type Counter = [usize; N];
 
 impl Solution {
-    #[allow(dead_code)]
     pub fn maximum_or(nums: Vec<i32>, k: i32) -> i64 {
         fn add(cnt: &mut Counter, x: i64) {
             for (i, c) in cnt.iter_mut().enumerate() {

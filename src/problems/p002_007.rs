@@ -1,6 +1,5 @@
-struct Solution;
+pub struct Solution;
 
-#[allow(dead_code)]
 impl Solution {
     pub fn find_original_array(mut changed: Vec<i32>) -> Vec<i32> {
         changed.sort_unstable();

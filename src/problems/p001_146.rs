@@ -73,26 +73,25 @@ fn query(x: &Rc<Node>, idx: usize) -> i32 {
     }
 }
 
-struct SnapshotArray {
+pub struct SnapshotArray {
     snaps: Vec<Rc<Node>>,
 }
 
-#[allow(dead_code)]
 impl SnapshotArray {
-    fn new(length: i32) -> Self {
+    pub fn new(length: i32) -> Self {
         let mut v = vec![];
         let root = build(0, length as usize);
         v.push(root);
         SnapshotArray { snaps: v }
     }
 
-    fn set(&mut self, index: i32, val: i32) {
+    pub fn set(&mut self, index: i32, val: i32) {
         let root = self.snaps.last().unwrap();
         let root = update(root, index as usize, val);
         *self.snaps.last_mut().unwrap() = root;
     }
 
-    fn snap(&mut self) -> i32 {
+    pub fn snap(&mut self) -> i32 {
         let ans = self.snaps.len() - 1;
 
         let root = self.snaps.last_mut().unwrap().clone();
@@ -101,7 +100,7 @@ impl SnapshotArray {
         ans as i32
     }
 
-    fn get(&self, index: i32, snap_id: i32) -> i32 {
+    pub fn get(&self, index: i32, snap_id: i32) -> i32 {
         let root = self.snaps.get(snap_id as usize).unwrap();
         query(root, index as usize)
     }

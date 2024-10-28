@@ -1,10 +1,9 @@
 use crate::rctree::TreeNode;
-struct Solution;
+pub struct Solution;
 
 use std::cell::RefCell;
 use std::rc::Rc;
 
-#[allow(unused)]
 impl Solution {
     pub fn all_possible_fbt(n: i32) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
         fn build(n: usize) -> Vec<Rc<RefCell<TreeNode>>> {
