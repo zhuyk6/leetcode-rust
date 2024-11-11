@@ -240,6 +240,7 @@ pub mod p003_193;
 pub mod p003_200;
 pub mod p003_211;
 pub mod p003_235;
+pub mod p003_242;
 pub mod p003_250;
 pub mod p003_251;
 pub mod p003_254;
