@@ -18,11 +18,6 @@ pub struct MagicDictionary {
     trie: Box<Node>,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
-
 impl MagicDictionary {
     #[allow(clippy::new_without_default)]
     pub fn new() -> Self {

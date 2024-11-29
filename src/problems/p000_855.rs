@@ -38,11 +38,6 @@ pub struct ExamRoom {
     segments: BinaryHeap<Segment>,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
-
 impl ExamRoom {
     pub fn new(n: i32) -> Self {
         ExamRoom {
@@ -135,13 +130,6 @@ impl ExamRoom {
         }
     }
 }
-
-/**
- * Your ExamRoom object will be instantiated and called as such:
- * let obj = ExamRoom::new(n);
- * let ret_1: i32 = obj.seat();
- * obj.leave(p);
- */
 
 #[cfg(test)]
 mod tests {

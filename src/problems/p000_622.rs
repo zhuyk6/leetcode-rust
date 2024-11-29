@@ -5,11 +5,6 @@ pub struct MyCircularQueue {
     full: bool,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
-
 impl MyCircularQueue {
     pub fn new(k: i32) -> Self {
         MyCircularQueue {

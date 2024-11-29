@@ -10,7 +10,7 @@ struct DFS<'a> {
     layers: &'a mut Vec<Vec<(i32, i32)>>,
 }
 
-impl<'a> DFS<'a> {
+impl DFS<'_> {
     pub fn dfs(&mut self, t: Link, dep: usize) -> i32 {
         t.map_or(-1, |node| {
             if self.layers.len() == dep {
