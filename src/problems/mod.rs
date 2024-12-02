@@ -33,6 +33,7 @@ pub mod p000_676;
 pub mod p000_685;
 pub mod p000_703;
 pub mod p000_706;
+pub mod p000_743;
 pub mod p000_770;
 pub mod p000_802;
 pub mod p000_814;
