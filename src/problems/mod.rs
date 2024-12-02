@@ -13,6 +13,7 @@ pub mod mianshi_04_09;
 pub mod mianshi_16_19;
 pub mod p000_039;
 pub mod p000_041;
+pub mod p000_052;
 pub mod p000_232;
 pub mod p000_310;
 pub mod p000_377;
