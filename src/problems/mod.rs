@@ -71,6 +71,7 @@ pub mod p001_079;
 pub mod p001_080;
 pub mod p001_091;
 pub mod p001_092;
+pub mod p001_106;
 pub mod p001_110;
 pub mod p001_123;
 pub mod p001_146;
