@@ -1,6 +1,7 @@
 pub mod jianzhi_40;
 pub mod jianzhi_63;
 pub mod lcp_024;
+pub mod lcp_082;
 pub mod lcr_031;
 pub mod lcr_039;
 pub mod lcr_087;
@@ -120,6 +121,7 @@ pub mod p001_521;
 pub mod p001_531;
 pub mod p001_542;
 pub mod p001_547;
+pub mod p001_552;
 pub mod p001_553;
 pub mod p001_574;
 pub mod p001_578;
