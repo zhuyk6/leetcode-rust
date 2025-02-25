@@ -150,8 +150,8 @@ impl Node {
     }
 
     fn query_sum(&mut self, max_row: usize) -> i64 {
-        match self {
-            &mut Node::Inner {
+        match *self {
+            Node::Inner {
                 ref left,
                 ref right,
                 max: _,
@@ -182,7 +182,7 @@ impl Node {
                 self.update();
                 ret
             }
-            &mut Node::Leaf { pos: _, ref val } => *val as i64,
+            Node::Leaf { pos: _, ref val } => *val as i64,
         }
     }
 

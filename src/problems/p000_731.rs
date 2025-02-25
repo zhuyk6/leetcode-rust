@@ -161,8 +161,8 @@ impl MyCalendarTwo {
     pub fn book(&mut self, mut start_time: i32, end_time: i32) -> bool {
         let mut left = self.left_set2.range(..start_time);
         let mut right = self.left_set2.range(start_time..);
-        if left.next_back().map_or(true, |(_, &r)| r <= start_time)
-            && right.next().map_or(true, |(&l, _)| l >= end_time)
+        if left.next_back().is_none_or(|(_, &r)| r <= start_time)
+            && right.next().is_none_or(|(&l, _)| l >= end_time)
         {
             let mut v_delete = vec![];
             let mut v1 = vec![];

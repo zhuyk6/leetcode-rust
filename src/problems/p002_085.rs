@@ -16,7 +16,7 @@ impl Solution {
         let cnt2 = get_counter(words2);
 
         cnt1.into_iter()
-            .filter(|(k, v)| *v == 1 && cnt2.get(k).map_or(false, |v| *v == 1))
+            .filter(|(k, v)| *v == 1 && cnt2.get(k).is_some_and(|v| *v == 1))
             .count() as i32
     }
 }
