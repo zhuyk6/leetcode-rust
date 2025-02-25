@@ -12,11 +12,7 @@ impl Solution {
 
         #[inline]
         fn f(x: usize) -> i32 {
-            if x & 1 > 0 {
-                1
-            } else {
-                2
-            }
+            if x & 1 > 0 { 1 } else { 2 }
         }
 
         fn dfs(x: usize, fa: usize, graph: &Vec<Vec<usize>>, mem: &mut [i32]) -> i32 {

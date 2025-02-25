@@ -7,11 +7,7 @@ pub fn powerful_integers(x: i32, y: i32, bound: i32) -> Vec<i32> {
     }
     if x == 1 {
         if y == 1 {
-            if 2 <= bound {
-                vec![2]
-            } else {
-                vec![]
-            }
+            if 2 <= bound { vec![2] } else { vec![] }
         } else {
             let mut v = HashSet::new();
             let mut acc_y = 1;

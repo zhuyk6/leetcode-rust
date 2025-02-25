@@ -68,11 +68,7 @@ impl Solution {
         // dbg!(&keep);
 
         let m = keep.into_iter().filter(|v| *v).count();
-        if m == 0 {
-            0
-        } else {
-            (2 * (m - 1)) as i32
-        }
+        if m == 0 { 0 } else { (2 * (m - 1)) as i32 }
     }
 }
 

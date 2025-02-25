@@ -43,8 +43,8 @@ impl MagicDictionary {
     where
         A: Iterator<Item = char> + Clone,
     {
-        if let Some(c) = cs.next() {
-            match t.sons.contains_key(&c) {
+        match cs.next() {
+            Some(c) => match t.sons.contains_key(&c) {
                 true => {
                     Self::dfs(t.sons.get(&c).unwrap(), cs.clone(), change)
                         || match change {
@@ -52,7 +52,7 @@ impl MagicDictionary {
                             false => t
                                 .sons
                                 .iter()
-                                .filter(|(&k, _)| k != c)
+                                .filter(|&(&k, _)| k != c)
                                 .any(|(_, v)| Self::dfs(v, cs.clone(), true)),
                         }
                 }
@@ -60,9 +60,8 @@ impl MagicDictionary {
                     true => false,
                     false => t.sons.iter().any(|(_, v)| Self::dfs(v, cs.clone(), true)),
                 },
-            }
-        } else {
-            t.is_end && change
+            },
+            _ => t.is_end && change,
         }
     }
 

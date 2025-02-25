@@ -10,7 +10,7 @@ impl Solution {
             .as_bytes()
             .iter()
             .enumerate()
-            .filter(|(_, &c)| c == b'0')
+            .filter(|&(_, &c)| c == b'0')
             .map(|(i, _)| i)
             .collect();
 

@@ -19,11 +19,11 @@ impl JoinSet {
 
     fn link(&mut self, x: usize, fx: usize, tag: i32) {
         self.fa[x].0 = fx;
-        if self.fa[fx].1 .0 != tag {
+        if self.fa[fx].1.0 != tag {
             self.fa[fx].1 = (tag, 0);
         }
-        if self.fa[x].1 .0 == tag {
-            self.fa[fx].1 .1 += self.fa[x].1 .1;
+        if self.fa[x].1.0 == tag {
+            self.fa[fx].1.1 += self.fa[x].1.1;
         }
     }
 }
@@ -59,7 +59,7 @@ impl Solution {
                     }
 
                     let fy = join_set.get_fa(y);
-                    if join_set.fa[fy].1 .0 != k {
+                    if join_set.fa[fy].1.0 != k {
                         join_set.fa[fy].1 = (k, 0);
                     }
 
@@ -70,7 +70,7 @@ impl Solution {
                     if fx == fy {
                         continue;
                     }
-                    acc += join_set.fa[fy].1 .1 * join_set.fa[fx].1 .1;
+                    acc += join_set.fa[fy].1.1 * join_set.fa[fx].1.1;
                     join_set.link(fy, fx, k);
                 }
                 println!("acc = {acc}");

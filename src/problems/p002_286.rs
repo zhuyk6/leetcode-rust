@@ -104,13 +104,13 @@ impl Node {
 
     fn insert_left(&mut self, k: i32, max_row: usize) -> Option<(usize, i32)> {
         match self {
-            Node::Inner {
+            &mut Node::Inner {
                 ref left,
                 ref right,
                 ref max,
-                lc,
-                rc,
-                tag_clear,
+                ref mut lc,
+                ref mut rc,
+                ref mut tag_clear,
                 ..
             } => {
                 if max_row >= *right && *max < k {
@@ -151,14 +151,14 @@ impl Node {
 
     fn query_sum(&mut self, max_row: usize) -> i64 {
         match self {
-            Node::Inner {
+            &mut Node::Inner {
                 ref left,
                 ref right,
                 max: _,
                 ref sum,
-                lc,
-                rc,
-                tag_clear,
+                ref mut lc,
+                ref mut rc,
+                ref mut tag_clear,
             } => {
                 if max_row >= *right {
                     return *sum;
@@ -182,7 +182,7 @@ impl Node {
                 self.update();
                 ret
             }
-            Node::Leaf { pos: _, ref val } => *val as i64,
+            &mut Node::Leaf { pos: _, ref val } => *val as i64,
         }
     }
 

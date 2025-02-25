@@ -66,11 +66,7 @@ pub fn score_of_students(s: String, answers: Vec<i32>) -> i32 {
         .into_iter()
         .map(|v| {
             if f[0][n - 1].contains(&v) {
-                if v == correct {
-                    5
-                } else {
-                    2
-                }
+                if v == correct { 5 } else { 2 }
             } else {
                 0
             }

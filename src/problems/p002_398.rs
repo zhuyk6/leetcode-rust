@@ -18,7 +18,7 @@ impl Solution {
                 j = i;
                 sum = 0;
             }
-            while !heap.is_empty() && heap.peek().unwrap().1 .0 < i {
+            while !heap.is_empty() && heap.peek().unwrap().1.0 < i {
                 heap.pop();
             }
             while j < n {

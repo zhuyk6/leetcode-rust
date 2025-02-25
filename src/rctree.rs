@@ -74,7 +74,7 @@ macro_rules! tree {
     () => {
         None
     };
-    ($($e:expr),*) => {
+    ($($e:expr_2021),*) => {
         {
             let vec = vec![$(stringify!($e)), *];
             println!("{:?}", vec);

@@ -128,7 +128,7 @@ pub mod brute_force {
 }
 
 pub mod method2 {
-    use super::{get_len, mul, HashMap};
+    use super::{HashMap, get_len, mul};
 
     pub fn generate_sequence_of_entries(n: usize) -> Vec<Vec<Option<i32>>> {
         fn dfs(n: usize, mem: &mut Vec<Vec<String>>) {

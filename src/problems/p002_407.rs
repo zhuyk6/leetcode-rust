@@ -44,12 +44,12 @@ impl Node {
     fn update(&mut self, idx: i32, val: i32) {
         match self {
             Node::Leaf { val: v } => *v = val,
-            Node::Inner {
-                max,
+            &mut Node::Inner {
+                ref mut max,
                 ref left,
                 ref right,
-                lc,
-                rc,
+                ref mut lc,
+                ref mut rc,
             } => {
                 let mid = (left + right) >> 1;
                 if idx <= mid {
@@ -67,8 +67,8 @@ impl Node {
             Node::Leaf { val } => *val,
             Node::Inner {
                 max,
-                ref left,
-                ref right,
+                left,
+                right,
                 lc,
                 rc,
             } => {

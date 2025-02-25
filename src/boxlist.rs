@@ -16,7 +16,7 @@ macro_rules! list {
     [] => {
         None
     };
-    [$val:expr $(, $rest:expr)*] => {
+    [$val:expr_2021 $(, $rest:expr_2021)*] => {
         {
             let mut head = Some(Box::new(ListNode::new($val)));
             head.as_mut().map(|node| node.next = list!($($rest),*));

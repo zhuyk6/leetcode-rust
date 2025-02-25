@@ -35,11 +35,7 @@ impl Node for Leaf {
     }
 
     fn sum(&self, x: usize) -> i64 {
-        if x == 3 {
-            self.val
-        } else {
-            0
-        }
+        if x == 3 { self.val } else { 0 }
     }
 }
 

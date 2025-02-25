@@ -18,7 +18,7 @@ macro_rules! nested_vec_owned {
     [$( $([ $($elems:tt)* ]),+ $(,)? )?] => {
         vec![$( $(nested_vec_owned![$($elems)*]),+)?]
     };
-    [$($elems:expr),* $(,)?] => {
+    [$($elems:expr_2021),* $(,)?] => {
         vec![$($elems.to_owned()),*]
     };
 }

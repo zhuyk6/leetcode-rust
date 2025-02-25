@@ -43,7 +43,7 @@ impl Solution {
 #[cfg(test)]
 mod test {
     use super::Solution;
-    use crate::rctree::{tree, TreeNode};
+    use crate::rctree::{TreeNode, tree};
 
     #[test]
     fn test1() {

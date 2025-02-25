@@ -14,11 +14,7 @@ impl Solution {
 
         // 10000.. -> 00000, total length is (m+1)
         fn f(m: i32) -> i32 {
-            if m == 0 {
-                1
-            } else {
-                1 + 2 * f(m - 1)
-            }
+            if m == 0 { 1 } else { 1 + 2 * f(m - 1) }
         }
 
         /// flip the high bit of x

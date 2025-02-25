@@ -20,11 +20,7 @@ fn factor(mut x: i32) -> Vec<(i32, u32)> {
 }
 
 fn gcd(x: i32, y: i32) -> i32 {
-    if y == 0 {
-        x
-    } else {
-        gcd(y, x % y)
-    }
+    if y == 0 { x } else { gcd(y, x % y) }
 }
 
 impl Solution {

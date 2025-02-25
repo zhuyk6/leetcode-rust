@@ -160,7 +160,11 @@ mod tests {
     fn sample4() {
         let num = "0123".to_string();
         let target = 6;
-        let ans: Vec<String> = vec![];
+        let ans: Vec<String> = vec![
+            "0+1+2+3".to_string(),
+            "0*1+2*3".to_string(),
+            "0+1*2*3".to_string(),
+        ];
         assert_eq!(Solution::add_operators(num, target), ans);
     }
 }

@@ -40,7 +40,7 @@ fn divide_3<T: Ord>(arr: &mut [T], l: usize, r: usize, v: &T) -> (usize, usize) 
 
 #[cfg(test)]
 mod tests {
-    use quickcheck::{quickcheck, TestResult};
+    use quickcheck::{TestResult, quickcheck};
 
     use super::*;
 

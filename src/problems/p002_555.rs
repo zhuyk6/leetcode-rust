@@ -2,14 +2,17 @@ fn group<T: Ord>(v: Vec<T>) -> Vec<(T, u32)> {
     let v = v;
     let mut cnt: Vec<(T, u32)> = Vec::new();
     for val in v {
-        if let Some((u, c)) = cnt.last_mut() {
-            if *u == val {
-                *c += 1
-            } else {
+        match cnt.last_mut() {
+            Some((u, c)) => {
+                if *u == val {
+                    *c += 1
+                } else {
+                    cnt.push((val, 1));
+                }
+            }
+            _ => {
                 cnt.push((val, 1));
             }
-        } else {
-            cnt.push((val, 1));
         }
     }
     cnt

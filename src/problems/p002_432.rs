@@ -16,7 +16,7 @@ where
         begin = end;
         ans = ans.max((time, Reverse(id)));
     }
-    ans.1 .0
+    ans.1.0
 }
 
 #[test]

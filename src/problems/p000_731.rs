@@ -37,13 +37,13 @@ pub mod segment_tree {
                 Node::Leaf { count, .. } => {
                     *count += delta;
                 }
-                Node::Internal {
+                &mut Node::Internal {
                     ref left,
                     ref right,
-                    lazy_count,
-                    max_count,
-                    lc,
-                    rc,
+                    ref mut lazy_count,
+                    ref mut max_count,
+                    ref mut lc,
+                    ref mut rc,
                 } => {
                     if start <= *left && *right <= end {
                         *lazy_count += delta;
@@ -83,13 +83,13 @@ pub mod segment_tree {
         fn query(&mut self, start: i32, end: i32) -> u32 {
             match self {
                 Node::Leaf { count, .. } => *count,
-                Node::Internal {
+                &mut Node::Internal {
                     ref left,
                     ref right,
-                    lc,
-                    rc,
-                    max_count,
-                    lazy_count,
+                    ref mut lc,
+                    ref mut rc,
+                    ref mut max_count,
+                    ref mut lazy_count,
                 } => {
                     if start <= *left && *right <= end {
                         return *max_count;

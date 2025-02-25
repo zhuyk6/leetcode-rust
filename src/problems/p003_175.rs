@@ -14,7 +14,7 @@ impl Solution {
             skills
                 .iter()
                 .enumerate()
-                .max_by_key(|(_, &v)| v)
+                .max_by_key(|&(_, &v)| v)
                 .expect("skills can't be empty")
                 .0 as i32
         } else {
