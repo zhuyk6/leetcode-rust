@@ -221,6 +221,7 @@ pub mod p002_478;
 pub mod p002_484;
 pub mod p002_487;
 pub mod p002_500;
+pub mod p002_502;
 pub mod p002_517;
 pub mod p002_527;
 pub mod p002_535;
