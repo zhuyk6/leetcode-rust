@@ -9,11 +9,13 @@ impl Solution {
             return 0;
         }
 
-        let mut prefix_sum = vec![0; n];
-        prefix_sum[0] = nums[0];
-        for i in 1..n {
-            prefix_sum[i] = prefix_sum[i - 1] ^ nums[i];
-        }
+        let prefix_sum: Vec<i32> = nums
+            .iter()
+            .scan(0, |s, v| {
+                *s ^= v;
+                Some(*s)
+            })
+            .collect();
 
         let mut ans = 0;
         let mut map: HashMap<i32, u64> = HashMap::new();
