@@ -1,6 +1,6 @@
 pub struct Solution;
 
-use std::iter::{once, repeat};
+use std::iter::once;
 
 impl Solution {
     pub fn maximum_binary_string(s: String) -> String {
@@ -13,10 +13,9 @@ impl Solution {
             let m = 1 + iter.filter(|c| **c == b'0').count();
 
             String::from_iter(
-                repeat('1')
-                    .take(n1 + m - 1)
+                std::iter::repeat_n('1', n1 + m - 1)
                     .chain(once('0'))
-                    .chain(repeat('1').take(n - m)),
+                    .chain(std::iter::repeat_n('1', n - m)),
             )
         } else {
             s
