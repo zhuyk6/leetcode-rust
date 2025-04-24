@@ -4,9 +4,8 @@ impl Solution {
     pub fn maximum_odd_binary_number(s: String) -> String {
         let n = s.len();
         let m = s.as_bytes().iter().filter(|b| **b == b'1').count();
-        let buf = std::iter::repeat('1')
-            .take(m - 1)
-            .chain(std::iter::repeat('0').take(n - m))
+        let buf = std::iter::repeat_n('1', m - 1)
+            .chain(std::iter::repeat_n('0', n - m))
             .chain(std::iter::once('1'));
         String::from_iter(buf)
     }
