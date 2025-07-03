@@ -26,7 +26,7 @@ impl Solution {
             }
         }
 
-        println!("{:#?}", layers);
+        println!("{layers:#?}");
 
         let max_dep = layers.len();
 
@@ -39,7 +39,7 @@ impl Solution {
             }
             v[..=last].iter().all(|b| *b)
         };
-        println!("b1 = {}, b2 = {}", b1, b2);
+        println!("b1 = {b1}, b2 = {b2}");
         b1 && b2
     }
 }

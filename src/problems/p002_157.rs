@@ -47,7 +47,7 @@ pub fn group_strings(words: Vec<String>) -> Vec<i32> {
         })
         .collect::<Vec<usize>>();
 
-    println!("codes: {:?}", codes);
+    println!("codes: {codes:?}");
 
     let mut map: HashMap<usize, (usize, i32)> = HashMap::new();
     for (i, &c) in codes.iter().enumerate() {
@@ -91,8 +91,8 @@ pub fn group_strings(words: Vec<String>) -> Vec<i32> {
         }
     }
 
-    println!("map: {:?}", map);
-    println!("to: {:#?}", to);
+    println!("map: {map:?}");
+    println!("to: {to:#?}");
 
     let mut ans = vec![0, 0];
     let cnt: HashMap<usize, i32> = map.values().cloned().collect();

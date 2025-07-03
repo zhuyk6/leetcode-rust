@@ -19,7 +19,7 @@ pub fn beautiful_subsets(nums: Vec<i32>, k: i32) -> i32 {
                 arr.push((x, 1));
             }
         }
-        println!("arr: {:?}", arr);
+        println!("arr: {arr:?}");
 
         let n = arr.len();
         let mut f = vec![0; n + 1];
@@ -35,7 +35,7 @@ pub fn beautiful_subsets(nums: Vec<i32>, k: i32) -> i32 {
                 f[i] += f[i - 1] * (2_i32.pow(arr[i - 1].1) - 1);
             }
         }
-        println!("f: {:?}", f);
+        println!("f: {f:?}");
         f[n]
     }
 

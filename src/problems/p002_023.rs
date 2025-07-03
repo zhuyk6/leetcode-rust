@@ -59,8 +59,8 @@ pub fn num_of_pairs(nums: Vec<String>, target: String) -> i32 {
     let mut ed = vec![usize::MAX; n];
     root.search(target.bytes().enumerate().rev(), &mut ed);
 
-    println!("st: {:?}", st);
-    println!("ed: {:?}", ed);
+    println!("st: {st:?}");
+    println!("ed: {ed:?}");
 
     let mut ans = 0;
     for i in 0..n {

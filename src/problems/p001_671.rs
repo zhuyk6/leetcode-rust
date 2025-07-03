@@ -67,7 +67,7 @@ impl Solution {
             len_min_end[l] = len_min_end[l].min(nums[i]);
         }
 
-        println!("f = {:#?}", f);
+        println!("f = {f:#?}");
 
         let mut g = vec![0; n];
         let mut len_min_end = vec![i32::MAX; n];
@@ -80,7 +80,7 @@ impl Solution {
             g[i] = l;
             len_min_end[l] = len_min_end[l].min(nums[i]);
         }
-        println!("g = {:#?}", g);
+        println!("g = {g:#?}");
 
         (1..(n - 1))
             .filter(|&i| f[i] > 1 && g[i] > 1)

@@ -261,7 +261,7 @@ mod tests {
         let state = State { input, pos: 0 };
         let result = open_close_tag(state);
         if let Err(Message { pos }) = result {
-            println!("Error at position: {}", pos);
+            println!("Error at position: {pos}");
             println!("Remaining input: {}", &input[pos..]);
         }
         assert_eq!(result, Ok(((), State { input: "", pos: 24 })));

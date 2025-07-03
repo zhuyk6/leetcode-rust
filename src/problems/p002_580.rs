@@ -23,7 +23,7 @@ impl Solution {
             t => t,
         });
 
-        println!("ranges: {:?}", ranges);
+        println!("ranges: {ranges:?}");
 
         let mut nums = 0;
         let mut group_right = i32::MIN;

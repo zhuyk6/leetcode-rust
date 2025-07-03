@@ -9,7 +9,7 @@ pub fn get_least_numbers(mut arr: Vec<i32>, kth: i32) -> Vec<i32> {
     while l < r {
         let v = arr[(l + r) >> 1];
 
-        println!("step = {}, l = {}, r = {}, v = {}", steps, l, r, v);
+        println!("step = {steps}, l = {l}, r = {r}, v = {v}");
 
         // [l, i) less than v
         // [i, k) equal to v
@@ -33,8 +33,8 @@ pub fn get_least_numbers(mut arr: Vec<i32>, kth: i32) -> Vec<i32> {
                 }
             }
         }
-        println!("arr: {:?}", arr);
-        println!("i = {}, j = {}, k = {}", i, j, k);
+        println!("arr: {arr:?}");
+        println!("i = {i}, j = {j}, k = {k}");
 
         if i < kth && kth < k + 1 {
             return arr[..kth].to_vec();

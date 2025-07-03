@@ -153,7 +153,7 @@ mod tests {
             match input1[i] {
                 "seat" => {
                     let ans = room.seat();
-                    println!("seat at {}", ans);
+                    println!("seat at {ans}");
                     assert_eq!(ans, output[i]);
                 }
                 "leave" => {
@@ -223,7 +223,7 @@ mod tests {
             match input1[i] {
                 "seat" => {
                     let ans = room.seat();
-                    println!("seat at {}", ans);
+                    println!("seat at {ans}");
                     assert_eq!(ans, output[i]);
                 }
                 "leave" => {

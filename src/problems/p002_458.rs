@@ -35,7 +35,7 @@ impl Solution {
         };
         dfs.dfs(root.clone(), 0);
 
-        println!("layers: {:#?}", layers);
+        println!("layers: {layers:#?}");
 
         let mut answer = HashMap::new();
 

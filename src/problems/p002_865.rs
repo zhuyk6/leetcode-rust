@@ -37,8 +37,8 @@ impl Solution {
             g[i] = acc;
         }
 
-        println!("{:#?}", f);
-        println!("{:#?}", g);
+        println!("{f:#?}");
+        println!("{g:#?}");
 
         let mut ans = i64::MIN;
         for i in 0..n {

@@ -36,7 +36,7 @@ impl Solution {
         for (i, v) in target.into_iter().enumerate() {
             let gid = getfa(&mut fa, i);
             if let Some(map) = groups.get_mut(&gid) {
-                println!("map = {:#?}", map);
+                println!("map = {map:#?}");
                 if let Some(cnt) = map.get_mut(&v) {
                     if *cnt > 0 {
                         *cnt -= 1;

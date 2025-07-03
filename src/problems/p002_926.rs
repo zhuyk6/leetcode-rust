@@ -101,7 +101,7 @@ impl Solution {
             (order, tot)
         };
 
-        println!("order: {:?}", order);
+        println!("order: {order:?}");
 
         let mut root = Node::build(0, tot);
         let mut ans = i64::MIN;

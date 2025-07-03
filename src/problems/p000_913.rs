@@ -44,7 +44,7 @@ pub fn cat_mouse_game(graph: Vec<Vec<i32>>) -> i32 {
 
     while let Some((turn, pos)) = que.pop_front() {
         let winner = f[turn][pos[0]][pos[1]];
-        println!("turn: {}, pos: {:?}, winner: {}", turn, pos, winner);
+        println!("turn: {turn}, pos: {pos:?}, winner: {winner}");
 
         let last_positions = &to[pos[turn ^ 1]];
         for q in last_positions {

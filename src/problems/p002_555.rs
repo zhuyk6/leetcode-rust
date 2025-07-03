@@ -22,7 +22,7 @@ pub fn maximize_win(prize_positions: Vec<i32>, k: i32) -> i32 {
     let cnt = group(prize_positions);
     let n = cnt.len();
 
-    println!("cnt: {:?}", cnt);
+    println!("cnt: {cnt:?}");
 
     // f[i]: start i
     let mut f = vec![0; n];
@@ -56,8 +56,8 @@ pub fn maximize_win(prize_positions: Vec<i32>, k: i32) -> i32 {
         }
     }
 
-    println!("f: {:?}", f);
-    println!("g: {:?}", g);
+    println!("f: {f:?}");
+    println!("g: {g:?}");
 
     let mut ans = 0;
     let mut max = 0;

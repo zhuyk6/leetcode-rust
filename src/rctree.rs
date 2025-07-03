@@ -91,13 +91,13 @@ pub(crate) use tree;
 #[test]
 fn test_tree_build() {
     let t = tree![1, 2, null, 3];
-    println!("{:#?}", t);
+    println!("{t:#?}");
 }
 
 #[test]
 fn test_tolist() {
     let t = tree![1, 2, null, 3];
     let list = TreeNode::to_list(t).join(",");
-    let list = format!("[{}]", list);
-    println!("{:#?}", list);
+    let list = format!("[{list}]");
+    println!("{list:#?}");
 }

@@ -11,14 +11,14 @@ pub fn num_smaller_by_frequency(queries: Vec<String>, words: Vec<String>) -> Vec
 
     words.sort();
 
-    println!("words: {:?}", words);
+    println!("words: {words:?}");
 
     queries
         .into_iter()
         .map(f)
         .map(|v| {
             let idx = words.partition_point(|u| *u <= v);
-            println!("v: {}, idx: {}", v, idx);
+            println!("v: {v}, idx: {idx}");
             (words.len() - idx) as i32
         })
         .collect()

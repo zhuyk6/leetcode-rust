@@ -10,7 +10,7 @@ impl Solution {
                     match suffix.parse::<f64>() {
                         Ok(v) if v.signum() >= 0.0 => {
                             let u = v * (100 - discount) as f64 / 100.0;
-                            format!("${:.2}", u)
+                            format!("${u:.2}")
                         }
                         _ => str.to_string(),
                     }

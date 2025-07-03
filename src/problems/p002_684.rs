@@ -17,7 +17,7 @@ impl Solution {
                 }
             }
         }
-        println!("{:?}", f);
+        println!("{f:?}");
 
         (0..m).map(|i| f[i][0]).max().unwrap()
     }

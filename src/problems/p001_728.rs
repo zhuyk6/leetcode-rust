@@ -166,8 +166,7 @@ impl Solver {
         while let Some((turn, now, dep)) = que.pop_front() {
             let winner = self.f[turn][now[0].0][now[0].1][now[1].0][now[1].1];
             println!(
-                "turn: {}, now: {:?}, dep: {}, winner: {}",
-                turn, now, dep, winner
+                "turn: {turn}, now: {now:?}, dep: {dep}, winner: {winner}"
             );
 
             if turn == 0 && now == start_pos {

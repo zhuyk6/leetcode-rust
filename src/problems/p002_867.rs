@@ -35,8 +35,8 @@ fn generate_prime(n: usize) -> Vec<bool> {
             }
         }
     }
-    println!("{:#?}", primes);
-    println!("{:#?}", not_prime);
+    println!("{primes:#?}");
+    println!("{not_prime:#?}");
     not_prime
 }
 

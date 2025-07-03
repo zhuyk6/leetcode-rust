@@ -239,7 +239,7 @@ impl Expr {
                     let mut temp_set = BTreeSet::new();
                     for prefix in &current_set {
                         for suffix in &new_set {
-                            temp_set.insert(format!("{}{}", prefix, suffix));
+                            temp_set.insert(format!("{prefix}{suffix}"));
                         }
                     }
                     current_set = temp_set;
@@ -387,27 +387,27 @@ mod tests {
         assert!(result.is_ok());
         let (remaining, expr) = result.unwrap();
         assert!(remaining.is_empty());
-        println!("expr: {:#?}", expr);
+        println!("expr: {expr:#?}");
 
         let input = "a{b,c}";
         let result = parser_expr(input);
         assert!(result.is_ok());
         let (remaining, expr) = result.unwrap();
         assert!(remaining.is_empty());
-        println!("expr: {:#?}", expr);
+        println!("expr: {expr:#?}");
 
         let input = "ab";
         let result = parser_expr(input);
         assert!(result.is_ok());
         let (remaining, expr) = result.unwrap();
         assert!(remaining.is_empty());
-        println!("expr: {:#?}", expr);
+        println!("expr: {expr:#?}");
 
         let input = "{{ab,z},{c,d}}";
         let result = parser_expr(input);
         assert!(result.is_ok());
         let (remaining, expr) = result.unwrap();
         assert!(remaining.is_empty());
-        println!("expr: {:#?}", expr);
+        println!("expr: {expr:#?}");
     }
 }

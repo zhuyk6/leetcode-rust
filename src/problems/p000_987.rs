@@ -27,7 +27,7 @@ impl Solution {
             row.sort();
         }
 
-        println!("{:#?}", layers);
+        println!("{layers:#?}");
 
         let mut cols: BTreeMap<i32, Vec<i32>> = BTreeMap::new();
         for row in layers {

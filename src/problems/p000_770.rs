@@ -322,11 +322,11 @@ impl Solution {
         evalints: Vec<i32>,
     ) -> Vec<String> {
         let expr = Expr::parse_expr(&expression);
-        println!("Original: {:#?}", expr);
+        println!("Original: {expr:#?}");
 
         let map: HashMap<String, i32> = HashMap::from_iter(evalvars.into_iter().zip(evalints));
         let expr = Expr::eval_expr(expr, &map);
-        println!("Eval: {:#?}", expr);
+        println!("Eval: {expr:#?}");
 
         // let expr = Expr::simplify(expr);
         // println!("Simplified: {:#?}", expr);
@@ -349,7 +349,7 @@ impl Solution {
             }
         });
 
-        println!("Sorted: {:?}", arr);
+        println!("Sorted: {arr:?}");
 
         let mut ans = vec![];
         for (s, v) in arr {

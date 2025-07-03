@@ -40,12 +40,12 @@ pub fn closest_to_target(arr: Vec<i32>, target: i32) -> i32 {
         j = j.max(i);
         let mut acc = get(i, j);
         ans = ans.min((acc - target).abs());
-        println!("i = {}, j = {}, acc = {}, ans = {}", i, j, acc, ans);
+        println!("i = {i}, j = {j}, acc = {acc}, ans = {ans}");
         while j < n - 1 && acc >= target {
             j += 1;
             acc &= arr[j];
             ans = ans.min((acc - target).abs());
-            println!("i = {}, j = {}, acc = {}, ans = {}", i, j, acc, ans);
+            println!("i = {i}, j = {j}, acc = {acc}, ans = {ans}");
         }
     }
     ans

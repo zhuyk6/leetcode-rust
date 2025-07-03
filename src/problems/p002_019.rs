@@ -72,7 +72,7 @@ pub fn score_of_students(s: String, answers: Vec<i32>) -> i32 {
             }
         })
         .collect();
-    println!("ans: {:?}", ans);
+    println!("ans: {ans:?}");
 
     ans.into_iter().sum()
 }

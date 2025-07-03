@@ -146,7 +146,7 @@ pub mod method2 {
                     dfs(n - i, mem);
                     for left in &mem[i] {
                         for right in &mem[n - i] {
-                            let s = format!("1{}{}9", left, right);
+                            let s = format!("1{left}{right}9");
                             v.push(s);
                         }
                     }

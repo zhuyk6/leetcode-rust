@@ -10,7 +10,7 @@ impl Solution {
             j -= 1;
         }
         ans = ans.min(j);
-        println!("j = {}", j);
+        println!("j = {j}");
 
         let mut i = 0usize;
         loop {

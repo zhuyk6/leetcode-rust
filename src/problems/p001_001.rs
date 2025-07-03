@@ -95,7 +95,7 @@ impl Solution {
                     }
                 }
 
-                println!("{:?}", grid);
+                println!("{grid:?}");
 
                 match ans {
                     true => 1,

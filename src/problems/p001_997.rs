@@ -30,7 +30,7 @@ impl Solution {
             let py = if even_visit[y] { 1 } else { 0 };
             println!("y = {y}, py = {py}");
 
-            println!("f = {:?}", first_visit);
+            println!("f = {first_visit:?}");
 
             if let Some(t) = first_visit[y][py] {
                 // after d time, return back to x

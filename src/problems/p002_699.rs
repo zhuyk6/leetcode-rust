@@ -45,7 +45,7 @@ pub fn modified_graph_edges(
             let x = node.unwrap();
             vis[x] = true;
 
-            println!("x: {}", x);
+            println!("x: {x}");
 
             for &eid in &to[x] {
                 let mut u = edges[eid][0] as usize;
@@ -81,7 +81,7 @@ pub fn modified_graph_edges(
 
     path(n, source, &edges, &to, &mut f, &mut vis);
 
-    println!("f: {:?}", f);
+    println!("f: {f:?}");
 
     if f[destination] > target {
         return vec![];
@@ -92,7 +92,7 @@ pub fn modified_graph_edges(
     // third path, increase modify edges up to target
     {
         let delta = target - f[destination];
-        println!("delta: {}", delta);
+        println!("delta: {delta}");
 
         let mut g = vec![i32::MAX; n];
         vis.fill(false);
@@ -126,8 +126,8 @@ pub fn modified_graph_edges(
                 g[v] = g[v].min(g[u].saturating_add(edges[eid][2]));
             }
         }
-        println!("f: {:?}", f);
-        println!("g: {:?}", g);
+        println!("f: {f:?}");
+        println!("g: {g:?}");
     }
 
     edges

@@ -21,7 +21,7 @@ impl Solution {
         thetas.sort_by(|a, b| a.partial_cmp(b).unwrap());
         let w: f64 = angle as f64 / 360.0 * 2.0 * PI;
 
-        println!("arr: {:?}", thetas);
+        println!("arr: {thetas:?}");
         println!("w = {w}");
 
         let mut max_num = 0;

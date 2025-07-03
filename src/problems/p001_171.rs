@@ -43,9 +43,9 @@ impl Solution {
             sum.push(acc);
         }
 
-        println!("arr: {:?}", arr);
-        println!("sum: {:?}", sum);
-        println!("map: {:?}", map);
+        println!("arr: {arr:?}");
+        println!("sum: {sum:?}");
+        println!("map: {map:?}");
 
         let n = arr.len();
 

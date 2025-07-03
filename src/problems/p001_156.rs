@@ -21,7 +21,7 @@ pub fn max_rep_opt1(text: String) -> i32 {
 
             ans = ans.max(cnt[(s[i] - b'a') as usize].min(j - i + 1));
 
-            println!("i = {}, j = {}", i, j);
+            println!("i = {i}, j = {j}");
 
             let next_i = j + 1;
             if next_i >= n {
@@ -35,7 +35,7 @@ pub fn max_rep_opt1(text: String) -> i32 {
 
             ans = ans.max(cnt[(s[i] - b'a') as usize].min(j - i + 1));
 
-            println!("i = {}, j = {}", i, j);
+            println!("i = {i}, j = {j}");
             i = next_i;
         }
         ans as i32

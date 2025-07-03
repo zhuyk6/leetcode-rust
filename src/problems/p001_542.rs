@@ -23,7 +23,7 @@ pub fn longest_awesome(s: String) -> i32 {
             }
         }
 
-        println!("mask: {:10b}", mask);
+        println!("mask: {mask:10b}");
     }
 
     ans

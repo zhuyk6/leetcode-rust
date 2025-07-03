@@ -15,7 +15,7 @@ pub fn count_fair_pairs(mut nums: Vec<i32>, lower: i32, upper: i32) -> i64 {
     if nums[0] * 2 >= lower && nums[0] * 2 <= upper {
         ans -= 1;
     }
-    println!("{} - {}", l, r);
+    println!("{l} - {r}");
 
     for v in &nums[1..] {
         while l > 0 && v + nums[l - 1] >= lower {
@@ -24,7 +24,7 @@ pub fn count_fair_pairs(mut nums: Vec<i32>, lower: i32, upper: i32) -> i64 {
         while r > 0 && v + nums[r - 1] > upper {
             r -= 1;
         }
-        println!("{} - {}", l, r);
+        println!("{l} - {r}");
         ans += (r - l) as i64;
         if v * 2 >= lower && v * 2 <= upper {
             ans -= 1;
