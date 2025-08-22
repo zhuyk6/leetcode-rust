@@ -28,11 +28,11 @@ impl Graph {
             }
             for &(y, w) in &self.to[x] {
                 let dy = dx + w as i64;
-                if let Some(d) = dist.get_mut(y) {
-                    if *d > dy {
-                        *d = dy;
-                        heap.push(Reverse((dy, y)));
-                    }
+                if let Some(d) = dist.get_mut(y)
+                    && *d > dy
+                {
+                    *d = dy;
+                    heap.push(Reverse((dy, y)));
                 }
             }
         }

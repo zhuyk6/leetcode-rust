@@ -51,16 +51,20 @@ impl Skiplist {
         let mut x = self.head.clone();
         let mut l = MAX_LEVEL - 1;
         loop {
-            let y = x.borrow().next_nodes[l].clone();
-            if y.is_none() || y.as_ref().unwrap().borrow().val >= val {
-                pre[l] = Some(x.clone()); // record predecessor
+            let next = x.borrow().next_nodes[l].clone();
+            if let Some(y) = next.clone()
+                && y.borrow().val < val
+            {
+                // move right
+                x = y;
+            } else {
+                // record and move down
+                pre[l] = Some(x.clone());
                 if l > 0 {
                     l -= 1;
                 } else {
-                    return y;
+                    return next;
                 }
-            } else {
-                x = y.unwrap();
             }
         }
     }
@@ -130,5 +134,14 @@ mod tests {
         assert!(!obj.erase(0));
         assert!(obj.erase(1));
         assert!(!obj.search(1));
+    }
+
+    #[test]
+    fn sample2() {
+        let list = Skiplist::new();
+        for i in 0..5 {
+            list.add(i);
+        }
+        assert!(list.erase(2));
     }
 }

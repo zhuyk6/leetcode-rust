@@ -28,12 +28,12 @@ impl Solution {
         let mut acc = vec![0; max_k + 1];
 
         for i in 0..n {
-            if let Some(j) = i.checked_sub(min_l) {
-                if is_prime(s[j + 1]) {
-                    #[allow(clippy::needless_range_loop)]
-                    for k in 2..=max_k {
-                        acc[k] = (acc[k] + dp[j][k - 1]) % MOD;
-                    }
+            if let Some(j) = i.checked_sub(min_l)
+                && is_prime(s[j + 1])
+            {
+                #[allow(clippy::needless_range_loop)]
+                for k in 2..=max_k {
+                    acc[k] = (acc[k] + dp[j][k - 1]) % MOD;
                 }
             }
             if is_prime(s[i]) {

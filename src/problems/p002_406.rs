@@ -9,10 +9,10 @@ pub fn min_groups(mut intervals: Vec<Vec<i32>>) -> i32 {
     });
     let mut heap = BinaryHeap::new();
     for v in &intervals {
-        if let Some(Reverse(r)) = heap.peek() {
-            if *r < v[0] {
-                heap.pop();
-            }
+        if let Some(Reverse(r)) = heap.peek()
+            && *r < v[0]
+        {
+            heap.pop();
         }
         heap.push(Reverse(v[1]));
     }

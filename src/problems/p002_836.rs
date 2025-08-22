@@ -247,10 +247,10 @@ impl Solution {
             }
 
             for i in 0..n {
-                if let Tag::Tree { .. } = &tags[i] {
-                    if fa[i][0] == usize::MAX {
-                        Tree::dfs(&sons, i, usize::MAX, 0, &mut fa, &mut prefix_sum);
-                    }
+                if let Tag::Tree { .. } = &tags[i]
+                    && fa[i][0] == usize::MAX
+                {
+                    Tree::dfs(&sons, i, usize::MAX, 0, &mut fa, &mut prefix_sum);
                 }
             }
 

@@ -123,10 +123,10 @@ impl ExamRoom {
         self.seats.remove(&p);
         let prev = self.seats.range(..p).next_back();
         let next = self.seats.range(p..).next();
-        if let Some(x) = prev {
-            if let Some(y) = next {
-                self.segments.push(Segment { l: *x, r: *y });
-            }
+        if let Some(x) = prev
+            && let Some(y) = next
+        {
+            self.segments.push(Segment { l: *x, r: *y });
         }
     }
 }

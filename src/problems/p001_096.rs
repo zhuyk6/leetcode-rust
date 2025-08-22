@@ -139,7 +139,7 @@ pub mod parser_module {
         }
     }
 
-    pub fn any_char(input: &str) -> ParseResult<char> {
+    pub fn any_char<'a>(input: &'a str) -> ParseResult<'a, char> {
         if let Some(first_char) = input.chars().next() {
             Ok((&input[first_char.len_utf8()..], first_char))
         } else {
@@ -251,12 +251,12 @@ impl Expr {
     }
 }
 
-fn parser_word(input: &str) -> ParseResult<Expr> {
-    fn letter(input: &str) -> ParseResult<char> {
+fn parser_word<'a>(input: &'a str) -> ParseResult<'a, Expr> {
+    fn letter<'a>(input: &'a str) -> ParseResult<'a, char> {
         parser_module::pred(parser_module::any_char, |&c| c.is_ascii_alphabetic()).parse(input)
     }
 
-    fn word(input: &str) -> ParseResult<String> {
+    fn word<'a>(input: &'a str) -> ParseResult<'a, String> {
         parser_module::one_or_more(letter)
             .parse(input)
             .map(|(next_input, v)| (next_input, v.into_iter().collect::<String>()))
@@ -265,8 +265,8 @@ fn parser_word(input: &str) -> ParseResult<Expr> {
     word.map(Expr::Word).parse(input)
 }
 
-fn parser_union(input: &str) -> ParseResult<Expr> {
-    fn inner(input: &str) -> ParseResult<Expr> {
+fn parser_union<'a>(input: &'a str) -> ParseResult<'a, Expr> {
+    fn inner<'a>(input: &'a str) -> ParseResult<'a, Expr> {
         let mut v = vec![];
         let (mut left_input, first) = parser_expr(input)?;
         v.push(first);
@@ -283,8 +283,8 @@ fn parser_union(input: &str) -> ParseResult<Expr> {
     parser_module::parens(inner).parse(input)
 }
 
-fn parser_expr(input: &str) -> ParseResult<Expr> {
-    fn case1(input: &str) -> ParseResult<Expr> {
+fn parser_expr<'a>(input: &'a str) -> ParseResult<'a, Expr> {
+    fn case1<'a>(input: &'a str) -> ParseResult<'a, Expr> {
         let (input, ch) = parser_word(input)?;
         let (input, expr) = parser_expr_empty(input)?;
         if expr.is_empty() {
@@ -294,7 +294,7 @@ fn parser_expr(input: &str) -> ParseResult<Expr> {
         }
     }
 
-    fn case2(input: &str) -> ParseResult<Expr> {
+    fn case2<'a>(input: &'a str) -> ParseResult<'a, Expr> {
         let (input, output1) = parser_union(input)?;
         let (input, output2) = parser_expr_empty(input)?;
         if output2.is_empty() {
@@ -308,7 +308,7 @@ fn parser_expr(input: &str) -> ParseResult<Expr> {
     parser.parse(input)
 }
 
-fn parser_expr_empty(input: &str) -> ParseResult<Expr> {
+fn parser_expr_empty<'a>(input: &'a str) -> ParseResult<'a, Expr> {
     parser_module::zero_or_more(parser_expr)
         .parse(input)
         .map(|(next_input, mut v)| {

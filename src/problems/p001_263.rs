@@ -84,20 +84,22 @@ impl Solution {
             vis[pos_p.0][pos_p.1] = true;
             while let Some((x, y)) = que.pop_front() {
                 for d in DIRECTIONS {
-                    if let Some((xx, yy)) = move_point((x, y), d) {
-                        if grid[xx][yy] != '#' && (xx, yy) != pos_b && !vis[xx][yy] {
-                            vis[xx][yy] = true;
-                            que.push_back((xx, yy));
-                        }
+                    if let Some((xx, yy)) = move_point((x, y), d)
+                        && grid[xx][yy] != '#'
+                        && (xx, yy) != pos_b
+                        && !vis[xx][yy]
+                    {
+                        vis[xx][yy] = true;
+                        que.push_back((xx, yy));
                     }
                 }
             }
             let mut ans = vec![];
             for d in DIRECTIONS {
-                if let Some((x, y)) = move_point((pos_b.0, pos_b.1), d) {
-                    if vis[x][y] {
-                        ans.push(d);
-                    }
+                if let Some((x, y)) = move_point((pos_b.0, pos_b.1), d)
+                    && vis[x][y]
+                {
+                    ans.push(d);
                 }
             }
             ans

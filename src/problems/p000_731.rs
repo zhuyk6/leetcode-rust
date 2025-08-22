@@ -168,19 +168,19 @@ impl MyCalendarTwo {
             let mut v1 = vec![];
             let mut v2 = vec![];
             let mut left = self.left_set1.range(..start_time);
-            if let Some((&l, &r)) = left.next_back() {
-                if r > start_time {
-                    v_delete.push((l, r));
-                    v1.push((l, start_time));
+            if let Some((&l, &r)) = left.next_back()
+                && r > start_time
+            {
+                v_delete.push((l, r));
+                v1.push((l, start_time));
 
-                    if end_time < r {
-                        v2.push((start_time, end_time));
-                        v1.push((end_time, r));
-                        start_time = end_time;
-                    } else {
-                        v2.push((start_time, r));
-                        start_time = r;
-                    }
+                if end_time < r {
+                    v2.push((start_time, end_time));
+                    v1.push((end_time, r));
+                    start_time = end_time;
+                } else {
+                    v2.push((start_time, r));
+                    start_time = r;
                 }
             }
 

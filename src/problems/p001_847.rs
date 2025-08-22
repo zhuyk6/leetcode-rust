@@ -22,15 +22,15 @@ impl Solution {
                 room_id += 1;
             }
             let mut id = i32::MIN;
-            if let Some(v) = set.range(..query[0]).next_back() {
-                if id == i32::MIN || (query[0] - *v).abs() < (query[0] - id).abs() {
-                    id = *v;
-                }
+            if let Some(v) = set.range(..query[0]).next_back()
+                && (id == i32::MIN || (query[0] - *v).abs() < (query[0] - id).abs())
+            {
+                id = *v;
             }
-            if let Some(v) = set.range(query[0]..).next() {
-                if id == i32::MIN || (query[0] - *v).abs() < (query[0] - id).abs() {
-                    id = *v;
-                }
+            if let Some(v) = set.range(query[0]..).next()
+                && (id == i32::MIN || (query[0] - *v).abs() < (query[0] - id).abs())
+            {
+                id = *v;
             }
             answer[qid] = if id == i32::MIN { -1 } else { id };
         }
